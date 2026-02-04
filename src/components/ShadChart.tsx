@@ -29,7 +29,7 @@ const ShadChart = () => {
     return (
         <ChartContainer config={chartConfig} className="w-full h-[70%]"> 
             <AreaChart data={chartData}>
-                <CartesianGrid vertical={false} stroke="#000000" strokeOpacity={0.2} />
+                <CartesianGrid vertical={false} stroke="#000000" strokeOpacity={0.5} />
                 <XAxis
                   dataKey="month"
                   tickLine={false}

@@ -26,7 +26,7 @@ const chartData = [
 const chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "#5b71b0",
+    color: "#9c9c9c",
   },
   mobile: {
     label: "Mobile",
@@ -53,7 +53,7 @@ export function ChadChart2() {
               right: 16,
             }}
           >
-            <CartesianGrid horizontal={false} />
+            <CartesianGrid horizontal={false} stroke="#000000" strokeOpacity={0.3}/>
             <YAxis
               dataKey="month"
               type="category"

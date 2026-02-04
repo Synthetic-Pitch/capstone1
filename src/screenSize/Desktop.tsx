@@ -11,8 +11,6 @@ import Icon3 from '../assets/icons/icon1-removebg-preview.png';
 import Icon4 from '../assets/icons/icon2-removebg-preview.png';
 import Icon5 from '../assets/icons/icon3-removebg-preview.png';
 
-
-
 type DesktopSize = {
     className?:string
 }
@@ -23,6 +21,7 @@ import DailyCoding from '../components/DailyCoding';
 import { ChadChart2 } from '../components/ShadChart2';
 import { ShadChart3 } from '../components/ShadChart3';
 import { ShadChart4 } from '../components/ShadChart4';
+import { ShadChart5 } from '../components/ShadChart5';
 
 const Desktop = ({className}:DesktopSize) => {
     return (
@@ -80,7 +79,8 @@ const Desktop = ({className}:DesktopSize) => {
                             <footer className='h-[30%] w-full flex items-center justify-center'>
                                 <div className=' w-[80%] h-[70%] rounded-xl flex justify-between items-center gap-4 cursor-pointer'>
                                     <IoMdArrowRoundForward size={50} color='#00167a'/>
-                                    <button className='text-white text-xl bg-[#00167a] px-10 py-2 font-family-noto-kr hover:scale-105 transition-all duration-205'>enter</button>
+                                    <ShadChart5/>
+                                    {/* <button className='text-white text-xl bg-[#00167a] px-10 py-2 font-family-noto-kr hover:scale-105 transition-all duration-205'>enter</button> */}
                                 </div>
                             </footer>
                         </center>

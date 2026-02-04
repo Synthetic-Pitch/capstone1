@@ -25,7 +25,7 @@ const chartData = [
 const chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "#b83e3e",
+    color: "#5b71b0",
   },
 } satisfies ChartConfig
 export function ShadChart3() {
