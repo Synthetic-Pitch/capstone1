@@ -5,6 +5,11 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "./ui/chart"
+import { useState } from "react"
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 
 const chartData = [
   { month: "January", desktop: 86 },
@@ -26,8 +31,23 @@ const chartConfig = {
 } satisfies ChartConfig
 
 const ShadChart = () => {
+  const [key,setKey] = useState(0);
+  useGSAP(()=>{
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to("#RadicalChart",{
+      scrollTrigger:{
+        trigger:"#RadicalChart",
+        start:"top bottom",
+        onEnter:()=>ReAnimate(),
+      }
+    })
+  });
+
+  const ReAnimate = () => {
+    setKey(prevKey => prevKey + 1);
+  }
     return (
-        <ChartContainer config={chartConfig} className="w-full h-[70%]"> 
+        <ChartContainer key={key} config={chartConfig} className="w-full h-[70%]"> 
             <AreaChart data={chartData}>
                 <CartesianGrid vertical={false} stroke="#000000" strokeOpacity={0.5} />
                 <XAxis

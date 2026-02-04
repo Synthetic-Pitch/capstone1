@@ -14,6 +14,11 @@ import {
   type ChartConfig,
 } from "./ui/chart"
 export const description = "A radar chart with dots"
+import { useState } from "react"
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 const chartData = [
   { month: "January", desktop: 186 },
   { month: "February", desktop: 305 },
@@ -25,12 +30,28 @@ const chartData = [
 const chartConfig = {
   desktop: {
     label: "Desktop",
-    color: "#5b71b0",
+    color: "#57b4c9",
   },
 } satisfies ChartConfig
 export function ShadChart3() {
+  const [key,setKey] = useState(0);
+  useGSAP(()=>{
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to("#CobChart",{
+      scrollTrigger:{
+        trigger:"#CobChart",
+        start:"bottom bottom",
+        onEnter:()=>ReAnimate(),
+      }
+    })
+  });
+
+  const ReAnimate = () => {
+    setKey(prevKey => prevKey + 1);
+  }
+
   return (
-    <div className="w-[30%]">
+    <div id="CobChart" className="w-[30%]">
       <CardHeader className="items-center">
        
         <CardDescription>
@@ -39,6 +60,7 @@ export function ShadChart3() {
       </CardHeader>
       <CardContent className="pb-0">
         <ChartContainer
+          key={key}
           config={chartConfig}
           className="mx-auto aspect-square max-h-62.5"
         >

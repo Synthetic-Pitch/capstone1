@@ -10,6 +10,7 @@ import Icon1 from '../assets/icons/24hrs.png';
 import Icon3 from '../assets/icons/icon1-removebg-preview.png';
 import Icon4 from '../assets/icons/icon2-removebg-preview.png';
 import Icon5 from '../assets/icons/icon3-removebg-preview.png';
+import Icon6 from '../assets/icons/videoIcon.png'
 
 type DesktopSize = {
     className?:string
@@ -24,6 +25,9 @@ import { ShadChart4 } from '../components/ShadChart4';
 import { ShadChart5 } from '../components/ShadChart5';
 
 const Desktop = ({className}:DesktopSize) => {
+  
+    
+
     return (
         <div className={className}>
             <section className='h-(calc(880px-56px)) w-full flex justify-center relative bg-[#925b5b]'>
@@ -138,11 +142,11 @@ const Desktop = ({className}:DesktopSize) => {
                     </footer>
                 </main>
             </section>
-            <section className='h-220 max-h-250 bg-[#cbe0f2] flex flex-col items-center'>
+            <section id='stickySection' className='h-220 max-h-250 bg-[#cbe0f2] flex flex-col items-center '>
                 <header className='h-[60%] w-full max-w-300 flex'>
                     <main className='w-[60%] h-full flex flex-col'>
                         <DailyCoding/>
-                        <p className='h-[10%] w-full font-family-mozilla font-bold text-xl text-[#00167a]'>
+                        <p id='landingPageSection2'  className='h-[10%] w-full font-family-mozilla font-bold text-xl text-[#00167a] z-100'>
                             Coding hours 7:00 AM - 7:00 PM | No Coding on Weekends and Holidays
                         </p>
                     </main>
@@ -151,7 +155,7 @@ const Desktop = ({className}:DesktopSize) => {
                     </aside>
                 </header>
                 <footer className='h-[40%] w-full max-w-300 flex flexx-col overflow-hidden'>
-                    <ShadChart3/>
+                    <ShadChart3 />
                     <ShadChart4/>
                     <div className='w-[40%] h-full flex flex-col'>
                         <ShadChart/>
@@ -160,6 +164,13 @@ const Desktop = ({className}:DesktopSize) => {
                     </div>
                 </footer>
             </section>
+            <section className='h-220 max-h-250 w-full z-20 bg-[#cbe0f2] sticky top-0 flex flex-col justify-center items-center'>
+                <h1>TUTORIAL VIDEO</h1>
+                <div className='relative h-[80%] w-[90%] max-w-300 border-4 rounded-[4rem] border-black flex items-center justify-center '>
+                    <img src={Icon6} alt="" />
+                </div>
+            </section>
+            
         </div>
     );
 };

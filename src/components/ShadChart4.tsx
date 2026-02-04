@@ -1,4 +1,5 @@
 import { TrendingUp } from "lucide-react"
+import { useState } from "react"
 import {
   Label,
   PolarGrid,
@@ -30,16 +31,38 @@ const chartConfig = {
     color: "var(--chart-2)",
   },
 } satisfies ChartConfig
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+
 export function ShadChart4() {
+  const [key,setKey] = useState(0);
+  useGSAP(()=>{
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to("#RadicalChart",{
+      scrollTrigger:{
+        trigger:"#RadicalChart",
+        start:"top bottom",
+        onEnter:()=>ReAnimate(),
+      }
+    })
+  });
+
+  const ReAnimate = () => {
+    setKey(prevKey => prevKey + 1);
+  }
+
   return (
     <div className="flex flex-col w-[30%] h-[90%]">
-      <CardHeader className="items-center pb-0">
+      <CardHeader id="RadicalChart" className="items-center pb-0">
         <CardTitle>Radial Chart - Shape</CardTitle>
         <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
+          key={key}
           className="mx-auto aspect-square max-h-62.5"
         >
           <RadialBarChart
@@ -55,7 +78,7 @@ export function ShadChart4() {
               className="first:fill-muted last:fill-background"
               polarRadius={[86, 74]}
             />
-            <RadialBar dataKey="visitors" background />
+            <RadialBar dataKey="visitors" background isAnimationActive={true}/>
             <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
               <Label
                 content={({ viewBox }) => {

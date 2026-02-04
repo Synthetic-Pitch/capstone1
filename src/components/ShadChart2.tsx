@@ -14,6 +14,14 @@ import {
   ChartTooltipContent,
   type ChartConfig,
 } from "./ui/chart"
+import { useState } from "react"
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+
+
+
 export const description = "A bar chart with a custom label"
 const chartData = [
   { month: "Counterflowing", desktop: 186, mobile: 80 },
@@ -37,14 +45,28 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 export function ChadChart2() {
+  const [key,setKey] = useState(0);
+  useGSAP(()=>{
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to("#BarChart",{
+      scrollTrigger:{
+        trigger:"#BarChart",
+        start:"top bottom",
+        onEnter:()=>ReAnimate(),
+      }
+    })
+  });
+   const ReAnimate = () => {
+    setKey(prevKey => prevKey + 1);
+  }
   return (
-    <Card className="w-full">
+    <Card id="BarChart" className="w-full">
       <CardHeader>
         <CardTitle>Bar Chart - Violation | Count</CardTitle>
         <CardDescription>July 2025 - January 2026</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig}>
+        <ChartContainer key={key} config={chartConfig}>
           <BarChart
             accessibilityLayer
             data={chartData}
