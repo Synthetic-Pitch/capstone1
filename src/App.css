@@ -2,7 +2,12 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-
+html,body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background: #cbe0f2;
+}
 @theme {
   /* Fonts */
   --font-family-azeret: "Azeret Mono", monospace;

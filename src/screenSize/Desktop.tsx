@@ -164,12 +164,21 @@ const Desktop = ({className}:DesktopSize) => {
                     </div>
                 </footer>
             </section>
-            <section className='h-220 max-h-250 w-full z-20 bg-[#cbe0f2] sticky top-0 flex flex-col justify-center items-center'>
-                <h1>TUTORIAL VIDEO</h1>
+            <section className='h-220 max-h-300 w-full z-20 bg-[#cbe0f2] sticky top-0 flex flex-col justify-center items-center'>
+                <h1 className='text-3xl font-bold font-family-azeret'>TUTORIAL VIDEO</h1>
+                <p className='text-xl font-family-poppins text-gray-500 mb-4 mt-2'>Step by step guide on viewing and paying your traffic violations online securely </p>
                 <div className='relative h-[80%] w-[90%] max-w-300 border-4 rounded-[4rem] border-black flex items-center justify-center '>
                     <img src={Icon6} alt="" />
                 </div>
             </section>
+            <section className='h-220 max-h-300 bg-[#3f6c84] flex flex-col items-center'>
+                <h1 className='text-white text-6xl font-family-edu py-7'>OPSS-TMEU ANNOUNCEMENT</h1>
+                <p className='text-white font-family-mozilla'>Official Public safety Updates in Marikina City</p>
+                <section className='w-full max-w-300 bg-[green]'>
+                    
+                </section>
+            </section>
+            
             
         </div>
     );
