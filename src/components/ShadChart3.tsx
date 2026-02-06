@@ -40,7 +40,7 @@ export function ShadChart3() {
     gsap.to("#CobChart",{
       scrollTrigger:{
         trigger:"#CobChart",
-        start:"bottom bottom",
+        start:"top bottom",
         onEnter:()=>ReAnimate(),
       }
     })
