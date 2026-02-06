@@ -25,7 +25,7 @@ const chartData = [
 
 const chartConfig = {
   desktop: {
-    label: "violation rate",
+    label: "Rate",
     color: "#487ca8",
   },
 } satisfies ChartConfig

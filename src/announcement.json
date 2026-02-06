@@ -1,0 +1,50 @@
+[
+    {
+        "title":"Stricter Traffic and Security Measures Ordered in Marikina Amid Christmas Rush",
+        "img": "/images/announcement1.png",
+        "paragraph":"Marikina City Mayor Maan Teodoro directed the Office of Public Safety and Security (OPSS) to intensify traffic and security enforcement during the Christmas season due to the expected surge of shoppers and commuters. OPSS personnel were deployed in critical intersections, entry and exit points, and commercial zones to manage congestion. The office was also tasked to strictly implement loading/unloading rules and curb illegal parking to ensure smooth vehicle flow and public safety.",
+        "source":"Manila Bulletin",
+        "sourceURL":"https://mb.com.ph/2025/12/15/stricter-traffic-and-security-measures-ordered-in-marikina-amid-christmas-rush?utm_source=chatgpt.com",
+        "date":"Published Dec 15, 2025 12:13 pm",
+        "id":1
+    },
+    {
+        "title":"Marikina Government to Enforce No-Parking Rule on Main Roads",
+        "img": "/images/announcement2.png",
+        "paragraph":"The Marikina City government announced stricter enforcement of its no-street-parking policy to ease congestion on major roads. Enforcement operations are coordinated through the city’s public safety and command systems, including OPSS hotlines for reporting violations. Illegally parked vehicles are towed by city wrecker trucks, and owners must process redemption at the OPSS Redemption Center with proper vehicle documents.",
+        "source":"Manila Bulletin",
+        "sourceURL":"https://mb.com.ph/2025/08/07/metro-manila-cities-crack-down-on-illegal-parking-unauthorized-fee-collectors?utm_source=chatgpt.com",
+        "date":"Published Aug 7, 2025 03:05 pm",
+        "id":2
+    },
+    {
+        "title":"OPSS Intensifies Road Clearing Operations in Marikina",
+        "img": "",
+        "paragraph":"The Marikina OPSS strengthened its road-clearing drive following directives to keep major and secondary roads free from obstructions. Illegally parked vehicles, sidewalk vendors, and abandoned structures were removed to improve traffic flow and pedestrian safety. Authorities warned that repeat violators would face towing and fines.",
+        "source":"Marikina Public Information Office / LGU reports",
+        "date":"Various clearing drives reported 2023–2024",
+        "id":3
+    },
+    {
+        "title":"Illegally Parked Vehicles Towed by OPSS",
+        "img": "",
+        "paragraph":"Several vehicles parked along no-parking zones in busy areas such as Bayan-Bayanan and Shoe Avenue were towed by OPSS enforcement teams. The operation aimed to address complaints about narrowed roads and traffic congestion. Motorists were reminded to follow designated parking regulations to avoid penalties.",
+        "source":"Marikina PIO / Local News Releases",
+        "date":"2024",
+         "id":4
+    },{
+        "title":"OPSS Assists MMDA in Metro-Wide Traffic Discipline Campaign",
+        "img": "",
+        "paragraph":"Marikina OPSS coordinated with the Metropolitan Manila Development Authority (MMDA) for traffic discipline initiatives, including anti-illegal parking and obstruction clearing. The collaboration aligned city enforcement with metro-wide transport policies and safety standards.",
+        "source":"MMDA & Marikina LGU coordination reports",
+        "date":"2023",
+        "id":5
+    },{
+        "title":"Sidewalk Clearing Drive Targets Vendors and Obstructions",
+        "img": "",
+        "paragraph":"OPSS personnel conducted operations removing unauthorized sidewalk vendors and structures blocking pedestrian lanes. The initiative supported the city’s “Disiplina sa Bangketa at Kalsada” campaign to restore walkability and reduce accidents.",
+        "date":"2023",
+        "source":"Marikina City Public Information Office",
+         "id":6
+    }
+]

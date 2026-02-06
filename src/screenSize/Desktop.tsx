@@ -11,6 +11,7 @@ import Icon3 from '../assets/icons/icon1-removebg-preview.png';
 import Icon4 from '../assets/icons/icon2-removebg-preview.png';
 import Icon5 from '../assets/icons/icon3-removebg-preview.png';
 import Icon6 from '../assets/icons/videoIcon.png'
+import Icon7 from '../assets/images/announcement.png'
 
 type DesktopSize = {
     className?:string
@@ -23,10 +24,9 @@ import { ChadChart2 } from '../components/ShadChart2';
 import { ShadChart3 } from '../components/ShadChart3';
 import { ShadChart4 } from '../components/ShadChart4';
 import { ShadChart5 } from '../components/ShadChart5';
+import AnnouncementMap from '../components/AnnouncementMap';
 
 const Desktop = ({className}:DesktopSize) => {
-  
-    
 
     return (
         <div className={className}>
@@ -171,12 +171,23 @@ const Desktop = ({className}:DesktopSize) => {
                     <img src={Icon6} alt="" />
                 </div>
             </section>
-            <section className='h-220 max-h-300 bg-[#3f6c84] flex flex-col items-center'>
-                <h1 className='text-white text-6xl font-family-edu py-7'>OPSS-TMEU ANNOUNCEMENT</h1>
-                <p className='text-white font-family-mozilla'>Official Public safety Updates in Marikina City</p>
-                <section className='w-full max-w-300 bg-[green]'>
-                    
-                </section>
+            {/* 4th section */}
+            <section className='min-h-220 bg-[#3f6c84] flex flex-col items-center relative'>
+                <main className=' relative'>
+                    <h1 className='w-full text-center text-white text-6xl font-family-edu py-7 font-bold '>OPSS-TMEU NEWS UDPATE</h1>
+                    <div className='text-[#d6d6d6] font-family-mozilla flex items-center justify-center gap-4 '>
+                        <img src={Icon7} height={100} width={100} alt="pong" />
+                        <div>
+                            <p>Official Public safety Updates in Marikina City</p>
+                            <h1>Ordinance No. 040, Series of 2018</h1>
+                            <h1>Office of the City Major</h1>
+                        </div>
+                    </div>
+                    <div className='w-full max-w-300 mt-8 relative'>
+                        <AnnouncementMap/>
+                        
+                    </div>
+                </main>
             </section>
             
             

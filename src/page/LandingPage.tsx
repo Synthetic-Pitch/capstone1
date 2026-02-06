@@ -5,7 +5,7 @@ import Tablet from "../screenSize/Tablet";
 
 const LandingPage = () => {
     return (
-        <div className=" flex flex-col items-center overflow-hidden">
+        <div className=" flex flex-col items-center">
             <Navbar />
             <Mobile className=" tablet:hidden"/>
             <Tablet className="hidden tablet:block desktop:hidden "/>
