@@ -26,10 +26,9 @@ const AnnouncementMap = () => {
                     opacity:1,
                     scrollTrigger:{
                         trigger:target,
-                        start:"top 80%",
-                        scrub:1
+                        start:"top 95%",
+                        scrub:2,
                     }
-                
                 })
             })
         });
@@ -64,19 +63,9 @@ const AnnouncementMap = () => {
 
         const NewsImg = document.querySelectorAll('.newsImg');
         NewsImg.forEach(title => observer2.observe(title));
-
         
-        const observer3 = new IntersectionObserver((entries,self) => {
-            // This hold map Target element
-            let targets = entries.map(entry=>{
-                if(entry.isIntersecting){
-                    self.unobserve(entry.target);
-                    return entry.target;
-                }
-            }).filter((el): el is Element => el !== undefined);
-
-            gsap.fromTo(targets,{
-                scale:.5
+            gsap.fromTo('.newsParagraph',{
+                scale:.9
             },{ 
                 scale:1,
                 scrollTrigger:{
@@ -85,17 +74,12 @@ const AnnouncementMap = () => {
                     end:"+=150",
                     scrub:2
                 },
-            })
-           
-        });
-
-        const NewsPrgh = document.querySelectorAll('.newsParagraph');
-        NewsPrgh.forEach(title => observer3.observe(title));
+            });
 
         // Cleanup
-        return () => {observer1.disconnect(),observer2.disconnect(),observer3.disconnect()};
+        return () => {observer1.disconnect(),observer2.disconnect()};
     }, []);
-   
+    
     return (
         <div  className=' grid grid-cols-2 relative z-10 py-12 px-8'>
             <div className='bg-[#78bae9] absolute h-full w-full opacity-[.5] z-2  rounded-t-2xl'/>

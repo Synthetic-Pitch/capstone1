@@ -56,7 +56,6 @@ export function ShadChart4() {
   return (
     <div className="flex flex-col w-[30%] h-[90%]">
       <CardHeader id="RadicalChart" className="items-center pb-0">
-        <CardTitle>Radial Chart - Shape</CardTitle>
         <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
