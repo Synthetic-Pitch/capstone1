@@ -1,22 +1,29 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { validatePlateNumber } from "../utils/validateUser";
+
+
 
 const PlateNumInput = () => {
-    const [plateNumber,setPlateNumber] = useState<string>("");
-    useEffect(()=>{
-        console.log(plateNumber);
-        
-    },[plateNumber])
+    const [plateNumber, setPlateNumber] = useState<string>("");
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        setPlateNumber(value);
+    };
+
+    const handleBlur = () => {
+       console.log();
+       
+    };
+
     return (
-        <input  
+        <input
             type="text" 
             className='w-[80%] h-[70%] bg-[white] outline-0 px-4 rounded-xl' 
             placeholder='e.g ABC 1234'
             value={plateNumber}
-            onChange={(e)=>{
-                const value = e.target.value;
-                
-                setPlateNumber(value)
-            }}
+            onChange={handleChange}
+            onBlur={handleBlur}  // Validate when user leaves input
         />
     );
 };

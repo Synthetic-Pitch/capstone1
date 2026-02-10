@@ -4,9 +4,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
 
-
 const AnnouncementMap = () => {
-    const h1Ref = useRef<HTMLDivElement>(null)
+    const h1Ref = useRef<HTMLDivElement>(null);
    
     useGSAP(() => {   
         gsap.registerPlugin(ScrollTrigger);
@@ -18,7 +17,7 @@ const AnnouncementMap = () => {
                     return entry.target;
                 }
             }).filter((el): el is Element => el !== undefined);
-
+            
             targets.forEach(target => {
                 gsap.fromTo(target,{
                     opacity:0

@@ -12,7 +12,6 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "./ui/card"
 import {
   ChartContainer,
@@ -51,7 +50,7 @@ export function ShadChart4() {
 
   const ReAnimate = () => {
     setKey(prevKey => prevKey + 1);
-  }
+  };
 
   return (
     <div className="flex flex-col w-[30%] h-[90%]">
