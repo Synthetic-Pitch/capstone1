@@ -6,7 +6,7 @@ html,body{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: #cbe0f2;
+  background: #406c85;
 }
 @theme {
   /* Fonts */
@@ -154,4 +154,5 @@ html,body{
   .boxShadow{
     box-shadow: 0 1px 10px rgb(0, 0, 0)
   }
+  
 }

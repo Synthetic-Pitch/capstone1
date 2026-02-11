@@ -3,11 +3,13 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 interface UserSliceState {
   value: number;
   plateNumber:string;
+  errorOccured:boolean
 }
 
 const initialState: UserSliceState = {
   value: 0,
   plateNumber:"",
+  errorOccured:false
 };
 
 export const userInputSlice = createSlice({
@@ -19,9 +21,15 @@ export const userInputSlice = createSlice({
     },
     clearPlateNumber: (state) => {
         state.plateNumber = ""; // Optional: add clear function
+    },
+    setYesErrorOccur:(state) => {
+      state.errorOccured = true
+    },
+    setNotErrorOccur:(state) => {
+      state.errorOccured = false
     }
   },
 });
 
-export const {setPlateNumber,clearPlateNumber } = userInputSlice.actions;
+export const {setPlateNumber,clearPlateNumber,setYesErrorOccur,setNotErrorOccur } = userInputSlice.actions;
 export default userInputSlice.reducer;

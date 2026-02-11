@@ -10,8 +10,8 @@ import Icon1 from '../assets/icons/24hrs.png';
 import Icon3 from '../assets/icons/icon1-removebg-preview.png';
 import Icon4 from '../assets/icons/icon2-removebg-preview.png';
 import Icon5 from '../assets/icons/icon3-removebg-preview.png';
-import Icon6 from '../assets/icons/videoIcon.png'
-import Icon7 from '../assets/images/announcement.png'
+import Icon6 from '../assets/icons/videoIcon.png';
+import Icon7 from '../assets/images/announcement.png';
 
 type DesktopSize = {
     className?:string
@@ -24,7 +24,8 @@ import { ChadChart2 } from '../components/ShadChart2';
 import { ShadChart3 } from '../components/ShadChart3';
 import { ShadChart4 } from '../components/ShadChart4';
 import AnnouncementMap from '../components/AnnouncementMap';
-import PlateNumInput from '../components/Plate-Num-Input';
+import PlateNumInput from '../components/PlateNum-Input';
+import PlateNumBtn from '../components/PlateNum-Btn';
 
 const Desktop = ({className}:DesktopSize) => {
 
@@ -77,13 +78,13 @@ const Desktop = ({className}:DesktopSize) => {
                                 <p className='font-bold text-3xl font-poppins'>Acces your Account</p>
                                 <p className='font-poppins text-sm font-family-mozilla text-gray-500'>Enter your vehicle plate number to view violation and make payments</p>
                             </header>
-                            <main className='h-[30%] w-full flex items-center justify-center'>
+                            <main className='h-[30%] w-full flex items-center justify-center relative'>
                                 <PlateNumInput/>
                             </main>
                             <footer className='h-[30%] w-full flex items-center justify-center'>
                                 <div className=' w-[80%] h-[70%] rounded-xl flex justify-between items-center gap-4'>
                                     <IoMdArrowRoundForward size={50} color='#00167a'/>
-                                    <button className='text-white text-xl bg-[#00167a] px-10 py-2 font-family-noto-kr hover:scale-105 transition-all duration-205 cursor-pointer'>enter</button>
+                                    <PlateNumBtn/>
                                 </div>
                             </footer>
                         </center>
@@ -184,12 +185,9 @@ const Desktop = ({className}:DesktopSize) => {
                     </div>
                     <div className='w-full max-w-300 mt-8 relative'>
                         <AnnouncementMap/>
-                        
                     </div>
                 </main>
             </section>
-            
-            
         </div>
     );
 };
