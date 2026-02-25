@@ -5,88 +5,90 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useRef } from 'react';
 
 const AnnouncementMap = () => {
-    const h1Ref = useRef<HTMLDivElement>(null);
+    const containerRef = useRef<HTMLDivElement>(null);
    
     useGSAP(() => {   
         gsap.registerPlugin(ScrollTrigger);
-        const observer1 = new IntersectionObserver((entries,self) => {
-            // This hold map Target element
-            let targets = entries.map(entry=>{
-                if(entry.isIntersecting){
+        
+        // Check if container exists
+        if (!containerRef.current) return;
+        
+        const observer1 = new IntersectionObserver((entries, self) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
                     self.unobserve(entry.target);
-                    return entry.target;
+                    
+                    gsap.fromTo(entry.target, {
+                        opacity: 0
+                    }, {
+                        opacity: 1,
+                        scrollTrigger: {
+                            trigger: entry.target,
+                            start: "top 95%",
+                            scrub: 2,
+                        }
+                    });
                 }
-            }).filter((el): el is Element => el !== undefined);
-            
-            targets.forEach(target => {
-                gsap.fromTo(target,{
-                    opacity:0
-                },{
-                    opacity:1,
-                    scrollTrigger:{
-                        trigger:target,
-                        start:"top 95%",
-                        scrub:2,
-                    }
-                })
-            })
+            });
         });
 
-        const titles = document.querySelectorAll('.newsTitle');
+        const titles = containerRef.current.querySelectorAll('.newsTitle');
         titles.forEach(title => observer1.observe(title));
 
-        const observer2 = new IntersectionObserver((entries,self) => {
-            // This hold map Target element
-            let targets = entries.map(entry=>{
-                if(entry.isIntersecting){
+        const observer2 = new IntersectionObserver((entries, self) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
                     self.unobserve(entry.target);
-                    return entry.target;
+                    
+                    gsap.fromTo(entry.target, {
+                        y: 200
+                    }, { 
+                        y: 0,
+                        scrollTrigger: {
+                            trigger: entry.target,
+                            start: "top bottom",
+                            end: "+=200",
+                            scrub: 2
+                        },
+                    });
                 }
-            }).filter((el): el is Element => el !== undefined);
-
-            
-            gsap.fromTo(targets,{
-                y:200
-            },{ 
-                y:0,
-                stagger:0.3,
-                scrollTrigger:{
-                    trigger:".newsDate",
-                    start:"bottom bottom",
-                    end:"+=200",
-                    scrub:2
-                },
-            })
-           
+            });
         });
 
-        const NewsImg = document.querySelectorAll('.newsImg');
-        NewsImg.forEach(title => observer2.observe(title));
+        const NewsImg = containerRef.current.querySelectorAll('.newsImg');
+        NewsImg.forEach(img => observer2.observe(img));
         
-            gsap.fromTo('.newsParagraph',{
-                scale:.9
-            },{ 
-                scale:1,
-                scrollTrigger:{
-                    trigger:".newsParagraph",
-                    start:"top 90%",
-                    end:"+=150",
-                    scrub:2
+        const paragraphs = containerRef.current.querySelectorAll('.newsParagraph');
+        paragraphs.forEach(para => {
+            gsap.fromTo(para, {
+                scale: 0.9
+            }, { 
+                scale: 1,
+                scrollTrigger: {
+                    trigger: para,
+                    start: "top 90%",
+                    end: "+=150",
+                    scrub: 2
                 },
             });
+        });
 
         // Cleanup
-        return () => {observer1.disconnect(),observer2.disconnect()};
-    }, []);
+        return () => {
+            observer1.disconnect();
+            observer2.disconnect();
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+        };
+    }, { scope: containerRef });
     
     return (
-        <div  className=' grid grid-cols-2 relative z-10 py-12 px-8'>
-            <div className='bg-[#78bae9] absolute h-full w-full opacity-[.5] z-2  rounded-t-2xl'/>
+        <div ref={containerRef} className='grid grid-cols-2 relative z-10 py-12 px-8'>
+            <div className='bg-[#78bae9] absolute h-full w-full opacity-[.5] z-2 rounded-t-2xl'/>
             {
-                announcement.map((item)=>{
+                announcement.map((item) => {
                     return (
-                        <div key={item.id} className='px-4 relative z-20 mb-8 flex flex-col '>
-                            <h1 ref={h1Ref} className=' text-2xl text-[#ffffff] font-family-mozilla py-4 newsTitle'>{item.title}</h1>
+                        <div key={item.id} className='px-4 relative z-20 mb-8 flex flex-col'>
+                            <h1 className='text-2xl text-[#ffffff] font-family-mozilla py-4 newsTitle'>{item.title}</h1>
                             <p className='font-family-poppins text-[#cacaca] newsDate'>{item.date}</p>
                             <div>
                                 {item.img !== '' && <img src={item.img} alt="" className='newsImg' />}
