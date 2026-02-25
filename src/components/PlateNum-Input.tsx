@@ -7,7 +7,7 @@ const PlateNumInput = () => {
     const plateNumber = useAppSelector((state)=>state.userInput.plateNumber);
     const errorOccured = useAppSelector((state)=>state.userInput.errorOccured);
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const value = e.target.value.replace(/[^a-zA-Z0-9]/g, '');
+        const value = e.target.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
         dispatch(setPlateNumber(value));
     };
     
@@ -22,7 +22,7 @@ const PlateNumInput = () => {
             }
             <input
                 type="text" 
-                className='w-[80%] h-[70%] bg-[white] outline-0 px-4 rounded-xl border-red-500' 
+                className='w-[80%] h-[70%] bg-[white] outline-0 px-4 rounded-xl border-red-500 ' 
                 placeholder='e.g ABC1234'
                 value={plateNumber}
                 onChange={handleChange}
