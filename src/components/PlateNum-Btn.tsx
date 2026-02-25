@@ -5,12 +5,13 @@ import {setYesErrorOccur,setNotErrorOccur} from "../store/slices/user-input-slic
 import {validatePlateNumber} from "../utils/validateUser";
 import { useAppSelector } from "../store/hook";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const PlateNumBtn = () => {
     const dispatch = useDispatch();
     const Platenumber = useAppSelector((state)=>state.userInput.plateNumber);  
     const {data, refetch, isLoading, isSuccess, isFetching} = useSupabaseLogin(Platenumber);
-    
+    const navigate = useNavigate();
     // Watch for loading state changes
     useEffect(() => {
         if (isLoading || isFetching) {
@@ -20,25 +21,32 @@ const PlateNumBtn = () => {
         }
     }, [isLoading, isFetching]);
 
-    // Watch for success and log data
-    useEffect(() => {
-        if (isSuccess && data) {
-            console.log("Data received:", data);
-        }
-    }, [isSuccess, data]);
-
-    const handleClick = () => {
+   const handleClick = async () => {
         // Validate first
         if(validatePlateNumber(Platenumber).error){
             dispatch(setYesErrorOccur());
-            return; // Don't proceed if invalid
+            return;
         }
         
         if(validatePlateNumber(Platenumber).isValid){
             dispatch(setNotErrorOccur());
-            refetch(); // Only refetch if valid
+            const result = await refetch();
+            
+            // Navigate only after successful fetch
+            if (result.isSuccess && result.data) {
+                console.log("Data received:", result.data);
+                navigate(`/profile/${Platenumber}`);
+            }
         }
     };
+
+    // Remove the navigate useEffect completely
+    useEffect(() => {
+        if (isSuccess && data) {
+            console.log("Data received:", data);
+            // Don't navigate here
+        }
+    }, [isSuccess, data]);
 
     return (
         <>  
