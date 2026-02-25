@@ -4,8 +4,8 @@ import Img3 from '../assets/images/landingPage3.jpg';
 import Img4 from '../assets/images/landingPage4.jpg';
 import Img5 from '../assets/images/landingPage5.jpg';
 import Img6 from '../assets/images/landingPage6.jpg';
-import Logo1 from '../assets/images/logotmeu.jpg';
-import Logo2 from '../assets/images/MarikinaILogo.png';
+import Logo1 from '../assets/images/OPSS_LOGO.png';
+import Logo2 from '../assets/images/marikinaCityLogo.png';
 import Icon1 from '../assets/icons/24hrs.png';
 import Icon3 from '../assets/icons/icon1-removebg-preview.png';
 import Icon4 from '../assets/icons/icon2-removebg-preview.png';
@@ -17,7 +17,6 @@ type DesktopSize = {
     className?:string
 }
 
-import { IoMdArrowRoundForward } from "react-icons/io";
 import ShadChart from '../components/ShadChart';
 import DailyCoding from '../components/DailyCoding';
 import { ChadChart2 } from '../components/ShadChart2';
@@ -26,6 +25,7 @@ import { ShadChart4 } from '../components/ShadChart4';
 import AnnouncementMap from '../components/AnnouncementMap';
 import PlateNumInput from '../components/PlateNum-Input';
 import PlateNumBtn from '../components/PlateNum-Btn';
+import IsRotating from '../components/IsRotating';
 
 const Desktop = ({className}:DesktopSize) => {
 
@@ -34,7 +34,7 @@ const Desktop = ({className}:DesktopSize) => {
             <section className='h-(calc(880px-56px)) w-full flex justify-center relative bg-[#925b5b]'>
                 
                 <div className="h-full w-full bg-[#3085c1] absolute opacity-[0.75] text-white z-2"/>
-
+        
                 <section className="h-full w-full max-w-300 bg-[#ca3c3c] relative container">
                     <div style={{gridArea: 'box1',display:'flex',justifyContent:'center',alignItems:'center',position:'relative'}}>
                     <img src={Img1} alt="" style={{objectFit:"cover",width:"100%",height:"100%"}} />
@@ -60,12 +60,12 @@ const Desktop = ({className}:DesktopSize) => {
                     <header className=' w-full h-[30%] flex flex-col items-center'>
                         <p className='h-[20%] text-white flex items-center font-family-poppins'>Marikina City Traffic Management</p>
                         <center className='flex items-center gap-4 h-[40%] '>
-                            <img src={Logo1} alt="" style={{objectFit:'cover',height:'70px',borderRadius:'50%'}}/>
+                            <img src={Logo1} alt="" style={{objectFit:'cover',height:'90px'}}/>
                             <aside className='text-4xl font-family-poppins font-bold text-white'>
                                 <h1>Online Traffic Violation</h1>
                                 <h1>Payment System</h1>
                             </aside>
-                            <img src={Logo2} alt="" style={{objectFit:'cover',height:'70px'}}/>
+                            <img src={Logo2} alt="" style={{objectFit:'cover',height:'120px'}}/>
                         </center>
                         <footer  className='h-[40%] flex flex-col justify-center gap-4 text-xl text-center text-white font-family-mozilla'>
                             <p>A Web-Based System for Online Traffic Violation Payment, Document</p>
@@ -83,7 +83,7 @@ const Desktop = ({className}:DesktopSize) => {
                             </main>
                             <footer className='h-[30%] w-full flex items-center justify-center'>
                                 <div className=' w-[80%] h-[70%] rounded-xl flex justify-between items-center gap-4'>
-                                    <IoMdArrowRoundForward size={50} color='#00167a'/>
+                                    <IsRotating/>
                                     <PlateNumBtn/>
                                 </div>
                             </footer>
@@ -135,8 +135,8 @@ const Desktop = ({className}:DesktopSize) => {
                             </div>
                             <div className='flex flex-col items-center font-family-poppins text-[clamp(1em,1.9vw,1.4rem)]'>
                                 <p className=''>Data are secured</p>
-                                <p className=''>and fast due to</p>
-                                <p className=''>handled by Supabase</p>
+                                <p className=''>encrypted</p>
+                                <p className=''>with our technologies</p>
                             </div>
                         </section>
                     </footer>
