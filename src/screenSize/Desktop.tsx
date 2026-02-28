@@ -59,9 +59,9 @@ const Desktop = ({className}:DesktopSize) => {
                 <main className='absolute top-0 h-full w-full max-w-300 z-3'>
                     <header className=' w-full h-[30%] flex flex-col items-center'>
                         <p className='h-[20%] text-white flex items-center font-family-poppins'>Marikina City Traffic Management</p>
-                        <center className='flex items-center gap-4 h-[40%] '>
+                        <center className='flex items-center gap-4 h-[40%]'>
                             <img src={Logo1} alt="" style={{objectFit:'cover',height:'90px'}}/>
-                            <aside className='text-4xl font-family-poppins font-bold text-white'>
+                            <aside className='text-4xl font-family-poppins font-bold text-white  ml-9'>
                                 <h1>Online Traffic Violation</h1>
                                 <h1>Payment System</h1>
                             </aside>
