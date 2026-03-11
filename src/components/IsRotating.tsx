@@ -3,6 +3,7 @@ import { FaArrowRotateRight } from "react-icons/fa6";
 import {useAppSelector} from '../store/hook';
 const IsRotating = () => {
     const isRotating = useAppSelector((state)=>state.userInput.isRotating);
+    
     return (
         <div>
             {

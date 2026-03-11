@@ -31,7 +31,7 @@ const Desktop = ({className}:DesktopSize) => {
 
     return (
         <div className={className}>
-            <section className='h-(calc(880px-56px)) w-full flex justify-center relative bg-[#925b5b]'>
+            <section  id='landingPage' className='h-(calc(880px-56px)) w-full flex justify-center relative bg-[#925b5b]'>
                 
                 <div className="h-full w-full bg-[#3085c1] absolute opacity-[0.75] text-white z-2"/>
         
@@ -146,7 +146,7 @@ const Desktop = ({className}:DesktopSize) => {
                 <header className='h-[60%] w-full max-w-300 flex'>
                     <main className='w-[60%] h-full flex flex-col'>
                         <DailyCoding/>
-                        <p id='landingPageSection2'  className='h-[10%] w-full font-family-mozilla font-bold text-xl text-[#00167a] z-100'>
+                        <p id='landingPageSection2'  className='h-[10%] w-full font-family-mozilla font-bold text-xl text-[#00167a] z-5'>
                             Coding hours 7:00 AM - 7:00 PM | No Coding on Weekends and Holidays
                         </p>
                     </main>

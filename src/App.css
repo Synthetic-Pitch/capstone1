@@ -6,7 +6,7 @@ html,body{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background: #406c85;
+
 }
 @theme {
   /* Fonts */
@@ -154,5 +154,14 @@ html,body{
   .boxShadow{
     box-shadow: 0 1px 10px rgb(0, 0, 0)
   }
-  
+  .hideScrollBar{
+    ::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;
+  }
+  .pepe{
+    background: pink;
+  }
 }
