@@ -33,18 +33,9 @@ const AboutUsSection2 = () => {
                     scrub: 2,
                 }
             });
-
+            
             tl.from(right, { opacity: 0, x: -500, stagger: { each: 0.2 } })
             tl.from(left,  { opacity: 0, x: 500,  stagger: { each: 0.2 } }, "<");
-        });
-        
-        gsap.to(".BtUsFooter22",{
-            scrollTrigger:{
-                trigger:".BtUsFooter22",
-                start:"top bottom",
-                scrub:2
-            },
-            scale:1.1
         });
     });
 

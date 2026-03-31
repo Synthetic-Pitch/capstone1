@@ -98,7 +98,7 @@ const Desktop = ({className}:DesktopSize) => {
                             </div>
                             <div className='flex flex-col items-center font-family-poppins 
                              text-[clamp(1em,1.9vw,1.4rem)] '>
-                                <p className=''>Pay fines and view</p>
+                                <p className=''>check/view</p>
                                 <p className=''>records anytime</p>
                                 <p className=''>anywhere</p>
                             </div>

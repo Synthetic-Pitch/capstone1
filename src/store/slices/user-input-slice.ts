@@ -4,14 +4,14 @@ interface UserSliceState {
   value: number;
   plateNumber:string;
   errorOccured:boolean,
-  isRotating:boolean
+  isRotating:boolean,
 }
 
 const initialState: UserSliceState = {
   value: 0,
   plateNumber:"",
   errorOccured:false,
-  isRotating:false
+  isRotating:false,
 };
 
 export const userInputSlice = createSlice({

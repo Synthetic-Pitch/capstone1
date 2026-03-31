@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import AboutUsSection2 from "../components/AboutUs-Section2";
 import AboutUsSection3 from "../components/AboutUs-Section3";
 import AboutUsSection4 from "../components/AboutUs-Section4";
+import AboutUsSection5 from "../components/AboutUs-Section5";
 gsap.registerPlugin(SplitText, ScrambleTextPlugin, ScrollTrigger);
 
 
@@ -90,7 +91,7 @@ const DesktopAboutUs = () => {
                 <AboutUsSection2/>
                 <AboutUsSection3/>
                 <AboutUsSection4/>
-                <div className="h-screen">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam impedit sapiente dolores, ea nam, laborum exercitationem rerum sed, modi quis quaerat odio dicta eum rem similique? Impedit ullam commodi voluptatibus.</div>
+                <AboutUsSection5/>
             </section>
            
         </div>

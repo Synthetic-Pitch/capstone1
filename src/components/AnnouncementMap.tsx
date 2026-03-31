@@ -25,7 +25,7 @@ const AnnouncementMap = () => {
                         scrollTrigger: {
                             trigger: entry.target,
                             start: "top 95%",
-                            scrub: 2,
+                            scrub: true,
                         }
                     });
                 }

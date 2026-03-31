@@ -17,8 +17,8 @@ const AboutUsSection3 = () => {
             scrollTrigger: {
                 trigger: parent.current,
                 start: "top 70%",
-                end: "+=800",
-                scrub: 2,
+                end: "+=700",
+                scrub: 1,
             },
         });
 
@@ -70,7 +70,7 @@ const AboutUsSection3 = () => {
         "Marikina, lungsod na maipagmamalaki,",
         "Malinis, maayos, at may pagkakaisa palagi.",
         "Dahil sa mga bantay na laging handang umagapay,",
-        "Kaayusan ng baya'y nakakamit na tunay",
+        "Kaayusan ng baya'y nakakamit na tunay.",
     ];
 
     let lineIndex = 0;
