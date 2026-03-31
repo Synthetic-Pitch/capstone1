@@ -13,8 +13,7 @@ const AboutUsSection5 = () => {
     const targetImgWrapper = useRef<HTMLDivElement>(null);
     const targetCon = useRef<HTMLElement>(null);
     const targetFooter = useRef<HTMLElement>(null);
-
-
+    
     useGSAP(()=>{
         gsap.timeline({
             scrollTrigger:{

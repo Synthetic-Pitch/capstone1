@@ -9,7 +9,7 @@ const ProfilePage = () => {
     
     useEffect(() => {
         if (!plateNumber) {
-            navigate("/")
+            navigate("/");
         }
     }, [plateNumber]);
     
