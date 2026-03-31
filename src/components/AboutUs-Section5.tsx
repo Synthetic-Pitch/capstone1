@@ -9,8 +9,6 @@ import { ScrollTrigger } from "gsap/all";
 gsap.registerPlugin(ScrollTrigger);
 
 const AboutUsSection5 = () => {
-    const blue = useRef<HTMLDivElement>(null);
-    const blueCon = useRef<HTMLDivElement>(null);
     const targetImg = useRef<HTMLImageElement>(null);
     const targetImgWrapper = useRef<HTMLDivElement>(null);
     const targetCon = useRef<HTMLElement>(null);
