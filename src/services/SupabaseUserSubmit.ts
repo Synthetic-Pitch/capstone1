@@ -1,9 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { useDispatch } from "react-redux";
-import { transaction_status } from "../store/slices/user-input-slice";
 
 export const useSupabaseLogin = (plate_number:string) => {
-  const dispatch = useDispatch();
     return useQuery({
       queryKey: ['supabaseLogin',plate_number],
       queryFn: async () => {
@@ -20,7 +17,7 @@ export const useSupabaseLogin = (plate_number:string) => {
           throw new Error(err.error);
         }
         const data = await response.json();
-        dispatch(transaction_status(data.TRANSACTION.isPaid));
+   
         return data;
       },
       enabled: false,

@@ -142,7 +142,7 @@ const AboutUsSection5 = () => {
                 <section className="flex h-full w-full">
                     <aside className="relative h-full w-[50%] flex flex-col items-center justify-center ">
                         <h1 className="text-7xl font-family-oswald text-[teal] mb-6 font-bold">IMPLEMENTATION</h1>
-                        <p className="text-3xl font-family-oswald text-[#708884]">And a research give birth to a solution</p>
+                        <p className="text-3xl font-family-oswald text-[#708884]">And a research turns to implementation of a solution</p>
                     </aside>
                     <footer ref={targetFooter} className="h-full w-[50%] px-8 "/>
                 </section>

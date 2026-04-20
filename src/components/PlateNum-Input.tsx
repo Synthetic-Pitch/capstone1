@@ -6,8 +6,9 @@ const PlateNumInput = () => {
     const dispatch = useAppDispatch();
     const plateNumber = useAppSelector((state)=>state.userInput.plateNumber);
     const errorOccured = useAppSelector((state)=>state.userInput.errorOccured);
+    
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
+        const value = e.target.value.replace(/[^a-zA-Z0-9]/g, '').toUpperCase();
         dispatch(setPlateNumber(value));
         sessionStorage.setItem("plateNumber", value) // ← add this
     };

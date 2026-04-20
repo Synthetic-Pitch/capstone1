@@ -15,8 +15,9 @@ import { useEffect } from 'react'                    // ← add
 import { supabase } from './services/SupabaseClient' // ← add
 import { useAppDispatch } from './store/hook'        // ← add
 import { setUser, clearUser } from './store/slices/auth-slice' // ← add
+import PayViolation from './page/ProcessViolation'
 
-gsap.registerPlugin(ScrollSmoother)
+gsap.registerPlugin(ScrollSmoother);
 
 function App() {
   const dispatch = useAppDispatch() // ← add
@@ -35,11 +36,10 @@ function App() {
         if (session?.user) dispatch(setUser(session.user))
         else dispatch(clearUser())
       }
-    )
-
-    return () => subscription.unsubscribe()
+    );
+    return () => subscription.unsubscribe();
   }, [])
-
+  
   useGSAP(() => {
     ScrollSmoother.create({
       wrapper: "#wrapper-smooth",
@@ -60,9 +60,17 @@ function App() {
           <Route path="/about-us" element={<AboutUs/>}/>
           <Route path="/documentation" element={<ProfilePage/>}/>
           <Route path="/faqs" element={<Faqs/>}/>
-          <Route path="/*" element={<PageNotFound/>}/>
+          
           <Route path='/contact-us' element={<ContactUs/>}/>
+          <Route path='/:plateNumber/pay-violation' element={<PayViolation/>}/>
+
+          <Route path='/process-violation/:plateNumber'>
+            <Route index element={<PayViolation/>}/>
+            <Route path='*' element={<PageNotFound/>}/>  {/* catches anything extra */}
+          </Route>
+            <Route path='*' element={<PageNotFound/>}/>  {/* catches anything extra */}
         </Routes>
+
       </div>
     </div>
   )

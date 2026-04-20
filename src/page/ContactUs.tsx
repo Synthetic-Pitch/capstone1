@@ -27,6 +27,7 @@ const ContactUs = () => {
                         </div>
                     </main>
                 </section>
+                
                 <section className="w-full desktop:w-[50%] h-dvh max-h-220 flex justify-center items-center">
                     <form className="h-[90%] desktop:h-[60%] w-100 boxShadow rounded-2xl -mt-5 flex flex-col justify-center items-center px-9 py-9 gap-[2%]">
                         <p className="w-full px-2 text-sm font-family-poppins text-[#5d5d5d]">name</p>

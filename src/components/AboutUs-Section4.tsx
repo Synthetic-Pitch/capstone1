@@ -59,7 +59,7 @@ const AboutUsSection4 = () => {
             ref={parentCon}
             className="h-dvh w-full overflow-hidden"
         >
-            <header className="h-[20%] w-full flex justify-center items-center text-white font-family-nexline text-9xl">OUR CAPSTONE SYSTEM</header>
+            <header className="h-[20%] w-full flex justify-center items-center text-white font-family-nexline text-8xl text-center">OUR CAPSTONE SYSTEM</header>
             <main ref={mainCon} className="h-[90%] w-[200dvw] flex overflow-x-scroll">
                 <section className="h-full w-[50%] bg-white text-6xl relative">
                     <div className="bg-[rgb(255,255,255,.87)] h-full w-full relative z-10">

@@ -4,49 +4,37 @@ import { useDispatch } from "react-redux";
 import {setYesErrorOccur,setNotErrorOccur} from "../store/slices/user-input-slice";
 import {validatePlateNumber} from "../utils/validateUser";
 import { useAppSelector } from "../store/hook";
-import { useEffect } from "react";
+
 import { useNavigate } from "react-router-dom";
 
 const PlateNumBtn = () => {
     const dispatch = useDispatch();
     const Platenumber = useAppSelector((state)=>state.userInput.plateNumber);  
-    const {data, refetch, isLoading, isSuccess, isFetching} = useSupabaseLogin(Platenumber);
+    const { refetch } = useSupabaseLogin(Platenumber);
     const navigate = useNavigate();
-    // Watch for loading state changes
-    useEffect(() => {
-        if (isLoading || isFetching) {
-            dispatch(setTrueIsRotating());
-        } else {
-            dispatch(setFalseIsRotating());
-        }
-    }, [isLoading, isFetching]);
-
-   const handleClick = async () => {
+    
+    const handleClick = async () => {
         // Validate first
         if(validatePlateNumber(Platenumber).error){
             dispatch(setYesErrorOccur());
             return;
         }
-        
+        // If valid, proceed with the request
         if(validatePlateNumber(Platenumber).isValid){
             dispatch(setNotErrorOccur());
-            const result = await refetch();
-            
-            // Navigate only after successful fetch
-            if (result.isSuccess && result.data) {
-                console.log("Data received:", result.data);
+            dispatch(setTrueIsRotating());
+            const res =  await refetch();
+            if(res.status === "success"){
+                dispatch(setFalseIsRotating());
+                navigate(`/profile/${Platenumber}`);
+            }
+            if(res.status === "error"){
+                console.log(res.error.message);
+                dispatch(setFalseIsRotating());
                 navigate(`/profile/${Platenumber}`);
             }
         }
     };
-
-    // Remove the navigate useEffect completely
-    useEffect(() => {
-        if (isSuccess && data) {
-            console.log("Data received:", data);
-            // Don't navigate here
-        }
-    }, [isSuccess, data]);
 
     return (
         <>  
