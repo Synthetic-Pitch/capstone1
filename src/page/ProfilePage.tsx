@@ -15,11 +15,10 @@ const ProfilePage = () => {
     const navigate = useNavigate();
     
     useEffect(() => {
-
         setData(null);
         setNotFound(false);
         setIsFetching(true);
-
+        
         const fetchData = async () => {
             try {
                 const res = await refetch();
@@ -39,7 +38,7 @@ const ProfilePage = () => {
                 setIsFetching(false);
             }
         };
-
+        
         fetchData();
     }, []);
 
@@ -53,6 +52,7 @@ const ProfilePage = () => {
     };
 
     return (
+        
         <div className="bg-[#cbe0f2] h-dvh">
             <section className="hidden desktop:flex flex-col items-center w-full h-dvh max-h-220 py-2">
                 <h1 className="font-bold py-4">VEHICLE INFORMATION</h1>
@@ -68,7 +68,7 @@ const ProfilePage = () => {
                         <span className="font-normal">{displayValue(data?.vehicle_color)}</span>
                     </div>
                 </div>
-
+                
                 <div className="w-full max-w-300 py-4 px-6 flex text-md font-family-poppins gap-4">
                     <div className="h-fit w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold">
                         Vehicle Type :
@@ -101,7 +101,7 @@ const ProfilePage = () => {
                         <div className="w-[30%]">issued date</div>
                     </div>
                 </div>
-        
+
                 <section className="w-full max-w-300 py-4 text-md font-family-poppins">
                     {(isFetching || isLoading) && <div className="px-6">loading...</div>}
                     {dataReady && data?.VIOLATION?.map((item: any, index: number) => (
@@ -123,13 +123,25 @@ const ProfilePage = () => {
                         {dataReady && transactionStatus && (
                             <span className="font-normal"> {transactionStatus}</span>
                         )}
+                        {dataReady && !transactionStatus && !notFound && (
+                            <span className="font-normal"> no transaction</span>
+                        )}
                         {notFound && <span className="font-normal"> no transaction</span>}
                     </div>
                 </div>
-
+                
                 <footer className="flex justify-center items-center">
-                    {dataReady && !notFound && transactionStatus && (
-                        <div className="w-100 h-14 bg-[#00167a] rounded-2xl flex justify-center items-center cursor-pointer select-none">
+                    {dataReady && !notFound && (
+                        <div className="w-100 h-14 bg-[#00167a] rounded-2xl flex justify-center items-center cursor-pointer select-none hover:scale-[1.1] transition-all duration-200">
+                            {/* No transaction yet — let user start one */}
+                            {!transactionStatus && (
+                                <button
+                                    onClick={() => navigate(`/process-violation/${plateNumber}`)}
+                                    className="text-2xl text-white font-family-poppins cursor-pointer"
+                                >
+                                    process violation
+                                </button>
+                            )}
                             {transactionStatus === "unsettle" && (
                                 <button
                                     onClick={() => navigate(`/process-violation/${plateNumber}`)}
@@ -139,7 +151,10 @@ const ProfilePage = () => {
                                 </button>
                             )}
                             {transactionStatus === "pending" && (
-                                <button className="text-2xl text-white font-family-poppins cursor-pointer">
+                                <button
+                                    onClick={() => navigate(`/pay-violation/${plateNumber}`)}
+                                    className="text-2xl text-white font-family-poppins cursor-pointer h-full w-full"
+                                >
                                     pay violation
                                 </button>
                             )}

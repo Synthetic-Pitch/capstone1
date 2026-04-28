@@ -15,7 +15,8 @@ import { useEffect } from 'react'                    // ← add
 import { supabase } from './services/SupabaseClient' // ← add
 import { useAppDispatch } from './store/hook'        // ← add
 import { setUser, clearUser } from './store/slices/auth-slice' // ← add
-import PayViolation from './page/ProcessViolation'
+import ProcessViolation from './page/ProcessViolation'
+import PayViolation from './page/PayViolation'
 
 gsap.registerPlugin(ScrollSmoother);
 
@@ -62,13 +63,18 @@ function App() {
           <Route path="/faqs" element={<Faqs/>}/>
           
           <Route path='/contact-us' element={<ContactUs/>}/>
-          <Route path='/:plateNumber/pay-violation' element={<PayViolation/>}/>
 
           <Route path='/process-violation/:plateNumber'>
+            <Route index element={<ProcessViolation/>}/>
+            <Route path='*' element={<PageNotFound/>}/>  {/* catches anything extra */}
+          </Route>
+          
+           <Route path='/pay-violation/:plateNumber'>
             <Route index element={<PayViolation/>}/>
             <Route path='*' element={<PageNotFound/>}/>  {/* catches anything extra */}
           </Route>
-            <Route path='*' element={<PageNotFound/>}/>  {/* catches anything extra */}
+          
+          <Route path='*' element={<PageNotFound/>}/>  {/* catches anything extra */}
         </Routes>
 
       </div>

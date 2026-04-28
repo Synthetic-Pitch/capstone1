@@ -4,7 +4,7 @@ export const useSupabaseLogin = (plate_number:string) => {
     return useQuery({
       queryKey: ['supabaseLogin',plate_number],
       queryFn: async () => {
-        const response = await fetch("https://gbvpdhqscwuaymsddvms.supabase.co/functions/v1/swift-task",{
+        const response = await fetch("https://gbvpdhqscwuaymsddvms.supabase.co/functions/v1/request-approval",{
           method:"POST",
           headers:{
             "Content-Type":"application/json",
