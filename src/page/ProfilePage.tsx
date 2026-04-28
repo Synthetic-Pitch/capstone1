@@ -5,45 +5,52 @@ import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
     const [data, setData] = useState<any>(null);
-    const [notFound, setNotFound] = useState<boolean>(false);
-    const [isFetching, setIsFetching] = useState<boolean>(true);
+    const [notFound, setNotFound] = useState(false);
+    const [isFetching, setIsFetching] = useState(true);
 
     const storedPlate = sessionStorage.getItem("plateNumber");
-    const plateNumber = useAppSelector((state) => state.userInput.plateNumber) || storedPlate;
 
-    const { isLoading, isSuccess, refetch, isError } = useSupabaseLogin(plateNumber || "");
+    const plateNumber =
+        useAppSelector((state) => state.userInput.plateNumber) || storedPlate;
+
+    const { isLoading, isSuccess, refetch, isError } =
+        useSupabaseLogin(plateNumber || "");
+
     const navigate = useNavigate();
-    
+
     useEffect(() => {
-        setData(null);
-        setNotFound(false);
-        setIsFetching(true);
-        
         const fetchData = async () => {
+            setData(null);
+            setNotFound(false);
+            setIsFetching(true);
+
             try {
                 const res = await refetch();
+
                 if (res.error) {
                     if (res.error.message === "Plate number not found") {
                         setNotFound(true);
                     } else {
-                        setNotFound(false);
                         throw new Error(res.error.message);
                     }
                 } else {
                     setData(res.data ?? null);
                 }
-            } catch (err) {
-                console.error("An error occurred while fetching data", err);
+            } catch (error) {
+                console.error("Fetch error:", error);
             } finally {
                 setIsFetching(false);
             }
         };
-        
-        fetchData();
-    }, []);
 
-    const dataReady = !isFetching && !isLoading && isSuccess && data !== null;
-    const transactionStatus = data?.TRANSACTION?.transaction_status ?? null;
+        fetchData();
+    }, [refetch]);
+
+    const dataReady =
+        !isFetching && !isLoading && isSuccess && data !== null;
+
+    const transactionStatus =
+        data?.TRANSACTION?.transaction_status ?? null;
 
     const displayValue = (value: any) => {
         if (isFetching || isLoading) return " loading...";
@@ -52,113 +59,178 @@ const ProfilePage = () => {
     };
 
     return (
-        
-        <div className="bg-[#cbe0f2] h-dvh">
-            <section className="hidden desktop:flex flex-col items-center w-full h-dvh max-h-220 py-2">
+        <div className="bg-[#cbe0f2] min-h-screen overflow-y-auto">
+            <section className="hidden desktop:flex flex-col items-center w-full min-h-screen py-2 pb-10">
                 <h1 className="font-bold py-4">VEHICLE INFORMATION</h1>
+
                 <hr className="w-[90%] max-w-300 bg-black h-0.5" />
 
                 <div className="w-full max-w-300 py-4 px-6 flex text-md gap-4">
-                    <div className="h-fit w-1/2 bg-[#a4bcde] px-4 py-2 font-family-poppins font-semibold">
+                    <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold">
                         Plate-Number :
-                        <span className="font-normal"> {plateNumber}</span>
+                        <span className="font-normal">
+                            {" "}
+                            {plateNumber}
+                        </span>
                     </div>
-                    <div className="h-fit w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold font-family-poppins">
+
+                    <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold">
                         Vehicle Color :
-                        <span className="font-normal">{displayValue(data?.vehicle_color)}</span>
+                        <span className="font-normal">
+                            {displayValue(data?.vehicle_color)}
+                        </span>
                     </div>
                 </div>
-                
-                <div className="w-full max-w-300 py-4 px-6 flex text-md font-family-poppins gap-4">
-                    <div className="h-fit w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold">
+
+                <div className="w-full max-w-300 py-4 px-6 flex text-md gap-4">
+                    <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold">
                         Vehicle Type :
-                        <span className="font-normal">{displayValue(data?.vehicle_type)}</span>
+                        <span className="font-normal">
+                            {displayValue(data?.vehicle_type)}
+                        </span>
                     </div>
-                    <div className="h-fit w-1/2 bg-[#a4bcde] px-4 py-2 font-family-poppins font-semibold">
+
+                    <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold">
                         Vehicle Model :
-                        <span className="font-normal">{displayValue(data?.vehicle_model)}</span>
+                        <span className="font-normal">
+                            {displayValue(data?.vehicle_model)}
+                        </span>
                     </div>
                 </div>
 
                 <h1 className="font-bold py-4">DRIVER INFORMATION</h1>
+
                 <hr className="w-[90%] max-w-300 bg-black h-0.5" />
 
-                <div className="w-full max-w-300 py-4 px-6 flex text-md font-bold gap-4">
-                    <div className="h-fit w-1/2 bg-[#a4bcde] px-4 py-2 font-family-poppins font-semibold">
+                <div className="w-full max-w-300 py-4 px-6 flex text-md gap-4">
+                    <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold">
                         Name :
-                        <span className="font-normal">{displayValue(data?.driver_name)}</span>
+                        <span className="font-normal">
+                            {displayValue(data?.driver_name)}
+                        </span>
                     </div>
-                    <div className="h-fit w-1/2 bg-[#a4bcde] px-4 py-2 font-family-poppins font-semibold">
+
+                    <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold">
                         Address :
-                        <span className="font-normal">{displayValue(data?.driver_address)}</span>
+                        <span className="font-normal">
+                            {displayValue(data?.driver_address)}
+                        </span>
                     </div>
                 </div>
 
-                <div className="font-bold py-4 bg-[#0b318f] text-center text-white w-full">
+                <div className="font-bold py-4 bg-[#0b318f] text-white w-full">
                     <div className="flex max-w-300 m-auto justify-evenly text-start">
-                        <div className="w-[30%]">violation list</div>
-                        <div className="w-[30%]">issued location</div>
-                        <div className="w-[30%]">issued date</div>
+                        <div className="w-[30%]">Violation List</div>
+                        <div className="w-[30%]">Issued Location</div>
+                        <div className="w-[30%]">Issued Date</div>
                     </div>
                 </div>
 
-                <section className="w-full max-w-300 py-4 text-md font-family-poppins">
-                    {(isFetching || isLoading) && <div className="px-6">loading...</div>}
-                    {dataReady && data?.VIOLATION?.map((item: any, index: number) => (
-                        <main key={index} className="flex justify-evenly w-full">
-                            <div className="w-[30%]">{item.violation}</div>
-                            <div className="w-[30%]">{item.issued_location}</div>
-                            <div className="w-[30%]">{item.issued_date}</div>
-                        </main>
-                    ))}
-                    {notFound && <div className="px-6">no record found</div>}
-                </section>
+                <div className="w-full max-w-300 py-4 text-md">
+                    {(isFetching || isLoading) && (
+                        <div className="px-6">loading...</div>
+                    )}
+
+                    {dataReady &&
+                        data?.VIOLATION?.map(
+                            (item: any, index: number) => (
+                                <div
+                                    key={index}
+                                    className="flex justify-evenly w-full py-1"
+                                >
+                                    <div className="w-[30%]">
+                                        {item.violation}
+                                    </div>
+
+                                    <div className="w-[30%]">
+                                        {item.issued_location}
+                                    </div>
+
+                                    <div className="w-[30%]">
+                                        {item.issued_date}
+                                    </div>
+                                </div>
+                            )
+                        )}
+
+                    {notFound && (
+                        <div className="px-6">no record found</div>
+                    )}
+                </div>
 
                 <hr className="w-[90%] max-w-300 bg-black h-0.5" />
 
                 <div className="flex w-full max-w-300 px-8 text-xl py-8">
-                    <div className="font-family-poppins font-bold">
+                    <div className="font-bold">
                         Transaction Status :
-                        {(isFetching || isLoading) && <span className="font-normal"> loading...</span>}
+
+                        {(isFetching || isLoading) && (
+                            <span className="font-normal">
+                                {" "}
+                                loading...
+                            </span>
+                        )}
+
                         {dataReady && transactionStatus && (
-                            <span className="font-normal"> {transactionStatus}</span>
+                            <span className="font-normal">
+                                {" "}
+                                {transactionStatus}
+                            </span>
                         )}
-                        {dataReady && !transactionStatus && !notFound && (
-                            <span className="font-normal"> no transaction</span>
+
+                        {dataReady &&
+                            !transactionStatus &&
+                            !notFound && (
+                                <span className="font-normal">
+                                    {" "}
+                                    no transaction
+                                </span>
+                            )}
+
+                        {notFound && (
+                            <span className="font-normal">
+                                {" "}
+                                no transaction
+                            </span>
                         )}
-                        {notFound && <span className="font-normal"> no transaction</span>}
                     </div>
                 </div>
-                
-                <footer className="flex justify-center items-center">
+
+                <footer className="flex justify-center items-center pb-10">
                     {dataReady && !notFound && (
-                        <div className="w-100 h-14 bg-[#00167a] rounded-2xl flex justify-center items-center cursor-pointer select-none hover:scale-[1.1] transition-all duration-200">
-                            {/* No transaction yet — let user start one */}
-                            {!transactionStatus && (
-                                <button
-                                    onClick={() => navigate(`/process-violation/${plateNumber}`)}
-                                    className="text-2xl text-white font-family-poppins cursor-pointer"
-                                >
-                                    process violation
-                                </button>
-                            )}
+                        <>
                             {transactionStatus === "unsettle" && (
-                                <button
-                                    onClick={() => navigate(`/process-violation/${plateNumber}`)}
-                                    className="text-2xl text-white font-family-poppins cursor-pointer"
-                                >
-                                    process violation
-                                </button>
+                                <div className="w-100 h-14 bg-[#00167a] rounded-2xl flex justify-center items-center hover:scale-105 transition-all duration-200">
+                                    <button
+                                        onClick={() =>
+                                            navigate(
+                                                `/process-violation/${plateNumber}`
+                                            )
+                                        }
+                                        className="text-2xl text-white cursor-pointer"
+                                    >
+                                        process violation
+                                    </button>
+                                </div>
                             )}
-                            {transactionStatus === "pending" && (
-                                <button
-                                    onClick={() => navigate(`/pay-violation/${plateNumber}`)}
-                                    className="text-2xl text-white font-family-poppins cursor-pointer h-full w-full"
-                                >
-                                    pay violation
-                                </button>
+
+                            {transactionStatus === "approved" && (
+                                <div className="w-100 h-14 bg-[#00167a] rounded-2xl flex justify-center items-center hover:scale-105 transition-all duration-200">
+                                    <button
+                                        onClick={() =>
+                                            navigate(
+                                                `/pay-violation/${plateNumber}`
+                                            )
+                                        }
+                                        className="text-2xl text-white cursor-pointer w-full h-full"
+                                    >
+                                        pay now
+                                    </button>
+                                </div>
                             )}
-                        </div>
+
+                            {/* pending = no button */}
+                        </>
                     )}
                 </footer>
             </section>
