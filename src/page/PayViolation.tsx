@@ -1,7 +1,11 @@
 
 const PayViolation = () => {
     return (
-        <div>PayViolation</div>
+        <div className="min-h-dvh w-full bg-[#cbe0f2]">
+            <section>
+                
+            </section>
+        </div>
     );
 };
 

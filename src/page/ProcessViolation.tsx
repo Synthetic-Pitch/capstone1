@@ -146,7 +146,7 @@ const ProcessViolation = () => {
                 {file1 && file2 && (
                     <button
                         onClick={handleSubmit}
-                        className="text-2xl bg-[#0b318f] max-w-min m-auto px-42 py-4 text-white rounded-2xl mt-12 cursor-pointer transition-colors"
+                        className="text-2xl bg-[#0b318f] max-w-min m-auto px-42 py-4 text-white rounded-2xl mt-12 cursor-pointer hover:scale-[1.05] transition-all duration-100"
                     >
                         submit
                     </button>

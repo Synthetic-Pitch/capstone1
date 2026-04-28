@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useAppSelector } from "../store/hook";
 import { useSupabaseLogin } from "../services/SupabaseUserLogin";
 import { useNavigate } from "react-router-dom";
+import LoadingModal from "../components/Loading-Modal";
 
 const ProfilePage = () => {
     const [data, setData] = useState<any>(null);
@@ -53,7 +54,6 @@ const ProfilePage = () => {
         data?.TRANSACTION?.transaction_status ?? null;
 
     const displayValue = (value: any) => {
-        if (isFetching || isLoading) return " loading...";
         if (isError || value === null || value === undefined) return " N/A";
         return ` ${value}`;
     };
@@ -127,10 +127,6 @@ const ProfilePage = () => {
                 </div>
 
                 <div className="w-full max-w-300 py-4 text-md">
-                    {(isFetching || isLoading) && (
-                        <div className="px-6">loading...</div>
-                    )}
-
                     {dataReady &&
                         data?.VIOLATION?.map(
                             (item: any, index: number) => (
@@ -160,19 +156,11 @@ const ProfilePage = () => {
 
                 <hr className="w-[90%] max-w-300 bg-black h-0.5" />
 
-                <div className="flex w-full max-w-300 px-8 text-xl py-8">
-                    <div className="font-bold">
+                <div className="flex w-full max-w-300 px-8 text-xl py-8 justify-between">
+                    <div >
                         Transaction Status :
-
-                        {(isFetching || isLoading) && (
-                            <span className="font-normal">
-                                {" "}
-                                loading...
-                            </span>
-                        )}
-
                         {dataReady && transactionStatus && (
-                            <span className="font-normal">
+                            <span className="font-bold">
                                 {" "}
                                 {transactionStatus}
                             </span>
@@ -186,12 +174,17 @@ const ProfilePage = () => {
                                     no transaction
                                 </span>
                             )}
-
-                        {notFound && (
-                            <span className="font-normal">
-                                {" "}
-                                no transaction
-                            </span>
+                            {notFound && (
+                                <span className="font-normal">
+                                    {" "}
+                                    no transaction
+                                </span>
+                            )}
+                    </div>
+                    <div className="mr-70 flex gap-2">
+                        <span className="">total-amount</span> :
+                        {dataReady && (
+                            <span className=" font-bold"> &#8369; {data?.TRANSACTION.total_amount}</span>
                         )}
                     </div>
                 </div>
@@ -234,6 +227,8 @@ const ProfilePage = () => {
                     )}
                 </footer>
             </section>
+        
+            <LoadingModal isOpen={isFetching || isLoading} />
         </div>
     );
 };

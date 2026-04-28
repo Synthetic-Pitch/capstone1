@@ -1,0 +1,113 @@
+Date : 2026-04-28 20:40:28
+Directory : c:\Users\reymark\Documents\react\vite\capstone1
+Total : 63 files,  9627 codes, 36 comments, 345 blanks, all 10008 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          7 |      6,482 |          4 |          9 |      6,495 |
+| TypeScript JSX     |         37 |      2,598 |         24 |        276 |      2,898 |
+| TypeScript         |         11 |        250 |          6 |         29 |        285 |
+| PostCSS            |          1 |        174 |          2 |         12 |        188 |
+| Markdown           |          1 |         60 |          0 |         14 |         74 |
+| JavaScript JSX     |          1 |         22 |          0 |          2 |         24 |
+| HTML               |          1 |         19 |          0 |          1 |         20 |
+| JSON with Comments |          1 |         15 |          0 |          1 |         16 |
+| Dotenv             |          1 |          5 |          0 |          1 |          6 |
+| XML                |          2 |          2 |          0 |          0 |          2 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                    | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                       |         63 |      9,627 |         36 |        345 |     10,008 |
+| . (Files)                                                                               |         12 |      6,565 |          5 |         29 |      6,599 |
+| public                                                                                  |          1 |          1 |          0 |          0 |          1 |
+| src                                                                                     |         50 |      3,061 |         31 |        316 |      3,408 |
+| src (Files)                                                                             |          4 |        318 |          5 |         28 |        351 |
+| src\assets                                                                              |          1 |          1 |          0 |          0 |          1 |
+| src\components                                                                          |         20 |      1,657 |         12 |        160 |      1,829 |
+| src\components (Files)                                                                  |         16 |      1,135 |         10 |        105 |      1,250 |
+| src\components\ui                                                                       |          4 |        522 |          2 |         55 |        579 |
+| src\hook                                                                                |          1 |         46 |          2 |          7 |         55 |
+| src\lib                                                                                 |          1 |          5 |          0 |          2 |          7 |
+| src\page                                                                                |          9 |        448 |          5 |         66 |        519 |
+| src\screenSize                                                                          |          5 |        353 |          2 |         27 |        382 |
+| src\services                                                                            |          3 |         56 |          0 |          8 |         64 |
+| src\store                                                                               |          5 |        140 |          2 |         14 |        156 |
+| src\store (Files)                                                                       |          2 |         17 |          1 |          3 |         21 |
+| src\store\slices                                                                        |          3 |        123 |          1 |         11 |        135 |
+| src\utils                                                                               |          1 |         37 |          3 |          4 |         44 |
++-----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                | language           | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| c:\Users\reymark\Documents\react\vite\capstone1\.env                                    | Dotenv             |          5 |          0 |          1 |          6 |
+| c:\Users\reymark\Documents\react\vite\capstone1\README.md                               | Markdown           |         60 |          0 |         14 |         74 |
+| c:\Users\reymark\Documents\react\vite\capstone1\components.json                         | JSON               |         23 |          0 |          1 |         24 |
+| c:\Users\reymark\Documents\react\vite\capstone1\eslint.config.js                        | JavaScript JSX     |         22 |          0 |          2 |         24 |
+| c:\Users\reymark\Documents\react\vite\capstone1\index.html                              | HTML               |         19 |          0 |          1 |         20 |
+| c:\Users\reymark\Documents\react\vite\capstone1\package-lock.json                       | JSON               |      6,306 |          0 |          1 |      6,307 |
+| c:\Users\reymark\Documents\react\vite\capstone1\package.json                            | JSON               |         49 |          0 |          1 |         50 |
+| c:\Users\reymark\Documents\react\vite\capstone1\public\vite.svg                         | XML                |          1 |          0 |          0 |          1 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\App.css                             | PostCSS            |        174 |          2 |         12 |        188 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\App.tsx                             | TypeScript JSX     |         70 |          3 |         12 |         85 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\announcement.json                   | JSON               |         50 |          0 |          0 |         50 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\assets\react.svg                    | XML                |          1 |          0 |          0 |          1 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\AboutUs-Sec4-Footer2.tsx | TypeScript JSX     |         18 |          0 |          3 |         21 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\AboutUs-Section2.tsx     | TypeScript JSX     |         80 |          0 |          6 |         86 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\AboutUs-Section3.tsx     | TypeScript JSX     |        107 |          2 |         10 |        119 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\AboutUs-Section4.tsx     | TypeScript JSX     |         73 |          3 |          7 |         83 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\AboutUs-Section5.tsx     | TypeScript JSX     |        136 |          1 |         17 |        154 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\AnnouncementMap.tsx      | TypeScript JSX     |         93 |          2 |         13 |        108 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\DailyCoding.tsx          | TypeScript JSX     |         49 |          0 |          6 |         55 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\IsRotating.tsx           | TypeScript JSX     |         18 |          0 |          2 |         20 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\Navbar.tsx               | TypeScript JSX     |         67 |          0 |          6 |         73 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\PlateNum-Btn.tsx         | TypeScript JSX     |         44 |          2 |          5 |         51 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\PlateNum-Input.tsx       | TypeScript JSX     |         31 |          0 |          5 |         36 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\PopUp.tsx                | TypeScript JSX     |         21 |          0 |          3 |         24 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\ShadChart.tsx            | TypeScript JSX     |         67 |          0 |          6 |         73 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\ShadChart2.tsx           | TypeScript JSX     |        123 |          0 |          5 |        128 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\ShadChart3.tsx           | TypeScript JSX     |         88 |          0 |          6 |         94 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\ShadChart4.tsx           | TypeScript JSX     |        120 |          0 |          5 |        125 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\ui\accordion.tsx         | TypeScript JSX     |         58 |          0 |          7 |         65 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\ui\button.tsx            | TypeScript JSX     |         59 |          0 |          6 |         65 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\ui\card.tsx              | TypeScript JSX     |         83 |          0 |         10 |         93 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\components\ui\chart.tsx             | TypeScript JSX     |        322 |          2 |         32 |        356 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\hook\useCustomHook.tsx              | TypeScript JSX     |         46 |          2 |          7 |         55 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\lib\utils.ts                        | TypeScript         |          5 |          0 |          2 |          7 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\main.tsx                            | TypeScript JSX     |         24 |          0 |          4 |         28 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\page\AboutUs.tsx                    | TypeScript JSX     |         11 |          0 |          2 |         13 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\page\ContactUs.tsx                  | TypeScript JSX     |         44 |          0 |          4 |         48 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\page\Faqs.tsx                       | TypeScript JSX     |         11 |          0 |          2 |         13 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\page\LandingPage.tsx                | TypeScript JSX     |         15 |          0 |          2 |         17 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\page\PageNotFound.tsx               | TypeScript JSX     |         10 |          0 |          2 |         12 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\page\PayViolation.tsx               | TypeScript JSX     |          6 |          0 |          2 |          8 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\page\ProcessViolation.tsx           | TypeScript JSX     |        143 |          4 |         12 |        159 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\page\ProfilePage.tsx                | TypeScript JSX     |        202 |          1 |         38 |        241 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\page\UserPage.tsx                   | TypeScript JSX     |          6 |          0 |          2 |          8 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\screenSize\Desktop-AboutUs.tsx      | TypeScript JSX     |         90 |          1 |         11 |        102 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\screenSize\Desktop-Faqs.tsx         | TypeScript JSX     |         59 |          0 |          4 |         63 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\screenSize\Desktop.tsx              | TypeScript JSX     |        186 |          1 |          8 |        195 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\screenSize\Mobile.tsx               | TypeScript JSX     |          9 |          0 |          3 |         12 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\screenSize\Tablet.tsx               | TypeScript JSX     |          9 |          0 |          1 |         10 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\services\SupabaseClient.ts          | TypeScript         |          5 |          0 |          1 |          6 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\services\SupabaseUserLogin.ts       | TypeScript         |         28 |          0 |          5 |         33 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\services\SupabaseUserSubmit.ts      | TypeScript         |         23 |          0 |          2 |         25 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\store\hook.ts                       | TypeScript         |          4 |          1 |          1 |          6 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\store\slices\animation-slice.ts     | TypeScript         |         21 |          0 |          3 |         24 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\store\slices\auth-slice.ts          | TypeScript         |         26 |          0 |          4 |         30 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\store\slices\user-input-slice.ts    | TypeScript         |         76 |          1 |          4 |         81 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\store\store.ts                      | TypeScript         |         13 |          0 |          2 |         15 |
+| c:\Users\reymark\Documents\react\vite\capstone1\src\utils\validateUser.ts               | TypeScript         |         37 |          3 |          4 |         44 |
+| c:\Users\reymark\Documents\react\vite\capstone1\tsconfig.app.json                       | JSON               |         24 |          2 |          3 |         29 |
+| c:\Users\reymark\Documents\react\vite\capstone1\tsconfig.json                           | JSON with Comments |         15 |          0 |          1 |         16 |
+| c:\Users\reymark\Documents\react\vite\capstone1\tsconfig.node.json                      | JSON               |         22 |          2 |          3 |         27 |
+| c:\Users\reymark\Documents\react\vite\capstone1\vercel.json                             | JSON               |          8 |          0 |          0 |          8 |
+| c:\Users\reymark\Documents\react\vite\capstone1\vite.config.ts                          | TypeScript         |         12 |          1 |          1 |         14 |
+| Total                                                                                   |                    |      9,627 |         36 |        345 |     10,008 |
++-----------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+

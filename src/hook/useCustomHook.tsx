@@ -23,7 +23,7 @@ export const useSubmit = ({ file1, file2, setFile1, setFile2, setPreview1, setPr
         formData.append("image1", file1);
         formData.append("image2", file2);
         formData.append("plate_number", plateNumber);
-
+        
         const response = await fetch("https://gbvpdhqscwuaymsddvms.supabase.co/functions/v1/request-submit", {
             method: "POST",
             headers: {
