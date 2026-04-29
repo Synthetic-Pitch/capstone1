@@ -102,3 +102,42 @@ export const useSubmitPayment = () => {
         },
     });
 };
+
+// ── useVerifyPayment (TanStack useMutation) ───────────────────────────────────
+interface VerifyPaymentProps {
+    intent_id: string;
+    transaction_id: string;
+    plate_number: string;
+}
+
+interface VerifyPaymentResponse {
+    success: boolean;
+    message: string;
+}
+
+const verifyPaymentFn = async ({ intent_id, transaction_id, plate_number }: VerifyPaymentProps): Promise<VerifyPaymentResponse> => {
+    const response = await fetch(`${BASE_URL}/verify-payment`, {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${ANON_KEY}`,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ intent_id, transaction_id, plate_number }),
+    });
+
+    if (!response.ok) {
+        const err = await response.json();
+        throw new Error(err.error ?? "Verification failed");
+    }
+
+    return response.json() as Promise<VerifyPaymentResponse>;
+};
+
+export const useVerifyPayment = () => {
+    return useMutation({
+        mutationFn: verifyPaymentFn,
+        onError: (error) => {
+            console.error("Verification failed:", error.message);
+        },
+    });
+};

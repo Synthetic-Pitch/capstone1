@@ -1,26 +1,33 @@
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import PageNotFound from './PageNotFound';
+import { useVerifyPayment } from '../hook/useCustomHook'; // adjust path
 
 const PaymentSucces = () => {
     const [searchParams] = useSearchParams();
-    
+
     const tid = searchParams.get('tid');
-    const iid = searchParams.get('iid');
+    const iid = searchParams.get('payment_intent_id'); // PayMongo appends this automatically
     const plate_number = searchParams.get('pln');
 
-    // ✅ hooks first, always — before any early return
+    const { mutate: verifyPayment, isPending, isSuccess, isError } = useVerifyPayment();
+    
     useEffect(() => {
         if (!tid || !iid || !plate_number) return;
-        console.log("tid:", tid, "iid:", iid, "plate_number:", plate_number);
+        verifyPayment({
+            intent_id: iid,
+            transaction_id: tid,
+            plate_number: plate_number,
+        });
     }, [tid, iid, plate_number]);
 
-    // ✅ guard after all hooks
     if (!tid || !iid || !plate_number) return <PageNotFound />;
 
-    return (
-        <div>PaymentSucces</div>
-    );
+    if (isPending) return <div>Verifying your payment...</div>;
+    if (isError)   return <div>Something went wrong. Please contact support.</div>;
+    if (isSuccess) return <div>Payment confirmed! Thank you.</div>;
+
+    return null;
 };
 
 export default PaymentSucces;
