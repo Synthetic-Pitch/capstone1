@@ -22,7 +22,7 @@ export const useSupabaseLogin = (plate_number: string) => {
       }
 
       const data = await response.json();
-
+      
       const status = data?.TRANSACTION?.transaction_status ?? null;
       dispatch(transaction_status(status));
       

@@ -97,7 +97,7 @@ const ProfilePage = () => {
                         </span>
                     </div>
                 </div>
-
+                
                 <h1 className="font-bold py-4">DRIVER INFORMATION</h1>
 
                 <hr className="w-[90%] max-w-300 bg-black h-0.5" />
@@ -165,17 +165,16 @@ const ProfilePage = () => {
                                 {transactionStatus}
                             </span>
                         )}
-
                         {dataReady &&
                             !transactionStatus &&
                             !notFound && (
-                                <span className="font-normal">
+                                <span className=" font-bold">
                                     {" "}
                                     no transaction
                                 </span>
                             )}
                             {notFound && (
-                                <span className="font-normal">
+                                <span className=" font-bold">
                                     {" "}
                                     no transaction
                                 </span>
@@ -184,8 +183,11 @@ const ProfilePage = () => {
                     <div className="mr-70 flex gap-2">
                         <span className="">total-amount</span> :
                         {dataReady && (
-                            <span className=" font-bold"> &#8369; {data?.TRANSACTION.total_amount}</span>
+                            <span className="font-bold">&#8369; {data?.TRANSACTION.total_amount}</span>
                         )}
+                        {
+                            notFound && (<span className="font-bold">&#8369;0</span>)
+                        }
                     </div>
                 </div>
 
@@ -221,8 +223,6 @@ const ProfilePage = () => {
                                     </button>
                                 </div>
                             )}
-
-                            {/* pending = no button */}
                         </>
                     )}
                 </footer>
