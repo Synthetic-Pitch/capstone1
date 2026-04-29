@@ -17,6 +17,7 @@ import { useAppDispatch } from './store/hook'        // ← add
 import { setUser, clearUser } from './store/slices/auth-slice' // ← add
 import ProcessViolation from './page/ProcessViolation'
 import PayViolation from './page/PayViolation'
+import PaymentSucces from './page/PaymentSucces'
 
 gsap.registerPlugin(ScrollSmoother);
 
@@ -71,9 +72,10 @@ function App() {
           
            <Route path='/pay-violation/:plateNumber'>
             <Route index element={<PayViolation/>}/>
+            
             <Route path='*' element={<PageNotFound/>}/>  {/* catches anything extra */}
           </Route>
-          
+          <Route path='/pay-violation/success' element={<PaymentSucces/>}/>
           <Route path='*' element={<PageNotFound/>}/>  {/* catches anything extra */}
         </Routes>
 
