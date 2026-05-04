@@ -179,7 +179,7 @@ const PayViolation = () => {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
         >
-            <Card className="px-18 py-18 w-120 h-120 bg-[#f8f6f6] relative overflow-visible" ref={cardRef}>
+            <Card className="px-npm 18 py-18 w-120 h-120 bg-[#f8f6f6] relative overflow-visible" ref={cardRef}>
                 <h1 className="text-[#909090] text-center font-family-poppins">
                     Plate-number : {user_id}
                 </h1>

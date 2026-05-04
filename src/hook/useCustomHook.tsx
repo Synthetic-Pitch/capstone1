@@ -108,6 +108,7 @@ interface VerifyPaymentProps {
     intent_id: string;
     transaction_id: string;
     plate_number: string;
+    payment_method: string;
 }
 
 interface VerifyPaymentResponse {
@@ -115,14 +116,14 @@ interface VerifyPaymentResponse {
     message: string;
 }
 
-const verifyPaymentFn = async ({ intent_id, transaction_id, plate_number }: VerifyPaymentProps): Promise<VerifyPaymentResponse> => {
+const verifyPaymentFn = async ({ intent_id, transaction_id, plate_number,payment_method }: VerifyPaymentProps): Promise<VerifyPaymentResponse> => {
     const response = await fetch(`${BASE_URL}/verify-payment`, {
         method: "POST",
         headers: {
             "Authorization": `Bearer ${ANON_KEY}`,
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ intent_id, transaction_id, plate_number }),
+        body: JSON.stringify({ intent_id, transaction_id, plate_number, payment_method }),
     });
 
     if (!response.ok) {
