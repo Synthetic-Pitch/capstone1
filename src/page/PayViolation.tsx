@@ -179,17 +179,16 @@ const PayViolation = () => {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
         >
-            <Card className="px-npm 18 py-18 w-120 h-120 bg-[#f8f6f6] relative overflow-visible" ref={cardRef}>
+            <Card className="px-npm 18 py-18 w-120 h-120 bg-[#f8f6f6] relative overflow-visible flex flex-col " ref={cardRef}>
                 <h1 className="text-[#909090] text-center font-family-poppins">
                     Plate-number : {user_id}
                 </h1>
-
                 <PhoneInput
                     defaultCountry="PH"
                     placeholder="Enter phone number"
                     value={phone}
                     onChange={(value) => setPhone(value)}
-                    className="font-family-poppins w-full h-[10%]"
+                    className="font-family-poppins w-[70%] h-[10%] m-auto px-8"
                     inputComponent={LimitedInput}
                 />
 
