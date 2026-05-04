@@ -9,6 +9,7 @@ import shopeePay from "../assets/icons/shopeePay.png";
 import React from 'react';
 import gsap from 'gsap';
 import {useSubmitPayment} from "../hook/useCustomHook"
+import LoadingModal from "../components/Loading-Modal";
 
 const LimitedInput = forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>>(
     (props, ref) => (
@@ -37,7 +38,7 @@ const PayViolation = () => {
     const naturalCenterRef = useRef<{ x: number; y: number } | null>(null);
     const inTriggerZoneRef = useRef(false);
     const user_id = sessionStorage.getItem("plateNumber") || "";
-    const { mutate: submitPayment } = useSubmitPayment();
+    const { mutate: submitPayment,isPending } = useSubmitPayment();
     
     const isReady = paymentMethod.length > 0 && (phone?.length ?? 0) > 0;
 
@@ -57,6 +58,8 @@ const PayViolation = () => {
     useEffect(() => {
         captureNaturalCenter();
     }, []);
+
+   
 
     // Recapture on resize — ResizeObserver on the card detects layout shifts
     useEffect(() => {
@@ -164,7 +167,6 @@ const PayViolation = () => {
     const confirmPayment = () => {
         if (phone === undefined) return;
         if (paymentMethod.length > 0 && phone?.length > 0) {
-            console.log(paymentMethod, phone);
             submitPayment({
                 plate_number: user_id,
                 phone,
@@ -242,6 +244,7 @@ const PayViolation = () => {
                 </button>
                 </footer>
             </Card>
+            <LoadingModal isOpen={isPending} />
         </div>
     );
 };

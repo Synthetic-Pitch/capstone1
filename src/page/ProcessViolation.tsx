@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useSubmit } from "../hook/useCustomHook";
+import LoadingModal from "../components/Loading-Modal";
 
 const ProcessViolation = () => {
     // File objects — for sending to server
@@ -9,6 +10,7 @@ const ProcessViolation = () => {
     // Blob URLs — for displaying preview only
     const [preview1, setPreview1] = useState<string | null>(null);
     const [preview2, setPreview2] = useState<string | null>(null);
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     const { handleSubmit } = useSubmit({ file1, file2, setFile1, setFile2, setPreview1, setPreview2 });
 
@@ -44,6 +46,15 @@ const ProcessViolation = () => {
         setPreview2(null);
         const input = document.getElementById("input-ovr") as HTMLInputElement;
         if (input) input.value = "";
+    };
+
+    const onSubmit = async () => {
+        setIsSubmitting(true);
+        try {
+            await handleSubmit();
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -142,16 +153,16 @@ const ProcessViolation = () => {
                         />
                     </div>
                 </section>
-
-                {file1 && file2 && (
-                    <button
-                        onClick={handleSubmit}
-                        className="text-2xl bg-[#0b318f] max-w-min m-auto px-42 py-4 text-white rounded-2xl mt-12 cursor-pointer hover:scale-[1.05] transition-all duration-100"
-                    >
-                        submit
-                    </button>
-                )}
-            </section>
+                    {file1 && file2 && (
+                        <button
+                            onClick={onSubmit}
+                            className="text-2xl bg-[#0b318f] max-w-min m-auto px-42 py-4 text-white rounded-2xl mt-12 cursor-pointer hover:scale-[1.05] transition-all duration-100"
+                        >
+                            submit
+                        </button>
+                    )}
+                </section>
+            <LoadingModal isOpen={isSubmitting} />
         </div>
     );
 };
