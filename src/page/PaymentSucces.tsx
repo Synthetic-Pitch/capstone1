@@ -7,7 +7,7 @@ const PaymentSucces = () => {
     const [searchParams] = useSearchParams();
 
     const tid = searchParams.get('tid');
-    const iid = searchParams.get('payment_intent_id'); // PayMongo appends this automatically
+    const iid = searchParams.get('iid'); // PayMongo appends this automatically
     const plate_number = searchParams.get('pln');
 
     const { mutate: verifyPayment, isPending, isSuccess, isError } = useVerifyPayment();
