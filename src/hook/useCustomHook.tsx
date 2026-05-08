@@ -114,6 +114,7 @@ interface VerifyPaymentProps {
 interface VerifyPaymentResponse {
     success: boolean;
     message: string;
+    uuid: string; 
 }
 
 const verifyPaymentFn = async ({ intent_id, transaction_id, plate_number,payment_method }: VerifyPaymentProps): Promise<VerifyPaymentResponse> => {

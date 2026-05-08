@@ -6,23 +6,25 @@ import { QRCodeSVG } from 'qrcode.react';
 
 const PaymentSuccess = () => {
     const [searchParams] = useSearchParams();
-    const hasVerified = useRef(false); // prevent double-call in strict mode
+    const hasVerified = useRef(false);
 
     const tid = searchParams.get('tid');
     const iid = searchParams.get('iid');
     const plate_number = searchParams.get('pln');
     const payment_method = searchParams.get('pm');
 
-    const { mutate: verifyPayment, isPending, isSuccess, isError } = useVerifyPayment();
+    const { mutate: verifyPayment, isPending, isSuccess, isError, data } = useVerifyPayment();
 
-    // Check if already verified from a previous visit/refresh
     const alreadyVerified = sessionStorage.getItem(`verified_${tid}`);
+    const savedUuid = sessionStorage.getItem(`uuid_${tid}`);
+
+    const uuid = data?.uuid ?? savedUuid;
 
     useEffect(() => {
         if (!tid || !iid || !plate_number || !payment_method) return;
-        if (alreadyVerified) return; // skip if already verified
-        if (hasVerified.current) return; // skip double call in strict mode
-        
+        if (alreadyVerified) return;
+        if (hasVerified.current) return;
+
         hasVerified.current = true;
         verifyPayment({
             intent_id: iid,
@@ -30,28 +32,27 @@ const PaymentSuccess = () => {
             plate_number: plate_number,
             payment_method: payment_method,
         }, {
-            onSuccess: () => {
-                // Save to sessionStorage so refresh still shows success
+            onSuccess: (data) => {
                 sessionStorage.setItem(`verified_${tid}`, 'true');
+                sessionStorage.setItem(`uuid_${tid}`, data.uuid);
             }
         });
     }, [tid, iid, plate_number, payment_method]);
 
     if (!tid || !iid || !plate_number || !payment_method) return <PageNotFound />;
 
-    // Show success if either just verified OR previously verified
     const showSuccess = isSuccess || !!alreadyVerified;
-    
+
     return (
         <div className='h-dvh flex justify-center items-center text-center'>
             {showSuccess && (
                 <div>
-                    <p className='text-lg font-bold text-[#3ea13e] py-4 font-family-poppins '>
+                    <p className='text-lg font-bold text-[#3ea13e] py-4 font-family-poppins'>
                         Payment Confirmed! Thankyou.
                     </p>
                     <div className='flex flex-col items-center gap-2 desktop:flex-row justify-evenly'>
                         <QRCodeSVG 
-                            value={`https://violation.marikina.gov.ph/ticket/${tid}`}
+                            value={uuid ?? ''}
                             size={100}
                         />
                         <button className='font-bold text-xl cursor-pointer border-2 border-black py-2 px-6 self-center hover:bg-[#0B318F] hover:text-white transition-all duration-400'>
