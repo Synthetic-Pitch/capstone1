@@ -202,7 +202,7 @@ const ProfilePage = () => {
                                                 `/process-violation/${plateNumber}`
                                             )
                                         }
-                                        className="text-2xl text-white cursor-pointer"
+                                        className="text-2xl text-white cursor-pointer select-none"
                                     >
                                         process violation
                                     </button>
@@ -217,7 +217,7 @@ const ProfilePage = () => {
                                                 `/pay-violation/${plateNumber}`
                                             )
                                         }
-                                        className="text-2xl text-white cursor-pointer w-full h-full"
+                                        className="text-2xl text-white cursor-pointer w-full h-full select-none"
                                     >
                                         pay now
                                     </button>

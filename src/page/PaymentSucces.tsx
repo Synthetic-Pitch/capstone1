@@ -31,7 +31,7 @@ const PaymentSuccess = () => {
         link.download = `opss-qr-${uuid ?? 'ticket'}.png`;
         link.click();
     };
-
+    
     useEffect(() => {
         if (!tid || !iid || !plate_number || !payment_method) return;
         if (alreadyVerified) return;
