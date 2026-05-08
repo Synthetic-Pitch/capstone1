@@ -26,16 +26,32 @@ const PaymentSuccess = () => {
         const originalCanvas = qrRef.current?.querySelector('canvas');
         if (!originalCanvas) return;
 
-        // Scale it up 5x cleanly
         const scale = 5;
+        const padding = 20; // 👈 Add some white space (Quiet Zone)
         const newCanvas = document.createElement('canvas');
-        newCanvas.width = originalCanvas.width * scale;
-        newCanvas.height = originalCanvas.height * scale;
+        
+        // Set size including padding
+        newCanvas.width = (originalCanvas.width * scale) + (padding * 2);
+        newCanvas.height = (originalCanvas.height * scale) + (padding * 2);
+        
         const ctx = newCanvas.getContext('2d');
         if (!ctx) return;
 
-        ctx.imageSmoothingEnabled = false; // 👈 critical! keeps pixels sharp
-        ctx.drawImage(originalCanvas, 0, 0, newCanvas.width, newCanvas.height);
+        // 1. Fill with solid white (Critical for scanning!)
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, newCanvas.width, newCanvas.height);
+
+        // 2. Disable smoothing for sharp edges
+        ctx.imageSmoothingEnabled = false;
+
+        // 3. Draw the scaled QR code in the center
+        ctx.drawImage(
+            originalCanvas, 
+            padding, 
+            padding, 
+            originalCanvas.width * scale, 
+            originalCanvas.height * scale
+        );
 
         const url = newCanvas.toDataURL('image/png');
         const link = document.createElement('a');
@@ -43,6 +59,7 @@ const PaymentSuccess = () => {
         link.download = `opss-qr-${uuid ?? 'ticket'}.png`;
         link.click();
     };
+
     
     useEffect(() => {
         if (!tid || !iid || !plate_number || !payment_method) return;
