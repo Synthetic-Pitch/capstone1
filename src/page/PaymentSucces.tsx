@@ -23,9 +23,21 @@ const PaymentSuccess = () => {
 
     // 👇 download handler
     const handleDownload = () => {
-        const canvas = qrRef.current?.querySelector('canvas');
-        if (!canvas) return;
-        const url = canvas.toDataURL('image/png');
+        const originalCanvas = qrRef.current?.querySelector('canvas');
+        if (!originalCanvas) return;
+
+        // Scale it up 5x cleanly
+        const scale = 5;
+        const newCanvas = document.createElement('canvas');
+        newCanvas.width = originalCanvas.width * scale;
+        newCanvas.height = originalCanvas.height * scale;
+        const ctx = newCanvas.getContext('2d');
+        if (!ctx) return;
+
+        ctx.imageSmoothingEnabled = false; // 👈 critical! keeps pixels sharp
+        ctx.drawImage(originalCanvas, 0, 0, newCanvas.width, newCanvas.height);
+
+        const url = newCanvas.toDataURL('image/png');
         const link = document.createElement('a');
         link.href = url;
         link.download = `opss-qr-${uuid ?? 'ticket'}.png`;
