@@ -47,27 +47,27 @@ const PaymentSuccess = () => {
         <div className='h-dvh flex justify-center items-center text-center'>
             {showSuccess && (
                 <div>
-                    <p className='text-lg font-bold text-[#3ea13e] py-4 font-family-poppins'>
+                    <p className='text-4xl font-bold text-[#3ea13e] py-4 font-family-poppins'>
                         Payment Confirmed! Thankyou.
                     </p>
-                    <div className='flex flex-col items-center gap-2 desktop:flex-row justify-evenly'>
+                    <div className='flex flex-col items-center gap-2 desktop:flex-row justify-evenly my-6'>
                         <QRCodeSVG 
                             value={uuid ?? ''}
-                            size={100}
+                            size={200}
                         />
-                        <button className='font-bold text-xl cursor-pointer border-2 border-black py-2 px-6 self-center hover:bg-[#0B318F] hover:text-white transition-all duration-400'>
+                        <button className='font-bold text-4xl cursor-pointer border-2 border-black py-2 px-6 my-4 self-center hover:bg-[#0B318F] hover:text-white transition-all duration-400'>
                             Download
                         </button>
                     </div>
-                    <p className='text-[#575757] font-family-poppins text-[10px] pt-4'>
-                        Note! Download or take a screenshot of the QR code if vehicle was impounded
+                    <p className='text-[#575757] font-family-poppins pt-4 text-2xl'>
+                        Note! Download or take a screenshot of the QR code if vehicle was impounded,
                     </p>
-                    <p className='text-[#575757] font-family-poppins text-[10px]'>
+                    <p className='text-[#575757] font-family-poppins text-2xl'>
                         QR code is needed in Office when you go to retrieve the vehicle.
                     </p>
                 </div>
             )}
-
+            
             {isPending && !alreadyVerified && (
                 <div className='text-center font-family-poppins text-4xl'>
                     <p className='pb-6'>Verifying your payment...</p>

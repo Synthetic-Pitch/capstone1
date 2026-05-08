@@ -140,9 +140,6 @@ export const useVerifyPayment = () => {
         mutationFn: verifyPaymentFn,
         onError: (error) => {
             console.error("Verification failed:", error.message);
-        },
-        onSuccess: (data) => {
-            console.log("Verification successful:", data);
         }
     });
 };
