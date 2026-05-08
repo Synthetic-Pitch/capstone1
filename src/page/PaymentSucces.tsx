@@ -36,12 +36,12 @@ const PaymentSuccess = () => {
             }
         });
     }, [tid, iid, plate_number, payment_method]);
-    
+
     if (!tid || !iid || !plate_number || !payment_method) return <PageNotFound />;
 
     // Show success if either just verified OR previously verified
     const showSuccess = isSuccess || !!alreadyVerified;
-
+    
     return (
         <div className='h-dvh flex justify-center items-center text-center'>
             {showSuccess && (
