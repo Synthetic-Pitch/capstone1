@@ -2,12 +2,12 @@ import { useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import PageNotFound from './PageNotFound';
 import { useVerifyPayment } from '../hook/useCustomHook';
-import { QRCodeCanvas } from 'qrcode.react';
+import { QRCodeCanvas } from 'qrcode.react'; // 👈 changed to QRCodeCanvas
 
 const PaymentSuccess = () => {
     const [searchParams] = useSearchParams();
     const hasVerified = useRef(false);
-    const qrRef = useRef<HTMLDivElement>(null);
+    const qrRef = useRef<HTMLDivElement>(null); // 👈 ref for QR container
 
     const tid = searchParams.get('tid');
     const iid = searchParams.get('iid');
@@ -21,8 +21,7 @@ const PaymentSuccess = () => {
 
     const uuid = data?.uuid ?? savedUuid;
 
-    const qrValue = uuid ? `https://violation.marikina.gov.ph/verify/${uuid}` : '';
-
+    // 👇 download handler
     const handleDownload = () => {
         const canvas = qrRef.current?.querySelector('canvas');
         if (!canvas) return;
@@ -32,7 +31,7 @@ const PaymentSuccess = () => {
         link.download = `opss-qr-${uuid ?? 'ticket'}.png`;
         link.click();
     };
-
+    
     useEffect(() => {
         if (!tid || !iid || !plate_number || !payment_method) return;
         if (alreadyVerified) return;
@@ -64,23 +63,14 @@ const PaymentSuccess = () => {
                         Payment Confirmed! Thankyou.
                     </p>
                     <div className='flex flex-col items-center gap-2 desktop:flex-row justify-evenly my-6'>
-
-                        {/* Visible QR - display only */}
-                        <QRCodeCanvas
-                            value={qrValue}
-                            size={200}
-                        />
-
-                        {/* Hidden high-res QR - for download */}
-                        <div ref={qrRef} style={{ display: 'none' }}>
-                            <QRCodeCanvas
-                                value={qrValue}
-                                size={1000}
+                        <div ref={qrRef}> 
+                            <QRCodeCanvas 
+                                value={'Hellowolrd'}
+                                size={200}
                             />
                         </div>
-
                         <button
-                            onClick={handleDownload}
+                            onClick={handleDownload} 
                             className='font-bold text-4xl cursor-pointer border-2 border-black py-2 px-6 my-4 self-center hover:bg-[#0B318F] hover:text-white transition-all duration-400'>
                             Download
                         </button>
