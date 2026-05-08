@@ -2,11 +2,12 @@ import { useEffect, useRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import PageNotFound from './PageNotFound';
 import { useVerifyPayment } from '../hook/useCustomHook';
-import { QRCodeSVG } from 'qrcode.react';
+import { QRCodeCanvas } from 'qrcode.react'; // 👈 changed to QRCodeCanvas
 
 const PaymentSuccess = () => {
     const [searchParams] = useSearchParams();
     const hasVerified = useRef(false);
+    const qrRef = useRef<HTMLDivElement>(null); // 👈 ref for QR container
 
     const tid = searchParams.get('tid');
     const iid = searchParams.get('iid');
@@ -19,6 +20,17 @@ const PaymentSuccess = () => {
     const savedUuid = sessionStorage.getItem(`uuid_${tid}`);
 
     const uuid = data?.uuid ?? savedUuid;
+
+    // 👇 download handler
+    const handleDownload = () => {
+        const canvas = qrRef.current?.querySelector('canvas');
+        if (!canvas) return;
+        const url = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `opss-qr-${uuid ?? 'ticket'}.png`;
+        link.click();
+    };
 
     useEffect(() => {
         if (!tid || !iid || !plate_number || !payment_method) return;
@@ -51,11 +63,15 @@ const PaymentSuccess = () => {
                         Payment Confirmed! Thankyou.
                     </p>
                     <div className='flex flex-col items-center gap-2 desktop:flex-row justify-evenly my-6'>
-                        <QRCodeSVG 
-                            value={uuid ?? ''}
-                            size={200}
-                        />
-                        <button className='font-bold text-4xl cursor-pointer border-2 border-black py-2 px-6 my-4 self-center hover:bg-[#0B318F] hover:text-white transition-all duration-400'>
+                        <div ref={qrRef}> 
+                            <QRCodeCanvas 
+                                value={uuid ?? ''}
+                                size={200}
+                            />
+                        </div>
+                        <button
+                            onClick={handleDownload} 
+                            className='font-bold text-4xl cursor-pointer border-2 border-black py-2 px-6 my-4 self-center hover:bg-[#0B318F] hover:text-white transition-all duration-400'>
                             Download
                         </button>
                     </div>
@@ -67,7 +83,7 @@ const PaymentSuccess = () => {
                     </p>
                 </div>
             )}
-            
+
             {isPending && !alreadyVerified && (
                 <div className='text-center font-family-poppins text-4xl'>
                     <p className='pb-6'>Verifying your payment...</p>
