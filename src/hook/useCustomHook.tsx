@@ -130,9 +130,7 @@ const verifyPaymentFn = async ({ intent_id, transaction_id, plate_number,payment
         const err = await response.json();
         throw new Error(err.error ?? "Verification failed");
     }
-    const res = response.json() as Promise<VerifyPaymentResponse>;
-    console.log(res);
-    
+        
     
     return response.json() as Promise<VerifyPaymentResponse>;
 };
