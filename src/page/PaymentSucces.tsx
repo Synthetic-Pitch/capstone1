@@ -43,13 +43,13 @@ const PaymentSuccess = () => {
     const showSuccess = isSuccess || !!alreadyVerified;
 
     return (
-        <div className='h-dvh flex justify-center items-center'>
+        <div className='h-dvh flex justify-center items-center text-center'>
             {showSuccess && (
                 <div>
-                    <p className='text-lg font-bold text-[#3ea13e] py-4 font-family-poppins'>
+                    <p className='text-lg font-bold text-[#3ea13e] py-4 font-family-poppins '>
                         Payment Confirmed! Thankyou.
                     </p>
-                    <div className='flex justify-evenly'>
+                    <div className='flex flex-col items-center gap-2 desktop:flex-row justify-evenly'>
                         <QRCodeSVG 
                             value={`https://violation.marikina.gov.ph/ticket/${tid}`}
                             size={100}
