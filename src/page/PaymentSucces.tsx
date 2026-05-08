@@ -22,7 +22,7 @@ const PaymentSuccess = () => {
         if (!tid || !iid || !plate_number || !payment_method) return;
         if (alreadyVerified) return; // skip if already verified
         if (hasVerified.current) return; // skip double call in strict mode
-
+        
         hasVerified.current = true;
         verifyPayment({
             intent_id: iid,
@@ -36,7 +36,7 @@ const PaymentSuccess = () => {
             }
         });
     }, [tid, iid, plate_number, payment_method]);
-
+    
     if (!tid || !iid || !plate_number || !payment_method) return <PageNotFound />;
 
     // Show success if either just verified OR previously verified
