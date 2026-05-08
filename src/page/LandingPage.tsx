@@ -9,7 +9,7 @@ const LandingPage = () => {
             <Navbar />
             <Mobile className=" tablet:hidden"/>
             <Tablet className="hidden tablet:block desktop:hidden "/>
-            <Desktop className="hidden desktop:flex flex-col w-full relative overflow-hidden"/>
+            <Desktop className="hidden desktop:flex flex-col w-full relative overflow-hidden select-none"/>
         </div>
     );
 };

@@ -36,7 +36,7 @@ const PaymentSuccess = () => {
         
         const ctx = newCanvas.getContext('2d');
         if (!ctx) return;
-
+        
         // 1. Fill with solid white (Critical for scanning!)
         ctx.fillStyle = "#ffffff";
         ctx.fillRect(0, 0, newCanvas.width, newCanvas.height);

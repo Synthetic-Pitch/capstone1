@@ -60,12 +60,12 @@ const Desktop = ({className}:DesktopSize) => {
                     <header className=' w-full h-[30%] flex flex-col items-center'>
                         <p className='h-[20%] text-white flex items-center font-family-poppins'>Marikina City Traffic Management</p>
                         <center className='flex items-center gap-4 h-[40%]'>
-                            <img src={Logo1} alt="" style={{objectFit:'cover',height:'90px'}}/>
+                            <img src={Logo1} alt="" style={{objectFit:'cover',height:'90px'}} draggable={false}/>
                             <aside className='text-4xl font-family-poppins font-bold text-white  ml-9'>
                                 <h1>Online Traffic Violation</h1>
                                 <h1>Payment System</h1>
                             </aside>
-                            <img src={Logo2} alt="" style={{objectFit:'cover',height:'120px'}}/>
+                            <img src={Logo2} alt="" style={{objectFit:'cover',height:'120px'}} draggable={false}/>
                         </center>
                         <footer  className='h-[40%] flex flex-col justify-center gap-4 text-xl text-center text-white font-family-mozilla'>
                             <p>A Web-Based System for Online Traffic Violation Payment, Document</p>
