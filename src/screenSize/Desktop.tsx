@@ -28,14 +28,14 @@
     import IsRotating from '../components/IsRotating';
 
     const Desktop = ({className}:DesktopSize) => {
-
+        
         return (
             <div className={className}>
-                <section  id='landingPage' className='h-(calc(880px-56px)) w-full flex justify-center relative bg-[#925b5b]'>
+                <section  id='landingPage' className='h-[calc(880px-56px)] min-h-[680px] w-full flex justify-center relative bg-[#925b5b]'>
                     
                     <div className="h-full w-full bg-[#3085c1] absolute opacity-[0.75] text-white z-2"/>
             
-                    <section className="h-full w-full max-w-300 bg-[#ca3c3c] relative container">
+                    <section className="h-full w-full max-w-300 relative container">
                         <div style={{gridArea: 'box1',display:'flex',justifyContent:'center',alignItems:'center',position:'relative'}}>
                         <img src={Img1} alt="" style={{objectFit:"cover",width:"100%",height:"100%"}} />
                         </div>

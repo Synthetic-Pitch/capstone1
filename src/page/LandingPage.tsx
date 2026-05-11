@@ -11,8 +11,8 @@ const LandingPage = () => {
     return (
         <div className="flex flex-col items-center">
             <Navbar />
-            {bp === "mobile"  && <Mobile className={""} />}
-            {bp === "tablet"  && <Tablet className="hidden tablet:block desktop:hidden "/>}
+            {bp === "mobile"  && <Mobile className={"tablet:hidden"} />}
+            {bp === "tablet"  && <Tablet className="hidden tablet:block desktop:hidden w-full"/>}
             {bp === "desktop" && <Desktop className="hidden desktop:flex flex-col w-full relative overflow-hidden select-none"/>}
         </div>
     );
