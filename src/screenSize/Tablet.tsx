@@ -3,7 +3,9 @@ type SizeType = {
 }
 const Tablet = ({className}:SizeType) => {
     return (
-        <div className={className}>Tablet</div>
+        <div className={className}>
+            asdasd
+        </div>
     );
 };
 
