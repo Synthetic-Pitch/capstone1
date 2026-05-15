@@ -31,7 +31,7 @@
         
         return (
             <div className={className}>
-                <section  id='landingPage' className='h-[calc(880px-56px)] min-h-[680px] w-full flex justify-center relative bg-[#925b5b]'>
+                <section  id='landingPage' className='h-[calc(880px-56px)] min-h-170 w-full flex justify-center relative bg-[#925b5b]'>
                     
                     <div className="h-full w-full bg-[#3085c1] absolute opacity-[0.75] text-white z-2"/>
             
@@ -142,6 +142,7 @@
                         </footer>
                     </main>
                 </section>
+                
                 <section id='stickySection' className='h-220 max-h-250 bg-[#cbe0f2] flex flex-col items-center '>
                     <header className='h-[60%] w-full max-w-300 flex'>
                         <main className='w-[60%] h-full flex flex-col'>
@@ -166,7 +167,7 @@
                         </div>
                     </footer>
                 </section>
-                <section className='h-220 max-h-300 w-full z-20 bg-[#cbe0f2] sticky top-0 flex flex-col justify-center items-center'>
+                <section className='h-190 max-h-300 w-full z-20 bg-[#cbe0f2] sticky top-0 flex flex-col justify-center items-center'>
                     <h1 className='text-3xl font-bold font-family-azeret'>TUTORIAL VIDEO</h1>
                     <p className='text-xl font-family-poppins text-gray-500 mb-4 mt-2'>Step by step guide on viewing and paying your traffic violations online securely </p>
                     <div className='relative h-[80%] w-[90%] max-w-300 border-4 rounded-[4rem] border-black flex items-center justify-center '>

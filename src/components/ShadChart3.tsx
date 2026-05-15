@@ -51,7 +51,7 @@ export function ShadChart3() {
   }
 
   return (
-    <div id="CobChart" className="w-[30%]">
+    <div id="CobChart" className="w-[25%]">
       <CardHeader className="items-center">
        
         <CardDescription>
@@ -62,7 +62,7 @@ export function ShadChart3() {
         <ChartContainer
           key={key}
           config={chartConfig}
-          className="mx-auto aspect-square max-h-62.5"
+        className=" mx-auto aspect-square max-h-62.5"
         >
           <RadarChart data={chartData}  margin={{ right: 80, left: 20 }}>
             <ChartTooltip cursor={false} content={<ChartTooltipContent />} />

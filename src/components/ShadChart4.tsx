@@ -53,7 +53,7 @@ export function ShadChart4() {
   };
 
   return (
-    <div className="flex flex-col w-[30%] h-[90%]">
+    <div className="flex flex-col w-[30%] h-[60%]">
       <CardHeader id="RadicalChart" className="items-center pb-0">
         <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
@@ -64,17 +64,17 @@ export function ShadChart4() {
           className="mx-auto aspect-square max-h-62.5"
         >
           <RadialBarChart
-            data={chartData}
-            endAngle={100}
-            innerRadius={80}
-            outerRadius={140}
+              data={chartData}
+              endAngle={100}
+              innerRadius={60}   // ← was 80
+              outerRadius={100}  // ← was 140
           >
             <PolarGrid
               gridType="circle"
               radialLines={false}
               stroke="none"
               className="first:fill-muted last:fill-background"
-              polarRadius={[86, 74]}
+              polarRadius={[60, 50]}
             />
             <RadialBar dataKey="visitors" background isAnimationActive={true}/>
             <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
@@ -91,7 +91,7 @@ export function ShadChart4() {
                         <tspan
                           x={viewBox.cx}
                           y={viewBox.cy}
-                          className="fill-foreground text-4xl font-bold"
+                          className="fill-foreground text-3xl font-bold"
                         >
                           {chartData[0].visitors.toLocaleString()}
                         </tspan>

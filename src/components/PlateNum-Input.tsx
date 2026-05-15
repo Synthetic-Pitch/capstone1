@@ -17,14 +17,14 @@ const PlateNumInput = () => {
         <>  
             {
                 errorOccured && (
-                    <h1 className="absolute top-0 text-[90%] bg-[rgb(255,0,0,.4)] px-7 text-white font-family-poppins">
+                    <h1 className="absolute top-0 text-[90%] bg-[rgb(255,0,0,.4)] px-7 text-white font-family-poppins -mt-3">
                         Invalid Plate number try again
                     </h1>
                 )
             }
             <input
                 type="text" 
-                className='w-[80%] h-[70%] bg-[white] outline-0 px-4 rounded-xl border-red-500 ' 
+                className='w-full tablet:w-[80%] h-16 bg-[white] outline-0 px-4 rounded-xl border-red-500 text-xl' 
                 placeholder='e.g ABC1234'
                 value={plateNumber}
                 onChange={handleChange}

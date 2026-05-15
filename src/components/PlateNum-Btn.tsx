@@ -40,7 +40,7 @@ const PlateNumBtn = () => {
         <>  
             <button 
                 onClick={handleClick}
-                className='text-white text-xl bg-[#00167a] px-10 py-2 font-family-noto-kr hover:scale-105 transition-all duration-205 cursor-pointer'
+                className='text-white text-xl bg-[#00167a] px-20 py-4 font-family-noto-kr hover:scale-105 transition-all duration-205 cursor-pointer'
             >
                 enter
             </button>
