@@ -82,7 +82,7 @@ const AnnouncementMap = () => {
     }, { scope: containerRef });
     
     return (
-        <div ref={containerRef} className='grid grid-cols-2 relative z-10 py-12 px-8'>
+        <div ref={containerRef} className='grid tablet:grid-cols-2 relative z-10 py-12 px-8'>
             <div className='bg-[#78bae9] absolute h-full w-full opacity-[.5] z-2 rounded-t-2xl'/>
             {
                 announcement.map((item) => {

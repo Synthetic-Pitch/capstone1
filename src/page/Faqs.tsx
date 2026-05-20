@@ -3,9 +3,9 @@ import DesktopFaqs from "../screenSize/Desktop-Faqs";
 
 const Faqs = () => {
     return (
-        <div>
+        <div className="min-h-screen">
             <Navbar/>
-            <DesktopFaqs classname="hidden desktop:flex flex-col items-center"/>
+            <DesktopFaqs classname="px-6 desktop:p-0 desktop:flex flex-col items-center"/>
         </div>
     );
 };

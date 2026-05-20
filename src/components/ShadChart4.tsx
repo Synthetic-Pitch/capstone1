@@ -53,9 +53,9 @@ export function ShadChart4() {
   };
 
   return (
-    <div className="flex flex-col w-[30%] h-[60%]">
+    <div className="flex flex-col w-full tablet:w-[30%] h-[60%]">
       <CardHeader id="RadicalChart" className="items-center pb-0">
-        <CardDescription>January - June 2024</CardDescription>
+        <CardDescription className="text-center">January - June 2024</CardDescription>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer
@@ -112,7 +112,7 @@ export function ShadChart4() {
         </ChartContainer>
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
-        <div className="flex items-center gap-2 leading-none font-medium">
+        <div className="flex items-center gap-2 leading-none font-medium ">
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
         <div className="text-muted-foreground leading-none">

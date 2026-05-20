@@ -190,7 +190,7 @@ const Tablet = ({ className }: SizeType) => {
             </section>
 
             {/* Phase 3 */}
-            <section className='h-140 max-h-300 w-full z-20 bg-[#cbe0f2] sticky top-0 flex flex-col justify-center items-center'>
+            <section className='h-140 max-h-300 w-full z-20 bg-[#cbe0f2] flex flex-col justify-center items-center'>
                     <h1 className='text-xl font-bold font-family-azeret'>TUTORIAL VIDEO</h1>
                     <p className='text-xl font-family-poppins text-gray-500 mb-4 mt-2 text-center text-[14px]'>Step by step guide on viewing and paying your traffic violations online securely </p>
                     <div className='relative h-[80%] w-[90%] max-w-300 border-4 rounded-[4rem] border-black flex items-center justify-center '>

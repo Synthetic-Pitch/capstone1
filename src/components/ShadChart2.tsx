@@ -60,7 +60,7 @@ export function ChadChart2() {
     setKey(prevKey => prevKey + 1);
   }
   return (
-    <Card id="BarChart" className="w-full">
+    <Card id="BarChart" className="w-full no-popup">
       <CardHeader>
         <CardTitle>Bar Chart - Violation | Count</CardTitle>
         <CardDescription>July 2025 - January 2026</CardDescription>

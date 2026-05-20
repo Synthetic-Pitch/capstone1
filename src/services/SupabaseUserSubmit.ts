@@ -7,7 +7,6 @@ export const useSupabaseLogin = (plate_number:string) => {
         const response = await fetch("https://gbvpdhqscwuaymsddvms.supabase.co/functions/v1/request-approval",{
           method:"POST",
           headers:{
-            "Content-Type":"application/json",
             "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`
           },
           body: JSON.stringify({plate_number})

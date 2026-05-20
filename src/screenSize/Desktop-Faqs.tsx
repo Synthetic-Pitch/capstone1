@@ -39,16 +39,16 @@ const Faqs = [
 const DesktopFaqs = ({classname}:Props) => {
     return (
         <div className={classname}>
-            <h1 className="w-full max-w-300 text-6xl font-bold font-family-poetsen  my-6 text-[#c1c1c1]">FAQS</h1>
+            <h1 className="w-full max-w-300 text-3xl desktop:text-6xl font-bold font-family-poetsen  my-6 text-[#c1c1c1]">FAQS</h1>
             <div className="w-full max-w-300  bg-[red]px-8">
                 {
                     Faqs.map((item)=>(
                         <Accordion key={item.id} type="single" collapsible defaultValue="item-1">
                             <AccordionItem value={`item-${item.id}`}>
-                                <AccordionTrigger className="text-2xl [&>svg]:h-6 [&>svg]:w-6 font-family-poppins" >
+                                <AccordionTrigger className="text-xl desktop:text-2xl [&>svg]:h-6 [&>svg]:w-6 font-family-poppins" >
                                     {item.question}
                                 </AccordionTrigger>
-                                <AccordionContent className="pl-8 pr-18 font-family-poppins text-xl">
+                                <AccordionContent className="pl-8 desktop:pr-18 font-family-poppins text-xl">
                                     {item.answer}
                                 </AccordionContent>
                             </AccordionItem>

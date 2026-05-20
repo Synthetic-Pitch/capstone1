@@ -72,7 +72,7 @@ const AboutUsSection3 = () => {
         "Dahil sa mga bantay na laging handang umagapay,",
         "Kaayusan ng baya'y nakakamit na tunay.",
     ];
-
+    
     let lineIndex = 0;
 
     return (

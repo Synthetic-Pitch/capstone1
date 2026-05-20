@@ -47,7 +47,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
     }
 
     return (
-        <ChartContainer key={key} config={chartConfig} className="w-full h-full"> 
+        <ChartContainer key={key} config={chartConfig} className="w-full h-full "> 
             <AreaChart data={chartData}>
                 <CartesianGrid vertical={false} stroke="#000000" strokeOpacity={0.5} />
                 <XAxis

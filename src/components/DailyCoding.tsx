@@ -3,16 +3,14 @@ import Img1 from '../assets/images/7.jpg'
 
 const DailyCoding = () => {
 
-
-    
     return (
         <div className="h-full tablet:h-[90%] w-full grid grid-cols-3 gap-2 " >
                 <section className="h-full flex flex-col items-center justify-evenly">
-                <div className="h-20 tablet:h-25 desktop:h-40 w-20 tablet:w-25 desktop:w-[70%] bg-[#00167a] rounded-full flex flex-col items-center justify-center hover:translate-x-4 transition-all hover:scale-[.9] duration-200 cursor-default select-none! touch-manipulation">
+                <div className="h-25 tablet:h-25 desktop:h-40 w-25 tablet:w-25 desktop:w-[70%] bg-[#00167a] rounded-full flex flex-col items-center justify-center hover:translate-x-4 transition-all hover:scale-[.9] duration-200 cursor-default select-none! touch-manipulation">
                     <h1 className="text-white font-family-poppins tablet:text-[.8em] desktop:text-xl">Monday</h1>
                     <h2 className=" desktop:text-4xl tablet:text-3xl font-family-poetsen text-white">1-2</h2>
                 </div>
-                <div className="h-20 tablet:h-25 desktop:h-40 w-20 tablet:w-25 desktop:w-[70%] bg-[#00167abd] rounded-full flex flex-col items-center justify-center hover:translate-x-4 hover:-translate-y-4 hover:scale-[.9] transition-all duration-200 cursor-default select-none">
+                <div className="h-25 tablet:h-25 desktop:h-40 w-25 tablet:w-25 desktop:w-[70%] bg-[#00167abd] rounded-full flex flex-col items-center justify-center hover:translate-x-4 hover:-translate-y-4 hover:scale-[.9] transition-all duration-200 cursor-default select-none">
                     <h1 className="text-white font-family-poppins tablet:text-[.8em] desktop:text-xl">Tuesday</h1>
                     <h2 className="desktop:text-4xl tablet:text-3xl font-family-poetsen text-white">3-4</h2>
                 </div>
@@ -27,18 +25,18 @@ const DailyCoding = () => {
                         <p>Today's Coding</p>
                     </div>
                 </main>
-                <div className="h-20 tablet:h-25 desktop:h-40 w-20  tablet:w-25 desktop:w-[70%] bg-[#00167a8c] rounded-full my-auto mx-auto flex flex-col items-center justify-center hover:-translate-y-4 hover:scale-[.9] transition-all duration-200 cursor-default select-none">
+                <div className="h-25 tablet:h-25 desktop:h-40 w-25  tablet:w-25 desktop:w-[70%] bg-[#00167a8c] rounded-full my-auto mx-auto flex flex-col items-center justify-center hover:-translate-y-4 hover:scale-[.9] transition-all duration-200 cursor-default select-none">
                     <h1 className="text-white font-family-poppins tablet:text-[.8em] desktop:text-xl">Wednesday</h1>
                     <h2 className="tablet:text-3xl desktop:text-4xl font-family-poetsen text-white">5-6</h2>
                 </div>
             </section>
 
             <section className="h-full flex flex-col items-center justify-evenly ">
-                <div className="h-20 tablet:h-25 desktop:h-40 w-20  tablet:w-25 desktop:w-[70%] bg-[#00167a2a] rounded-full flex flex-col items-center justify-center cursor-default hover:-translate-x-4 hover:scale-[.9] transition-all duration-200 select-none">
+                <div className="h-25 tablet:h-25 desktop:h-40 w-25  tablet:w-25 desktop:w-[70%] bg-[#00167a2a] rounded-full flex flex-col items-center justify-center cursor-default hover:-translate-x-4 hover:scale-[.9] transition-all duration-200 select-none">
                     <h1 className="text-white font-family-poppins tablet:text-[.8em] desktop:text-xl">Friday</h1>
                     <h2 className="desktop:text-4xl tablet:text-3xl font-family-poetsen text-white">9-0</h2>
                 </div>
-                <div className="h-20 tablet:h-25 desktop:h-40 w-20  tablet:w-25 desktop:w-[70%] bg-[#00167a50] rounded-full flex flex-col items-center justify-center cursor-default hover:-translate-x-4 hover:-translate-y-4 hover:scale-[.9] transition-all duration-200 select-none">
+                <div className="h-25 tablet:h-25 desktop:h-40 w-25  tablet:w-25 desktop:w-[70%] bg-[#00167a50] rounded-full flex flex-col items-center justify-center cursor-default hover:-translate-x-4 hover:-translate-y-4 hover:scale-[.9] transition-all duration-200 select-none">
                     <h1 className="text-white font-family-poppins tablet:text-[.8em] desktop:text-xl">Thursday</h1>
                     <h2 className="desktop:text-4xl tablet:text-3xl font-family-poetsen text-white">7-8</h2>
                 </div>

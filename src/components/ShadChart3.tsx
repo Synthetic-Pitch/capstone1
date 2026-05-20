@@ -51,14 +51,14 @@ export function ShadChart3() {
   }
 
   return (
-    <div id="CobChart" className="w-[25%]">
+    <div id="CobChart" className="w-full tablet:w-[25%] select-none" onContextMenu={(e) => e.preventDefault()}>
       <CardHeader className="items-center">
        
         <CardDescription>
           Showing total visitors for the last 6 months
         </CardDescription>
       </CardHeader>
-      <CardContent className="pb-0">
+      <CardContent className="pb-0 select-none" >
         <ChartContainer
           key={key}
           config={chartConfig}

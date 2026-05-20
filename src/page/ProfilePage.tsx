@@ -59,177 +59,190 @@ const ProfilePage = () => {
     };
 
     return (
-        <div className="bg-[#cbe0f2] min-h-screen overflow-y-auto">
-            <section className="hidden desktop:flex flex-col items-center w-full min-h-screen py-2 pb-10">
-                <h1 className="font-bold py-4">VEHICLE INFORMATION</h1>
 
-                <hr className="w-[90%] max-w-300 bg-black h-0.5" />
+            <main className="bg-[#cbe0f2] min-h-screen overflow-y-auto">
+                <section className="hidden tablet:flex flex-col items-center w-full min-h-screen py-2 pb-10 font-family-poppins">
+                    <h1 className="font-bold py-4 tablet:text-sm desktop:text-xl">VEHICLE INFORMATION</h1>
 
-                <div className="w-full max-w-300 py-4 px-6 flex text-md gap-4">
-                    <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold">
-                        Plate-Number :
-                        <span className="font-normal">
-                            {" "}
-                            {plateNumber}
-                        </span>
-                    </div>
+                    <hr className="w-[90%] max-w-300 bg-black h-0.5" />
 
-                    <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold">
-                        Vehicle Color :
-                        <span className="font-normal">
-                            {displayValue(data?.vehicle_color)}
-                        </span>
-                    </div>
-                </div>
-
-                <div className="w-full max-w-300 py-4 px-6 flex text-md gap-4">
-                    <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold">
-                        Vehicle Type :
-                        <span className="font-normal">
-                            {displayValue(data?.vehicle_type)}
-                        </span>
-                    </div>
-
-                    <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold">
-                        Vehicle Model :
-                        <span className="font-normal">
-                            {displayValue(data?.vehicle_model)}
-                        </span>
-                    </div>
-                </div>
-                
-                <h1 className="font-bold py-4">DRIVER INFORMATION</h1>
-
-                <hr className="w-[90%] max-w-300 bg-black h-0.5" />
-
-                <div className="w-full max-w-300 py-4 px-6 flex text-md gap-4">
-                    <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold">
-                        Name :
-                        <span className="font-normal">
-                            {displayValue(data?.driver_name)}
-                        </span>
-                    </div>
-
-                    <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold">
-                        Address :
-                        <span className="font-normal">
-                            {displayValue(data?.driver_address)}
-                        </span>
-                    </div>
-                </div>
-
-                <div className="font-bold py-4 bg-[#0b318f] text-white w-full">
-                    <div className="flex max-w-300 m-auto justify-evenly text-start">
-                        <div className="w-[30%]">Violation List</div>
-                        <div className="w-[30%]">Issued Location</div>
-                        <div className="w-[30%]">Issued Date</div>
-                    </div>
-                </div>
-
-                <div className="w-full max-w-300 py-4 text-md">
-                    {dataReady &&
-                        data?.VIOLATION?.map(
-                            (item: any, index: number) => (
-                                <div
-                                    key={index}
-                                    className="flex justify-evenly w-full py-1"
-                                >
-                                    <div className="w-[30%]">
-                                        {item.violation}
-                                    </div>
-
-                                    <div className="w-[30%]">
-                                        {item.issued_location}
-                                    </div>
-
-                                    <div className="w-[30%]">
-                                        {item.issued_date}
-                                    </div>
-                                </div>
-                            )
-                        )}
-
-                    {notFound && (
-                        <div className="px-6">no record found</div>
-                    )}
-                </div>
-
-                <hr className="w-[90%] max-w-300 bg-black h-0.5" />
-
-                <div className="flex w-full max-w-300 px-8 text-xl py-8 justify-between">
-                    <div >
-                        Transaction Status :
-                        {dataReady && transactionStatus && (
-                            <span className="font-bold">
+                    <aside className="w-full max-w-300 py-4 px-6 flex tablet:text-[12px] desktop:text-[1em] gap-4">
+                        <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold">
+                            Plate-Number :
+                            <span className="font-normal">
                                 {" "}
-                                {transactionStatus}
+                                {plateNumber}
                             </span>
-                        )}
+                        </div>
+
+                        <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold desktop:text-md">
+                            Vehicle Color :
+                            <span className="font-normal">
+                                {displayValue(data?.vehicle_color)}
+                            </span>
+                        </div>
+                    </aside>
+
+                    <aside className="w-full max-w-300 py-4 px-6 flex  gap-4 tablet:text-[12px] desktop:text-[1em]">
+                        <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold">
+                            Vehicle Type :
+                            <span className="font-normal">
+                                {displayValue(data?.vehicle_type)}
+                            </span>
+                        </div>
+
+                        <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold">
+                            Vehicle Model :
+                            <span className="font-normal">
+                                {displayValue(data?.vehicle_model)}
+                            </span>
+                        </div>
+                    </aside>
+                    
+                    <h1 className="font-bold py-4 tablet:text-sm desktop:text-xl">DRIVER INFORMATION</h1>
+
+                    <hr className="w-[90%] max-w-300 bg-black h-0.5" />
+
+                    <div className="w-full max-w-300 py-4 px-6 flex text-md gap-4">
+                        <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold tablet:text-[12px] desktop:text-[1em]">
+                            Name :
+                            <span className="font-normal">
+                                {displayValue(data?.driver_name)}
+                            </span>
+                        </div>
+
+                        <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold tablet:text-[12px] desktop:text-[1em]">
+                            Address :
+                            <span className="font-normal">
+                                {displayValue(data?.driver_address)}
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div className="font-bold py-4 bg-[#0b318f] text-white w-full">
+                        <div className="flex max-w-300 m-auto justify-evenly text-start tablet:text-[12px] desktop:text-[1em]">
+                            <div className="w-[30%]">Violation List</div>
+                            <div className="w-[30%]">Issued Location</div>
+                            <div className="w-[30%]">Issued Date</div>
+                        </div>
+                    </div>
+
+                    <div className="w-full max-w-300 py-4 text-md">
                         {dataReady &&
-                            !transactionStatus &&
-                            !notFound && (
-                                <span className=" font-bold">
-                                    {" "}
-                                    no transaction
-                                </span>
+                            data?.VIOLATION?.map(
+                                (item: any, index: number) => (
+                                    <div
+                                        key={index}
+                                        className="flex justify-evenly w-full py-1"
+                                    >
+                                        <div className="w-[30%]">
+                                            {item.violation}
+                                        </div>
+
+                                        <div className="w-[30%]">
+                                            {item.issued_location}
+                                        </div>
+
+                                        <div className="w-[30%]">
+                                            {item.issued_date}
+                                        </div>
+                                    </div>
+                                )
                             )}
-                            {notFound && (
-                                <span className=" font-bold">
-                                    {" "}
-                                    no transaction
-                                </span>
-                            )}
-                    </div>
-                    <div className="mr-70 flex gap-2">
-                        <span className="">total-amount</span> :
-                        {dataReady && (
-                            <span className="font-bold">&#8369; {data?.TRANSACTION.total_amount}</span>
+
+                        {notFound && (
+                            <div className="px-6 tablet:text-[12px] desktop:text-[1em]">no record found</div>
                         )}
-                        {
-                            notFound && (<span className="font-bold">&#8369;0</span>)
-                        }
                     </div>
-                </div>
 
-                <footer className="flex justify-center items-center pb-10">
-                    {dataReady && !notFound && (
-                        <>
-                            {transactionStatus === "unsettle" && (
-                                <div className="w-100 h-14 bg-[#00167a] rounded-2xl flex justify-center items-center hover:scale-105 transition-all duration-200">
-                                    <button
-                                        onClick={() =>
-                                            navigate(
-                                                `/process-violation/${plateNumber}`
-                                            )
-                                        }
-                                        className="text-2xl text-white cursor-pointer select-none"
-                                    >
-                                        process violation
-                                    </button>
-                                </div>
-                            )}
+                    <hr className="w-[90%] max-w-300 bg-black h-0.5" />
 
-                            {transactionStatus === "approved" && (
-                                <div className="w-100 h-14 bg-[#00167a] rounded-2xl flex justify-center items-center hover:scale-105 transition-all duration-200">
-                                    <button
-                                        onClick={() =>
-                                            navigate(
-                                                `/pay-violation/${plateNumber}`
-                                            )
-                                        }
-                                        className="text-2xl text-white cursor-pointer w-full h-full select-none"
-                                    >
-                                        pay now
-                                    </button>
-                                </div>
+                    <div className="flex w-full max-w-300 px-8 text-xl py-8 justify-between tablet:text-[12px] desktop:text-[1em]">
+                        <div >
+                            Transaction Status :
+                            {dataReady && transactionStatus && (
+                                <span className="font-bold">
+                                    {" "}
+                                    {transactionStatus}
+                                </span>
                             )}
-                        </>
-                    )}
-                </footer>
-            </section>
-        
-            <LoadingModal isOpen={isFetching || isLoading} />
-        </div>
+                            {dataReady &&
+                                !transactionStatus &&
+                                !notFound && (
+                                    <span className=" font-bold">
+                                        {" "}
+                                        no transaction
+                                    </span>
+                                )}
+                                {notFound && (
+                                    <span className=" font-bold">
+                                        {" "}
+                                        no transaction
+                                    </span>
+                                )}
+                        </div>
+                        <div className="mr-70 flex gap-2">
+                            <span className="">total-amount</span> :
+                            {dataReady && (
+                                <span className="font-bold">&#8369; {data?.TRANSACTION.total_amount}</span>
+                            )}
+                            {
+                                notFound && (<span className="font-bold">&#8369;0</span>)
+                            }
+                        </div>
+                    </div>
+
+                    <footer className="flex justify-center items-center pb-10">
+                        {dataReady && !notFound && (
+                            <>
+                                {transactionStatus === "unsettle" && (
+                                    <div className="w-100 h-14 bg-[#00167a] rounded-2xl flex justify-center items-center hover:scale-105 transition-all duration-200">
+                                        <button
+                                            onClick={() =>
+                                                navigate(
+                                                    `/process-violation/${plateNumber}`
+                                                )
+                                            }
+                                            className="text-2xl text-white cursor-pointer select-none"
+                                        >
+                                            process violation
+                                        </button>
+                                    </div>
+                                )}
+
+                                {transactionStatus === "approved" && (
+                                    <div className="w-100 h-14 bg-[#00167a] rounded-2xl flex justify-center items-center hover:scale-105 transition-all duration-200">
+                                        <button
+                                            onClick={() =>
+                                                navigate(
+                                                    `/pay-violation/${plateNumber}`
+                                                )
+                                            }
+                                            className="text-2xl text-white cursor-pointer w-full h-full select-none"
+                                        >
+                                            pay now
+                                        </button>
+                                    </div>
+                                )}
+                            </>
+                        )}
+                    </footer>
+                </section>
+
+                <section className="tablet:hidden font-family-poppins">
+                    <h1 className="text-center py-6 font-bold text-xl ">VEHICLE INFORMATION</h1>
+                    <hr className="bg-black h-0.75"/>
+                    <aside className="px-2 py-6 flex flex-col gap-4 text-md ">
+                        <p>plate-number : </p>
+                        <p>vehicle color : </p>
+                        <p>vehicle Type : </p>
+                        <p>vehicle Model : </p>
+                    </aside>
+                    <h1 className="text-center py-6 font-bold text-xl">DRIVER INFORMATION</h1>
+                    <hr className="bg-black h-0.75"/>
+                </section>
+                <LoadingModal isOpen={isFetching || isLoading} />
+            </main>
     );
 };
 

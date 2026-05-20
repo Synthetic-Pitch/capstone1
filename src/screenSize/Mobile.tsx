@@ -12,15 +12,18 @@ import ShadChart from "../components/ShadChart";
 import { ChadChart2 } from "../components/ShadChart2";
 import DailyCoding from "../components/DailyCoding";
 import { ShadChart4 } from "../components/ShadChart4";
+import AnnouncementMap from "../components/AnnouncementMap";
+import Icon7 from '../assets/images/announcement.png';
+import Icon6 from '../assets/icons/videoIcon.png';
 interface MobileProps {
     className: string;
 }
-
+// here
 const Mobile = ({className}: MobileProps) => {
     return (
         <div className={className}>
             <section className=" min-h-screen w-dvw bg-[#2D6C9A]">
-                <h1 className="text-white text-center pt-4">Marikina City Traffic Management</h1>
+                <h1 className="text-white text-center">Marikina City Traffic Management</h1>
                  <div className="flex items-center justify-evenly">
                     <img src={Logo1} alt="OPSS Logo" style={{ objectFit: "cover", height: "70px" }} draggable={false} />
                     <img src={Logo2} alt="Marikina Logo" style={{ objectFit: "cover", height: "90px" }} draggable={false} />
@@ -100,7 +103,7 @@ const Mobile = ({className}: MobileProps) => {
             </section>
 
             {/* Phase 2 */}
-            <section >
+            <section className="">
                 <section id='stickySection' className=' min-h-screen bg-[#cbe0f2] flex flex-col items-center'>
                     <header className='w-full max-w-300 flex flex-col items-center'>
                         <main className='w-full h-90 flex flex-col '>
@@ -117,19 +120,42 @@ const Mobile = ({className}: MobileProps) => {
                         className='h-[10%] w-full font-family-mozilla font-bold text-xl text-[#00167a] z-5 text-center py-7'>
                         Coding hours 7:00 AM - 7:00 PM | No Coding on Weekends and Holidays
                     </p>
-                    <footer className='h-120 w-full max-w-300 flex justify-evenly'>
+                    <footer className='w-full max-w-300 flex flex-col justify-evenly no-popup'>
                         <ShadChart3 />
                         <ShadChart4/>
-                        <div className='w-[30%] h-[70%] flex flex-col'>
+                        <div className='tablet:w-[30%] h-[70%] flex flex-col px-2'>
                             <ShadChart />
-                            <p className='tablet:text-sm desktop:text-xl font-family-azeret pl-3'>Road Violation Rate</p>
+                            <p className='tablet:text-sm desktop:text-xl font-family-azeret pl-3 select-none '>Road Violation Rate</p>
                             <p className='font-family-poppins text-[10px] text-[#555555] pl-3'>This data visualization shows rate of road violation occured in Marikina City</p>
                         </div>
                     </footer>
-                  
                 </section>
             </section>
             
+             {/* Phase 3 */}
+            <section className='py-4 max-h-300 w-full z-20 bg-[#cbe0f2] flex flex-col justify-center items-center'>
+                    <h1 className='text-2xl font-bold font-family-azeret'>TUTORIAL VIDEO</h1>
+                    <p className='text-xl font-family-poppins text-gray-500 mb-4 mt-2 text-center text-[14px] px-2'>Step by step guide on viewing and paying your traffic violations online securely </p>
+                    <div className='relative h-80 tablet:h-[80%] w-full tablet:w-[90%] max-w-300 border-4 rounded-[4rem] border-black flex items-center justify-center '>
+                        <img src={Icon6} alt="" className="h-40 tablet:h-60"/>
+                    </div>
+            </section>
+
+            {/* Section 4 */}
+            <section className="relative w-full bg-[#3F6C84]">
+                <h1 className='text-3xl text-white font-family-edu font-bold px-4 py-4 leading-12 whitespace-break-spaces text-center'>OPSS-TMEU NEWS UDPATE</h1>
+                <div className='text-[#d6d6d6] font-family-mozilla flex items-center justify-center py-2 px-4'>
+                    <img src={Icon7} height={80} width={80} alt="pong" />
+                    <div className="w-full text-center">
+                        <p>Official Public safety Updates in Marikina City</p>
+                        <h1>Ordinance No. 040, Series of 2018</h1>
+                        <h1>Office of the City Major</h1>
+                    </div>
+                </div>
+                <div className='w-full mt-8 relative'>
+                    <AnnouncementMap/>
+                </div>
+            </section>
         </div>
     );
 };

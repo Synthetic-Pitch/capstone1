@@ -40,13 +40,13 @@ const AboutUsSection2 = () => {
     });
 
     return (
-        <main className="m-auto w-full max-w-350 overflow-x-hidden">
+        <main className="m-auto w-full max-w-350 pt-8 overflow-hidden">
             <header className="h-100 w-full text-white flex justify-center flex-col items-center py-12">
-                <h1 className="text-4xl font-family-poetsen">CITIZEN’S CHARTER</h1>
+                <h1 className="text-2xl desktop:text-4xl font-family-poetsen">CITIZEN’S CHARTER</h1>
                 <h1 className="font-family-poetsen text-2xl">2022</h1>
-                <div className="h-full w-full max-w-300 flex gap-6 mt-8 font-family-poppins">
-                    <h2 className="w-[20%] text-center">mandate</h2>
-                    <div className="w-[80%] ">
+                <div className="h-full w-full max-w-300 flex tablet:flex-col desktop:flex-row gap-6 mt-8 font-family-poppins">
+                    <h2 className="w-full desktop:w-[20%] text-center">mandate</h2>
+                    <div className="w-full desktop:w-[80%] px-4 desktop:px-0">
                         <p className="">
                             Ordinance No. 040, Series of 2018, entitled <b>“ORDINANCE RESTRUCTURING
                             THE OFFICE OF PUBLIC SAFETY AND SECURTTY, REDEFINING ITS FUNCTIONS
@@ -65,7 +65,7 @@ const AboutUsSection2 = () => {
                     </div>
                 </div>
             </header>
-            <section className="h-180 grid justify-items-center items-center grid-cols-4 grid-rows-3 relative z-2 btUsSectPrnt">
+            <section className="h-180 grid justify-items-center items-center grid-cols-3 desktop:grid-cols-4 relative z-2 btUsSectPrnt mt-12">
                 <img src={Img2} alt="" className=" object-cover opssIMG1r border border-white"/>
                 <img src={Img3} alt="" className=" object-cover opssIMG1r border border-white"/>
                 <img src={Img4} alt="" className=" object-cover opssIMG1l border border-white"/>

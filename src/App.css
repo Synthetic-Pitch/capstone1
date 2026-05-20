@@ -185,4 +185,10 @@ html,body{
   .pepe{
     background: pink;
   };
+  .no-popup {
+    -webkit-user-select: none;  /* Chrome, Safari, Opera */
+    -ms-user-select: none;      /* IE/Edge */
+    user-select: none;          /* Standard */
+    -webkit-touch-callout: none; /* Disable context menu on long-press */
+}
 }

@@ -105,15 +105,15 @@ const AboutUsSection5 = () => {
             }
         })
     });
-
+    
     return (
-        <div className="h-[300dvh] w-full bg-[#e6ecce] relative flex flex-col items-center px-8">
+        <div className="h-[300dvh] w-full bg-[#e6ecce] relative flex flex-col items-center desktop:px-8">
             <main className="h-[50%] w-full max-w-400">
                 <div
-                    className="font-family-mono-maniac text-[8.5rem] h-[20%] w-full text-center "
+                    className="font-family-mono-maniac text-[4.5rem] h-[20%] w-full text-center "
                 >IT ALL <span className="text-[#536d5d]">STARTED</span> AT</div>
                 <section className="flex h-[80%] w-full">
-                    <aside className="relative h-full w-[40%] flex items-center justify-center">
+                    <aside className="relative h-full w-[60%] flex items-center justify-center">
                         {/* wrapper div — ScrollTrigger 2 animates y here */}
                         <div ref={targetImgWrapper} className="h-[80%] z-20">
                             <img 
@@ -123,28 +123,28 @@ const AboutUsSection5 = () => {
                             />
                         </div>
                     </aside>
-                    <footer className="h-full w-[60%] flex flex-col justify-center px-8">
+                    <footer className="h-full w-[40%] flex flex-col justify-center px-8">
                         <h1 className="text-7xl font-family-oswald text-[teal] mb-6 font-bold">HAPPY KOPI</h1>
-                        <p className="text-3xl font-family-oswald text-[#4b4b4b]">A place where problem was recognized</p>
+                        <p className="text-3xl font-family-oswald text-[#4b4b4b]">Where problems are discovered</p>
                     </footer>
                 </section>
             </main>
             <main className="h-[50%] w-full max-w-400">
                 <section className="flex h-full w-full">
-                    <aside ref={targetCon} className="relative h-full w-[40%] flex items-center justify-center "/>
-                    <footer className="h-full w-[60%] flex flex-col justify-center px-8">
-                        <h1 className="text-7xl font-family-oswald text-[teal] mb-6 font-bold">RESEARCH</h1>
-                        <p className="text-3xl font-family-oswald text-[#708884]">Then a problem turns into a Research</p>
+                    <aside ref={targetCon} className="relative h-full w-[60%] flex items-center justify-center "/>
+                    <footer className="h-full w-[40%] flex flex-col justify-center px-8">
+                        <h1 className="text-6xl font-family-oswald text-[teal] mb-6 font-bold">RESEARCH</h1>
+                        <p className="text-3xl font-family-oswald text-[#708884]">Where problems become ideas</p>
                     </footer>
                 </section>
             </main>
             <main className="h-[50%] w-full max-w-400 rounded-2xl">
                 <section className="flex h-full w-full">
-                    <aside className="relative h-full w-[50%] flex flex-col items-center justify-center ">
-                        <h1 className="text-7xl font-family-oswald text-[teal] mb-6 font-bold">IMPLEMENTATION</h1>
-                        <p className="text-3xl font-family-oswald text-[#708884]">And a research turns to implementation of a solution</p>
+                    <aside className="relative h-full w-[40%] flex flex-col items-center justify-center ">
+                        <h1 className="text-4xl font-family-oswald text-[teal] mb-6 font-bold ">IMPLEMENTATION</h1>
+                        <p className="text-3xl font-family-oswald text-[#708884] px-4">Where ideas become solutions</p>
                     </aside>
-                    <footer ref={targetFooter} className="h-full w-[50%] px-8 "/>
+                    <footer ref={targetFooter} className="h-full w-[60%] px-8 "/>
                 </section>
             </main>
         </div>
