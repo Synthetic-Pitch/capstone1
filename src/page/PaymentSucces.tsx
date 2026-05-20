@@ -107,21 +107,21 @@ const PaymentSuccess = () => {
                     <p className='text-[#575757] font-family-poppins pt-4 text-md tablet:text-2xl'>
                         Note! Download or take a screenshot of the QR code if vehicle was impounded,
                     </p>
-                    <p className='text-[#575757] font-family-poppins text-2xl'>
+                    <p className='text-[#575757] font-family-poppins text-md tablet:text-2xl'>
                         QR code is needed in Office when you go to retrieve the vehicle.
                     </p>
                 </div>
             )}
 
             {isPending && !alreadyVerified && (
-                <div className='text-center font-family-poppins text-4xl'>
+                <div className='text-center font-family-poppins text-md tablet:text-2xl'>
                     <p className='pb-6'>Verifying your payment...</p>
                     <p>please wait</p>
                 </div>
             )}
 
             {isError && !alreadyVerified && (
-                <div className='text-center font-family-poppins text-4xl'>
+                <div className='text-center font-family-poppins text-md tablet:text-2xl'>
                     <p>Something went wrong. Please contact support.</p>
                 </div>
             )}
