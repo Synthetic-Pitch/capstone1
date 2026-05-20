@@ -88,7 +88,7 @@ const PaymentSuccess = () => {
         <div className='h-dvh flex justify-center items-center text-center'>
             {showSuccess && (
                 <div>
-                    <p className='text-4xl font-bold text-[#3ea13e] py-4 font-family-poppins'>
+                    <p className='text-2xl tablet:text-4xl font-bold text-[#3ea13e] py-4 font-family-poppins'>
                         Payment Confirmed! Thankyou.
                     </p>
                     <div className='flex flex-col items-center gap-2 desktop:flex-row justify-evenly my-6'>
@@ -104,7 +104,7 @@ const PaymentSuccess = () => {
                             Download
                         </button>
                     </div>
-                    <p className='text-[#575757] font-family-poppins pt-4 text-2xl'>
+                    <p className='text-[#575757] font-family-poppins pt-4 text-md tablet:text-2xl'>
                         Note! Download or take a screenshot of the QR code if vehicle was impounded,
                     </p>
                     <p className='text-[#575757] font-family-poppins text-2xl'>

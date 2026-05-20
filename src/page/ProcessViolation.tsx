@@ -66,8 +66,8 @@ const ProcessViolation = () => {
                 <section className="font-family-poppins w-full py-4 px-4 flex flex-col desktop:flex-row justify-center gap-6">
 
                     {/* Driver's License Upload */}
-                    <div className="w-full desktop:w-[40%] bg-[#a4bcde] h-100 flex flex-col items-center rounded-4xl overflow-hidden">
-                        <h1 className="text-center py-4 px-2">
+                    <div className="w-full desktop:w-[40%] bg-[#a4bcde] h-70 tablet:h-100 flex flex-col items-center rounded-4xl overflow-hidden ">
+                        <h1 className="text-center py-4 px-2 text-sm tablet:text-[16px]">
                             Driver's license - if confiscated 1 valid ID
                         </h1>
                         <div className="relative w-full h-full">
@@ -110,8 +110,8 @@ const ProcessViolation = () => {
                     </div>
 
                     {/* OVR Upload */}
-                    <div className="w-full desktop:w-[40%] bg-[#a4bcde] h-100 flex flex-col items-center rounded-4xl overflow-hidden">
-                        <h2 className="text-center py-4 px-2">
+                    <div className="w-full desktop:w-[40%] bg-[#a4bcde] h-70 tablet:h-100 flex flex-col items-center rounded-4xl overflow-hidden">
+                        <h2 className="text-center py-4 px-2 text-sm tablet:text-[16px]">
                             OVR - Ordinance Violation Receipt
                         </h2>
                         <div className="relative w-full h-full">
