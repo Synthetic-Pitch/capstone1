@@ -6,7 +6,6 @@ html,body{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
 @font-face {
@@ -16,6 +15,7 @@ html,body{
   font-style: normal;
   font-display: swap;
 }
+
 @font-face {
   font-family: 'Nexline';
   src: url('./assets/fonts/NexlineDemo-Regular.otf') format('opentype');

@@ -10,9 +10,8 @@
     import Icon3 from '../assets/icons/icon1-removebg-preview.png';
     import Icon4 from '../assets/icons/icon2-removebg-preview.png';
     import Icon5 from '../assets/icons/icon3-removebg-preview.png';
-    import Icon6 from '../assets/icons/videoIcon.png';
     import Icon7 from '../assets/images/announcement.png';
-
+    import tutVideo from "../assets/videos/Tuts Vid.mp4"
     type DesktopSize = {
         className?:string
     }
@@ -170,8 +169,12 @@
                 <section className='h-190 max-h-300 w-full z-20 bg-[#cbe0f2] sticky top-0 flex flex-col justify-center items-center'>
                     <h1 className='text-3xl font-bold font-family-azeret'>TUTORIAL VIDEO</h1>
                     <p className='text-xl font-family-poppins text-gray-500 mb-4 mt-2'>Step by step guide on viewing and paying your traffic violations online securely </p>
-                    <div className='relative h-[80%] w-[90%] max-w-300 border-4 rounded-[4rem] border-black flex items-center justify-center '>
-                        <img src={Icon6} alt="" />
+                    <div className='relative h-[80%] w-[90%] max-w-300 border-4 rounded-[4rem] overflow-hidden flex items-center justify-center'>
+                        <video 
+                            src={tutVideo} 
+                            controls 
+                            className='w-full h-full object-cover'
+                        />
                     </div>
                 </section>
                 {/* 4th section */}

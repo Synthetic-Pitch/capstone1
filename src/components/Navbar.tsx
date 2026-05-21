@@ -108,7 +108,7 @@ const Navbar = () => {
             </ul>
             
             {/* Mobile Slider */}
-            <div className={`tablet:hidden w-full h-18 relative ${location.pathname === "/" && "bg-[#2D6C9A]"} ${location.pathname === "/about-us" && "bg-[#A5A5A5]"} ${location.pathname === "/faqs" && "bg-[#525252]"}`}>
+            <div className={`tablet:hidden w-full h-18 relative ${location.pathname === "/" && "bg-[#2D6C9A]"} ${location.pathname === "/about-us" && "bg-[#A5A5A5]"} ${location.pathname === "/faqs" && "bg-[#525252]"} ${location.pathname === "/contact-us" && "bg-[#525252]"}`}>
                 <TiThMenu 
                     size={60} color={` ${isOpen ? "#FFFFFF" : "#FFFFFF"}`} className={`relative cursor-pointer z-30 ${isOpen ? "rotate-90": "rotate-0"} transition-all duration-100`}
                     onClick={()=>{
