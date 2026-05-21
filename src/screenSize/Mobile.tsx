@@ -31,7 +31,7 @@ const Mobile = ({className}: MobileProps) => {
                  </div>
                 <p className="text-white font-family-poppins text-3xl font-bold text-center pb-6 ">
                     Online Traffic Violation
-                    Payment System  
+                    Payment System
                 </p>
                 <section className="w-full tablet:rounded-4xl bg-[#dae2e6] py-6 px-2 flex flex-col gap-4 ">
                     <div className="flex flex-col gap-1 text-center">

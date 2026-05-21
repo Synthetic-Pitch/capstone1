@@ -18,7 +18,7 @@ import { ChadChart2 } from "../components/ShadChart2";
 import { ShadChart3 } from "../components/ShadChart3";
 import ShadChart from "../components/ShadChart";
 import { ShadChart4 } from "../components/ShadChart4";
-import Icon6 from '../assets/icons/videoIcon.png';
+import TutVideo from "../assets/videos/TutsVid.mp4"
     import Icon7 from '../assets/images/announcement.png';
 import AnnouncementMap from "../components/AnnouncementMap";
 
@@ -193,8 +193,12 @@ const Tablet = ({ className }: SizeType) => {
             <section className='h-140 max-h-300 w-full z-20 bg-[#cbe0f2] flex flex-col justify-center items-center'>
                     <h1 className='text-xl font-bold font-family-azeret'>TUTORIAL VIDEO</h1>
                     <p className='text-xl font-family-poppins text-gray-500 mb-4 mt-2 text-center text-[14px]'>Step by step guide on viewing and paying your traffic violations online securely </p>
-                    <div className='relative h-[80%] w-[90%] max-w-300 border-4 rounded-[4rem] border-black flex items-center justify-center '>
-                        <img src={Icon6} alt="" className="tablet:h-60"/>
+                    <div className='relative h-[80%] w-[90%] max-w-300 border-4 rounded-[4rem]overflow-hidden flex items-center justify-center'>
+                        <video
+                            src={TutVideo}
+                            controls
+                            className='w-full h-full object-cover'
+                        />
                     </div>
             </section>
 
