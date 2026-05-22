@@ -50,51 +50,51 @@ const Mobile = ({className}: MobileProps) => {
                 </section>
 
                 <aside className="bg-[#A4C6DE]">
-                    <section className="rounded-3xl  px-3 py-4 flex items-center gap-3 justify-center">
+                    <section className="rounded-3xl  px-3 py-4 flex items-center justify-between">
                         <div className="flex items-center justify-center gap-2 font-family-oswald select-none">
                             <img src={Icon1} alt="" className="h-10" draggable="false" />
                             <h1 className="text-2xl font-bold text-[#00167a]">24/7</h1>
                             <h1 className="text-xl text-[#586dca]">Online Access</h1>
                         </div>
-                        <div className="flex flex-col items-center text-md font-family-poppins">
+                        <div className="flex flex-col items-start text-sm font-family-poppins">
                             <p>check/view</p>
                             <p>records anytime</p>
                             <p>anywhere</p>
                         </div>
                     </section>
 
-                    <section className="rounded-3xl  px-3 py-4 flex items-center gap-3 justify-center ">
+                    <section className="rounded-3xl  px-3 py-4 flex items-center justify-between ">
                         <div className="flex items-center justify-center gap-2 font-family-oswald select-none">
                             <img src={Icon3} alt="" className="h-10" draggable="false" />
                             <h1 className="text-2xl font-bold text-[#00167a]">Fast</h1>
                             <h1 className="text-xl text-[#586dca]">Processing</h1>
                         </div>
-                        <div className="flex flex-col items-center text-sm font-family-poppins">
+                        <div className="flex flex-col items-start text-sm font-family-poppins">
                             <p>Reduces queues</p>
                             <p>and speed up</p>
                             <p>process thru online</p>
                         </div>
                     </section>
-                    <section className="rounded-3xl  px-3 py-4 flex items-center gap-3 justify-center ">
+                    <section className="rounded-3xl  px-3 py-4 flex items-center justify-between ">
                             <div className="flex items-center justify-center gap-2 font-family-oswald select-none">
                                 <img src={Icon4} alt="" className="h-10" draggable="false" />
                                 <h1 className="text-2xl font-bold text-[#00167a]">User</h1>
                                 <h1 className="text-xl text-[#586dca]">Friendly</h1>
                             </div>
-                            <div className="flex flex-col items-center text-sm font-family-poppins">
+                            <div className="flex flex-col items-start text-sm font-family-poppins">
                                 <p>Easy to use</p>
                                 <p>and understand</p>
                                 <p>with direct instruction</p>
                             </div>
                         </section>
 
-                        <section className="rounded-3xl  px-3 py-4 flex items-center gap-3 justify-center">
+                        <section className="rounded-3xl  px-3 py-4 flex items-center justify-between">
                             <div className="flex items-center justify-center gap-2 font-family-oswald select-none">
                                 <img src={Icon5} alt="" className="h-10" draggable="false" />
                                 <h1 className="text-2xl font-bold text-[#00167a]">Secure</h1>
                                 <h1 className="text-xl text-[#586dca]">Records</h1>
                             </div>
-                            <div className="flex flex-col items-center text-sm font-family-poppins">
+                            <div className="flex flex-col items-start text-sm font-family-poppins">
                                 <p>Data are secured</p>
                                 <p>encrypted</p>
                                 <p>with our technologies</p>

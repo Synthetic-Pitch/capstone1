@@ -60,7 +60,7 @@ function App() {
           <Route path="/user" element={<UserPage/>}/>
           <Route path="/profile/*" element={<ProfilePage/>}/>
           <Route path="/about-us" element={<AboutUs/>}/>
-          <Route path="/documentation" element={<ProfilePage/>}/>
+          <Route path="/documentation" element={<PageNotFound/>}/>
           <Route path="/faqs" element={<Faqs/>}/>
           
           <Route path='/contact-us' element={<ContactUs/>}/>
