@@ -23,6 +23,7 @@ const DailyCoding = () => {
                     <div className="bg-[#3085c1] opacity-[.75] absolute z-2 h-full w-full"/>
                     <div className="relative h-full w-full z-3 font-bold text-white flex flex-col items-center justify-center text-2xl gap-4 text-center">
                         <p>Today's Coding</p>
+                        <div className="text-sm">{new Date().toLocaleDateString("en-US", { weekday: "long" })}</div>
                     </div>
                 </main>
                 <div className="h-25 tablet:h-25 desktop:h-40 w-25  tablet:w-25 desktop:w-[70%] bg-[#00167a8c] rounded-full my-auto mx-auto flex flex-col items-center justify-center hover:-translate-y-4 hover:scale-[.9] transition-all duration-200 cursor-default select-none">
