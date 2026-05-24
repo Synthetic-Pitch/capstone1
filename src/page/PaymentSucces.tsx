@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import PageNotFound from './PageNotFound';
 import { useVerifyPayment } from '../hook/useCustomHook';
 import { QRCodeCanvas } from 'qrcode.react'; // 👈 changed to QRCodeCanvas
@@ -110,6 +110,11 @@ const PaymentSuccess = () => {
                     <p className='text-[#575757] font-family-poppins text-md tablet:text-2xl'>
                         QR code is needed in Office when you go to retrieve the vehicle.
                     </p>
+                    <Link to={`/profile/${sessionStorage.getItem('plateNumber')}`}>
+                        <button className='font-bold text-2xl cursor-pointer py-2 px-6 my-4 self-center text-[#6578b4] font-family-poppins'>
+                            Go Back to Profile
+                        </button>
+                    </Link>
                 </div>
             )}
 
