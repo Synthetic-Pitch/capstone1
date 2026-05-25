@@ -13,16 +13,17 @@ const PaymentSuccess = () => {
     const iid = searchParams.get('iid');
     const plate_number = searchParams.get('pln');
     const payment_method = searchParams.get('pm');
-    const [verifiedUuid, setVerifiedUuid] = useState<string | null>(() => {
-        return tid ? sessionStorage.getItem(`uuid_${tid}`) : null;
+    const uuidCacheKey = iid ? `transaction_uuid_${iid}` : null;
+    const verifiedCacheKey = iid ? `verified_payment_${iid}` : null;
+    const [transactionUuid, setTransactionUuid] = useState<string | null>(() => {
+        return uuidCacheKey ? sessionStorage.getItem(uuidCacheKey) : null;
     });
     
     const { mutate: verifyPayment, isPending, isSuccess, isError, data } = useVerifyPayment();
 
-    const alreadyVerified = sessionStorage.getItem(`verified_${tid}`);
-    const savedUuid = tid ? sessionStorage.getItem(`uuid_${tid}`) : null;
+    const alreadyVerified = verifiedCacheKey ? sessionStorage.getItem(verifiedCacheKey) : null;
 
-    const uuid = data?.uuid ?? verifiedUuid ?? savedUuid;
+    const uuid = data?.uuid ?? transactionUuid;
 
     const handleDownload = () => {
         const originalCanvas = qrRef.current?.querySelector('canvas');
@@ -71,16 +72,19 @@ const PaymentSuccess = () => {
             payment_method: payment_method,
         }, {
             onSuccess: (data) => {
-                sessionStorage.setItem(`verified_${tid}`, 'true');
-                sessionStorage.setItem(`uuid_${tid}`, data.uuid);
-                setVerifiedUuid(data.uuid);
+                if (!data.success || !data.uuid || !uuidCacheKey || !verifiedCacheKey) return;
+
+                sessionStorage.setItem(verifiedCacheKey, 'true');
+                sessionStorage.setItem(uuidCacheKey, data.uuid);
+                setTransactionUuid(data.uuid);
             }
         });
-    }, [tid, iid, plate_number, payment_method, alreadyVerified, verifyPayment]);
+    }, [tid, iid, plate_number, payment_method, alreadyVerified, verifyPayment, uuidCacheKey, verifiedCacheKey]);
 
     if (!tid || !iid || !plate_number || !payment_method) return <PageNotFound />;
 
-    const showSuccess = isSuccess || !!alreadyVerified;
+    const showSuccess = !!uuid && (data?.success === true || !!alreadyVerified);
+    const paymentNotCompleted = isSuccess && data?.success === false;
 
     return (
         <div className='h-dvh flex justify-center items-center text-center'>
@@ -124,6 +128,13 @@ const PaymentSuccess = () => {
                 <div className='text-center font-family-poppins text-md tablet:text-2xl'>
                     <p className='pb-6'>Verifying your payment...</p>
                     <p>please wait</p>
+                </div>
+            )}
+
+            {paymentNotCompleted && (
+                <div className='text-center font-family-poppins text-md tablet:text-2xl'>
+                    <p className='pb-6'>Payment is not completed yet.</p>
+                    <p>Please wait a moment, then refresh this page.</p>
                 </div>
             )}
 

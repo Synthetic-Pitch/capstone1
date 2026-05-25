@@ -65,7 +65,7 @@ export const useSubmit = ({ file1, file2, setFile1, setFile2, setPreview1, setPr
         if (input2) input2.value = "";
 
         navigate(`/profile/${plateNumber}`);
-    }, [file1, file2, plateNumber, setFile1, setFile2, setPreview1, setPreview2]);
+    }, [file1, file2, plateNumber, setFile1, setFile2, setPreview1, setPreview2, navigate]);
 
     return { handleSubmit };
 };
@@ -114,7 +114,8 @@ interface VerifyPaymentProps {
 interface VerifyPaymentResponse {
     success: boolean;
     message: string;
-    uuid: string; 
+    status?: string;
+    uuid?: string; 
 }
 
 const verifyPaymentFn = async ({ intent_id, transaction_id, plate_number,payment_method }: VerifyPaymentProps): Promise<VerifyPaymentResponse> => {
