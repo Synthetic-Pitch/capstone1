@@ -94,7 +94,7 @@ const PaymentSuccess = () => {
                             {uuid && (
                                 <QRCodeCanvas
                                     key={uuid}
-                                    value={`https://capstone1-opss.vercel.app/qr/${uuid}`}
+                                    value={`${uuid}`}
                                     size={200}
                                 />
                             )}
