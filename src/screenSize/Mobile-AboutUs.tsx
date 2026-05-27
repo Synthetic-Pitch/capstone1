@@ -44,7 +44,7 @@ const MobileAboutUs = () => {
         "Dahil sa mga bantay na laging handang umagapay,",
         "Kaayusan ng baya'y nakakamit na tunay.",
     ]
-
+    
     return (
         <div className="tablet:hidden"> 
             <section className=" relative  w-full bg-[#A5A5A5]">

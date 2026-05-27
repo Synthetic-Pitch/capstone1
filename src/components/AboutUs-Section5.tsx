@@ -56,21 +56,16 @@ const AboutUsSection5 = () => {
             scrollTrigger:{
                 trigger:targetFooter.current,
                 start:"top 80%",
-                end:"+=600",
+                end:"+=400",
                 scrub:2,
                 invalidateOnRefresh:true
             },
-            ease:"power1.inOut",
+            defaults:{
+                ease:"power1.inOut"
+            },
             immediateRender:false
         })
         .to(targetImgWrapper.current,{
-            
-        })
-        .to(targetImgWrapper.current,{
-            
-        })
-        .to(targetImgWrapper.current,{
-            
             y: () => {
                 if (!targetImg.current || !targetFooter.current) return "0";
                 
