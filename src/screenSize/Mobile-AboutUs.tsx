@@ -46,8 +46,8 @@ const MobileAboutUs = () => {
     ]
 
     return (
-        <div > 
-            <section className="tablet:hidden relative  w-full bg-[#A5A5A5]">
+        <div className="tablet:hidden"> 
+            <section className=" relative  w-full bg-[#A5A5A5]">
                 <div className="absolute h-full top-0 left-0 overflow-hidden z-0 ">
                     <img src={Img1} alt="" className="h-230 object-cover opacity-[.1]"/>
                 </div>
