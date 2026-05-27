@@ -81,7 +81,7 @@ const AboutUsSection5 = () => {
                 if(!targetImgWrapper.current || !targetFooter.current)return "0";
                 const imgRCT = targetImgWrapper.current.getBoundingClientRect();
                 const conRCT = targetFooter.current.getBoundingClientRect();
-
+                
                 return `${conRCT.left - imgRCT.left}`
             },
             immediateRender:false
