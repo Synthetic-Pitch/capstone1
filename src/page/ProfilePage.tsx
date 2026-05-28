@@ -272,7 +272,7 @@ const ProfilePage = () => {
                         </span>
                     </div>
                 </div>
-
+                
                 {/* Action Button */}
                 <div className="flex justify-center px-4 pt-2">
                     {dataReady && !notFound && (
@@ -303,7 +303,7 @@ const ProfilePage = () => {
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
                     <div className="w-full max-w-md rounded-lg bg-white p-6 text-center shadow-xl font-family-poppins">
                         <p className="text-sm leading-6 text-gray-800 tablet:text-base">
-                            Your transaction is now pending to verify by the OPSS officers please come back after a few hours or a day but I will not take few days,Once approved you can now proceed to payment
+                            Your transaction is now pending verification by the OPSS officers. Please come back after a few hours or a day. Once approved, you can proceed to payment.
                         </p>
                         <button
                             type="button"
