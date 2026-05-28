@@ -303,7 +303,7 @@ const ProfilePage = () => {
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
                     <div className="w-full max-w-md rounded-lg bg-white p-6 text-center shadow-xl font-family-poppins">
                         <p className="text-sm leading-6 text-gray-800 tablet:text-base">
-                            Your transaction is now pending verification by the OPSS officers. Please come back after a few hours or a day. Once approved, you can proceed to payment.
+                            Your transaction is under review by our OPSS officers. This usually takes a few hours to a day. If approved, you may proceed to payment. If rejected, please resubmit proper and clearer photos of the required documents.
                         </p>
                         <button
                             type="button"
