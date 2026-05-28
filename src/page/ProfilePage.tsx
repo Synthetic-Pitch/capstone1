@@ -8,6 +8,7 @@ const ProfilePage = () => {
     const [data, setData] = useState<any>(null);
     const [notFound, setNotFound] = useState(false);
     const [isFetching, setIsFetching] = useState(true);
+    const [showPendingModal, setShowPendingModal] = useState(false);
 
     const storedPlate = sessionStorage.getItem("plateNumber");
 
@@ -52,6 +53,12 @@ const ProfilePage = () => {
 
     const transactionStatus =
         data?.TRANSACTION?.transaction_status ?? null;
+
+    useEffect(() => {
+        if (dataReady && transactionStatus === "pending") {
+            setShowPendingModal(true);
+        }
+    }, [dataReady, transactionStatus]);
 
     const displayValue = (value: any) => {
         if (isError || value === null || value === undefined) return " N/A";
@@ -291,6 +298,23 @@ const ProfilePage = () => {
                 </div>
 
             </section>
+
+            {showPendingModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
+                    <div className="w-full max-w-md rounded-lg bg-white p-6 text-center shadow-xl font-family-poppins">
+                        <p className="text-sm leading-6 text-gray-800 tablet:text-base">
+                            Your transaction is now pending to verify by the OPSS officers please come back after a few hours or a day but I will not take few days,Once approved you can now proceed to payment
+                        </p>
+                        <button
+                            type="button"
+                            onClick={() => setShowPendingModal(false)}
+                            className="mt-6 h-11 w-full rounded-md bg-[#00167a] font-semibold text-white transition-all duration-200 hover:scale-[1.02] cursor-pointer"
+                        >
+                            confirm
+                        </button>
+                    </div>
+                </div>
+            )}
 
             <LoadingModal isOpen={isFetching || isLoading} />
         </main>
