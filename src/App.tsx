@@ -18,6 +18,7 @@ import { setUser, clearUser } from './store/slices/auth-slice' // ← add
 import ProcessViolation from './page/ProcessViolation'
 import PayViolation from './page/PayViolation'
 import PaymentSucces from './page/PaymentSucces'
+import Documentation from './page/Documentation'
 
 gsap.registerPlugin(ScrollSmoother);
 
@@ -60,7 +61,7 @@ function App() {
           <Route path="/user" element={<UserPage/>}/>
           <Route path="/profile/*" element={<ProfilePage/>}/>
           <Route path="/about-us" element={<AboutUs/>}/>
-          <Route path="/documentation" element={<PageNotFound/>}/>
+          <Route path="/documentation" element={<Documentation/>}/>
           <Route path="/faqs" element={<Faqs/>}/>
           
           <Route path='/contact-us' element={<ContactUs/>}/>
