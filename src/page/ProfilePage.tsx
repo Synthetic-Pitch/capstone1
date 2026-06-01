@@ -19,7 +19,7 @@ const ProfilePage = () => {
         useSupabaseLogin(plateNumber || "");
 
     const navigate = useNavigate();
-    
+
     useEffect(() => {
         const fetchData = async () => {
             setData(null);
@@ -125,8 +125,8 @@ const ProfilePage = () => {
                     </div>
                 </div>
 
-                <div className="font-bold py-4 bg-[#0b318f] text-white w-full">
-                    <div className="grid max-w-300 m-auto grid-cols-[1.35fr_1.1fr_0.8fr_1fr] gap-4 px-6 text-start tablet:text-[12px] desktop:text-[1em]">
+                <div className="w-full bg-[#0b318f] py-4 font-bold text-white">
+                    <div className="mx-auto grid w-full max-w-300 grid-cols-[minmax(0,1.35fr)_minmax(0,1.1fr)_minmax(0,0.8fr)_minmax(0,1fr)] gap-4 px-6 text-start tablet:text-[12px] desktop:text-[1em]">
                         <div>Violation List</div>
                         <div>Issued Location</div>
                         <div>Issued Date</div>
@@ -134,10 +134,10 @@ const ProfilePage = () => {
                     </div>
                 </div>
 
-                <div className="w-full max-w-300 py-4 text-md tablet:text-[12px] desktop:text-[1em]">
+                <div className="w-full py-4 text-md tablet:text-[12px] desktop:text-[1em]">
                     {dataReady &&
                         data?.VIOLATION?.map((item: any, index: number) => (
-                            <div key={index} className="grid w-full grid-cols-[1.35fr_1.1fr_0.8fr_1fr] gap-4 px-6 py-1">
+                            <div key={index} className="mx-auto grid w-full max-w-300 grid-cols-[minmax(0,1.35fr)_minmax(0,1.1fr)_minmax(0,0.8fr)_minmax(0,1fr)] gap-4 px-6 py-1">
                                 <div>{item.violation}</div>
                                 <div>{item.issued_location}</div>
                                 <div>{item.issued_date}</div>
