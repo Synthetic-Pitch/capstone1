@@ -108,18 +108,16 @@ const ProfilePage = () => {
                 <h1 className="font-bold py-4 tablet:text-sm desktop:text-xl">DRIVER INFORMATION</h1>
                 <hr className="w-[90%] max-w-300 bg-black h-0.5" />
 
-                <div className="w-full max-w-300 py-4 px-6 flex text-md gap-4">
-                    <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold tablet:text-[12px] desktop:text-[1em]">
+                <div className="grid w-full max-w-300 grid-cols-2 gap-4 px-6 py-4 text-md">
+                    <div className="bg-[#a4bcde] px-4 py-2 font-semibold tablet:text-[12px] desktop:text-[1em]">
                         Name :
                         <span className="font-normal">{displayValue(data?.driver_name)}</span>
                     </div>
-                    <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold tablet:text-[12px] desktop:text-[1em]">
+                    <div className="bg-[#a4bcde] px-4 py-2 font-semibold tablet:text-[12px] desktop:text-[1em]">
                         Address :
                         <span className="font-normal">{displayValue(data?.driver_address)}</span>
                     </div>
-                </div>
-                <div className="w-full max-w-300 pb-4 px-6 flex text-md gap-4">
-                    <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold tablet:text-[12px] desktop:text-[1em]">
+                    <div className="bg-[#a4bcde] px-4 py-2 font-semibold tablet:text-[12px] desktop:text-[1em]">
                         License Number :
                         <span className="font-normal">{displayValue(data?.license_number)}</span>
                     </div>
