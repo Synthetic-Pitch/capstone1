@@ -19,7 +19,7 @@ const ProfilePage = () => {
         useSupabaseLogin(plateNumber || "");
 
     const navigate = useNavigate();
-
+    
     useEffect(() => {
         const fetchData = async () => {
             setData(null);
@@ -65,6 +65,16 @@ const ProfilePage = () => {
         return ` ${value}`;
     };
 
+    const displayCitationNumber = (item: Record<string, unknown>) => {
+        const citationNumber = item.reference_number;
+
+        if (typeof citationNumber === "string" || typeof citationNumber === "number") {
+            return String(citationNumber);
+        }
+
+        return "N/A";
+    };
+
     return (
         <main className="bg-[#cbe0f2] min-h-screen overflow-y-auto">
 
@@ -108,22 +118,30 @@ const ProfilePage = () => {
                         <span className="font-normal">{displayValue(data?.driver_address)}</span>
                     </div>
                 </div>
-
-                <div className="font-bold py-4 bg-[#0b318f] text-white w-full">
-                    <div className="flex max-w-300 m-auto justify-evenly text-start tablet:text-[12px] desktop:text-[1em]">
-                        <div className="w-[30%]">Violation List</div>
-                        <div className="w-[30%]">Issued Location</div>
-                        <div className="w-[30%]">Issued Date</div>
+                <div className="w-full max-w-300 pb-4 px-6 flex text-md gap-4">
+                    <div className="w-1/2 bg-[#a4bcde] px-4 py-2 font-semibold tablet:text-[12px] desktop:text-[1em]">
+                        License Number :
+                        <span className="font-normal">{displayValue(data?.license_number)}</span>
                     </div>
                 </div>
 
-                <div className="w-full max-w-300 py-4 text-md">
+                <div className="font-bold py-4 bg-[#0b318f] text-white w-full">
+                    <div className="grid max-w-300 m-auto grid-cols-[1.35fr_1.1fr_0.8fr_1fr] gap-4 px-6 text-start tablet:text-[12px] desktop:text-[1em]">
+                        <div>Violation List</div>
+                        <div>Issued Location</div>
+                        <div>Issued Date</div>
+                        <div>Citation/OVR Number</div>
+                    </div>
+                </div>
+
+                <div className="w-full max-w-300 py-4 text-md tablet:text-[12px] desktop:text-[1em]">
                     {dataReady &&
                         data?.VIOLATION?.map((item: any, index: number) => (
-                            <div key={index} className="flex justify-evenly w-full py-1">
-                                <div className="w-[30%]">{item.violation}</div>
-                                <div className="w-[30%]">{item.issued_location}</div>
-                                <div className="w-[30%]">{item.issued_date}</div>
+                            <div key={index} className="grid w-full grid-cols-[1.35fr_1.1fr_0.8fr_1fr] gap-4 px-6 py-1">
+                                <div>{item.violation}</div>
+                                <div>{item.issued_location}</div>
+                                <div>{item.issued_date}</div>
+                                <div>{displayCitationNumber(item)}</div>
                             </div>
                         ))}
                     {notFound && (
@@ -220,17 +238,22 @@ const ProfilePage = () => {
                         Address :
                         <span className="font-normal">{displayValue(data?.driver_address)}</span>
                     </div>
+                    <div className="bg-[#a4bcde] px-4 py-2 rounded font-semibold">
+                        License Number :
+                        <span className="font-normal">{displayValue(data?.license_number)}</span>
+                    </div>
                 </aside>
 
                 {/* Violation Table Header */}
              
                 <div className="w-full overflow-x-auto">
-                    <div className="min-w-135">
+                    <div className="min-w-170">
                         {/* Header */}
-                        <div className="bg-[#0b318f] text-white py-3 px-4 font-bold text-sm flex">
-                            <div className="w-[40%]">Violation List</div>
-                            <div className="w-[35%]">Issued Location</div>
-                            <div className="w-[25%]">Issued Date</div>
+                        <div className="grid grid-cols-[1.35fr_1.1fr_0.8fr_1fr] gap-3 bg-[#0b318f] text-white py-3 px-4 font-bold text-sm">
+                            <div>Violation List</div>
+                            <div>Issued Location</div>
+                            <div>Issued Date</div>
+                            <div>Citation/OVR Number</div>
                         </div>
 
                         {/* Rows */}
@@ -238,11 +261,12 @@ const ProfilePage = () => {
                             data?.VIOLATION?.map((item: any, index: number) => (
                                 <div
                                     key={index}
-                                    className="flex px-4 py-3 text-sm border-b border-[#a4bcde]"
+                                    className="grid grid-cols-[1.35fr_1.1fr_0.8fr_1fr] gap-3 px-4 py-3 text-sm border-b border-[#a4bcde]"
                                 >
-                                    <div className="w-[40%]">{item.violation}</div>
-                                    <div className="w-[35%]">{item.issued_location}</div>
-                                    <div className="w-[25%]">{item.issued_date}</div>
+                                    <div>{item.violation}</div>
+                                    <div>{item.issued_location}</div>
+                                    <div>{item.issued_date}</div>
+                                    <div>{displayCitationNumber(item)}</div>
                                 </div>
                             ))}
                         {notFound && (
