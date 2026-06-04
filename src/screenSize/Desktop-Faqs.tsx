@@ -16,7 +16,7 @@ const Faqs = [
     },
     {   id:2,
         question:"How long does it take to process your violation?",
-        answer:"It just takes usually a couple of minutes to make a transaction and submit your requirements, Then you will wait a couple of minutes, hours or day depending on how how dense the violation queue is before you can pay the violation thats it, If your vehicle was impounded then download the generated QR Code and scan it in our Office."
+        answer:"It just takes usually a couple of minutes to make a transaction and submit your requirements, Then you will wait a couple of minutes, hours or a day depending on how how dense the violation queue is before you can pay the violation thats it, If your vehicle was impounded then download the generated QR Code and scan it in our Office."
     },
     {   id:3,
         question:"What is this sytem aims to do?",

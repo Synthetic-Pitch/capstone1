@@ -9,7 +9,7 @@ const ProfilePage = () => {
     const [notFound, setNotFound] = useState(false);
     const [isFetching, setIsFetching] = useState(true);
     const [showPendingModal, setShowPendingModal] = useState(false);
-
+    
     const storedPlate = sessionStorage.getItem("plateNumber");
 
     const plateNumber =
