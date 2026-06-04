@@ -57,7 +57,7 @@ const Mobile = ({className}: MobileProps) => {
                             <h1 className="text-xl text-[#586dca]">Online Access</h1>
                         </div>
                         <div className="flex flex-col items-start text-sm font-family-poppins w-[40%]">
-                            <p>check/view</p>
+                            <p>Check/view</p>
                             <p>records anytime</p>
                             <p>anywhere</p>
                         </div>

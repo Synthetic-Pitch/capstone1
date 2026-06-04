@@ -32,7 +32,7 @@ const Faqs = [
     },{
         id:6,
         question:"What should I do if I encounter issues with the system?",
-        answer:"If you encounter any issues with the system, you can contact our customer support team for assistance. We are here to help you resolve any problems and ensure a smooth experience. Go to Contact-us page for more details."
+        answer:"If you encounter any issues with the system, you can contact our customer support by going to the contact us page and filling out the form or you can call our support line posted in the contact us page."
     }
 ];
 

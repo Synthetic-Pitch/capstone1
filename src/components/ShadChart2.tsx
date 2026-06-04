@@ -62,7 +62,7 @@ export function ChadChart2() {
   return (
     <Card id="BarChart" className="w-full no-popup">
       <CardHeader>
-        <CardTitle>Bar Chart - Violation | Count</CardTitle>
+        <CardTitle>Violation | Count</CardTitle>
         <CardDescription>July 2025 - January 2026</CardDescription>
       </CardHeader>
       <CardContent>

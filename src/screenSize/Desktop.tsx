@@ -75,7 +75,7 @@
                         <main className=' h-[40%] w-full flex items-center justify-center'>
                             <center className='bg-[#dae2e6] h-[90%] w-140 rounded-4xl'>
                                 <header className='h-[40%] w-full flex flex-col justify-evenly'>
-                                    <p className='font-bold text-3xl font-poppins'>Acces your Account</p>
+                                    <p className='font-bold text-3xl font-poppins'>Access your Account</p>
                                     <p className='font-poppins text-sm font-family-mozilla text-gray-500'>Enter your vehicle plate number to view violation and make payments</p>
                                 </header>
                                 <main className='h-[30%] w-full flex items-center justify-center relative'>
@@ -98,7 +98,7 @@
                                 </div>
                                 <div className='flex flex-col items-center font-family-poppins 
                                 text-[clamp(1em,1.9vw,1.4rem)] '>
-                                    <p className=''>check/view</p>
+                                    <p className=''>Check/view</p>
                                     <p className=''>records anytime</p>
                                     <p className=''>anywhere</p>
                                 </div>
@@ -181,7 +181,7 @@
                 {/* 4th section */}
                 <section className='min-h-220 bg-[#3f6c84] flex flex-col items-center relative'>
                     <main className=' relative'>
-                        <h1 className='w-full text-center text-white text-6xl font-family-edu py-7 font-bold '>OPSS-TMEU NEWS UDPATE</h1>
+                        <h1 className='w-full text-center text-white text-6xl font-family-edu py-7 font-bold '>OPSS-TMEU NEWS UPDATE</h1>
                         <div className='text-[#d6d6d6] font-family-mozilla flex items-center justify-center gap-4 '>
                             <img src={Icon7} height={100} width={100} alt="pong" />
                             <div>

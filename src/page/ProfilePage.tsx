@@ -132,7 +132,7 @@ const ProfilePage = () => {
                     </div>
                 </div>
 
-                <div className="w-full py-4 text-md tablet:text-[12px] desktop:text-[1em]">
+                <div className="w-full py-4 text-md tablet:text-[12px] desktop:text-[1em] flex justify-center">
                     {dataReady &&
                         data?.VIOLATION?.map((item: any, index: number) => (
                             <div key={index} className="mx-auto grid w-full max-w-300 grid-cols-[minmax(0,1.35fr)_minmax(0,1.1fr)_minmax(0,0.8fr)_minmax(0,1fr)] gap-4 px-6 py-1">
@@ -143,7 +143,7 @@ const ProfilePage = () => {
                             </div>
                         ))}
                     {notFound && (
-                        <div className="px-6 tablet:text-[12px] desktop:text-[1em]">no record found</div>
+                        <div className="tablet:text-[12px] desktop:text-[1em] w-full max-w-300 px-8">No record Found</div>
                     )}
                 </div>
 
@@ -156,14 +156,14 @@ const ProfilePage = () => {
                             <span className="font-bold"> {transactionStatus}</span>
                         )}
                         {dataReady && !transactionStatus && !notFound && (
-                            <span className="font-bold"> no transaction</span>
+                            <span className="font-bold"> No transaction</span>
                         )}
                         {notFound && (
-                            <span className="font-bold"> no transaction</span>
+                            <span className="font-bold"> No transaction</span>
                         )}
                     </div>
                     <div className="mr-70 flex gap-2">
-                        <span>total-amount</span> :
+                        <span>Total-amount</span> :
                         {dataReady && (
                             <span className="font-bold">&#8369; {data?.TRANSACTION.total_amount}</span>
                         )}
@@ -282,7 +282,7 @@ const ProfilePage = () => {
                         <span className="font-bold">
                             {dataReady && transactionStatus
                                 ? transactionStatus
-                                : "no transaction"}
+                                : "No transaction"}
                         </span>
                     </div>
                     <div className="flex justify-between items-center">
