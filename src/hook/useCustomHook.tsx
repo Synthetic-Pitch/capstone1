@@ -26,7 +26,6 @@ interface PaymentResponse {
 const ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
 const BASE_URL  = "https://gbvpdhqscwuaymsddvms.supabase.co/functions/v1";
 
-// ── useSubmit (unchanged logic, same raw fetch) ──────────────────────────────
 export const useSubmit = ({ file1, file2, setFile1, setFile2, setPreview1, setPreview2 }: UseSubmitProps) => {
     const plateNumber = sessionStorage.getItem("plateNumber") || null;
     const navigate = useNavigate();
@@ -118,7 +117,7 @@ interface VerifyPaymentResponse {
     uuid?: string; 
 }
 
-const verifyPaymentFn = async ({ intent_id, transaction_id, plate_number,payment_method }: VerifyPaymentProps): Promise<VerifyPaymentResponse> => {
+const verifyPaymentFn = async ({ intent_id, transaction_id, plate_number, payment_method }: VerifyPaymentProps): Promise<VerifyPaymentResponse> => {
     const response = await fetch(`${BASE_URL}/verify-payment`, {
         method: "POST",
         headers: {

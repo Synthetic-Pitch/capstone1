@@ -1,33 +1,36 @@
 import { useState } from "react";
+import { FileImage, UploadCloud, X } from "lucide-react";
 import { useSubmit } from "../hook/useCustomHook";
 import LoadingModal from "../components/Loading-Modal";
 
 const ProcessViolation = () => {
-    // File objects — for sending to server
+    // File objects for sending to server
     const [file1, setFile1] = useState<File | null>(null);
     const [file2, setFile2] = useState<File | null>(null);
-    
-    // Blob URLs — for displaying preview only
+
+    // Blob URLs for displaying preview only
     const [preview1, setPreview1] = useState<string | null>(null);
     const [preview2, setPreview2] = useState<string | null>(null);
     const [isSubmitting, setIsSubmitting] = useState(false);
 
     const { handleSubmit } = useSubmit({ file1, file2, setFile1, setFile2, setPreview1, setPreview2 });
-
+    
     const handleImg1 = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
-        setFile1(file);                              // store File for upload
-        setPreview1(URL.createObjectURL(file));      // store blob URL for preview
+        if (preview1) URL.revokeObjectURL(preview1);
+        setFile1(file);
+        setPreview1(URL.createObjectURL(file));
     };
 
     const handleImg2 = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) return;
+        if (preview2) URL.revokeObjectURL(preview2);
         setFile2(file);
         setPreview2(URL.createObjectURL(file));
     };
-    
+
     const deleteImg1 = (e: React.MouseEvent) => {
         e.preventDefault();
         e.stopPropagation();
@@ -59,47 +62,67 @@ const ProcessViolation = () => {
 
     return (
         <div className="min-h-dvh w-full bg-[#cbe0f2] flex flex-col items-center">
-            <p className="font-family-poppins text-xl py-4 text-white w-dvw bg-[#0b318f] px-4 text-center">
+            <p className="font-family-poppins text-lg tablet:text-xl py-4 text-white w-full bg-[#0b318f] px-4 text-center">
                 Submit the following documents:
             </p>
-            <section className="max-w-300 w-full py-12 px-4 flex flex-col">
-                <section className="font-family-poppins w-full py-4 px-4 flex flex-col desktop:flex-row justify-center gap-6">
 
-                    {/* Driver's License Upload */}
-                    <div className="w-full desktop:w-[40%] bg-[#a4bcde] h-70 tablet:h-100 flex flex-col items-center rounded-4xl overflow-hidden ">
-                        <h1 className="text-center py-4 px-2 text-sm tablet:text-[16px]">
-                            Driver's license - if confiscated 1 valid ID
-                        </h1>
-                        <div className="relative w-full h-full">
+            <section className="max-w-300 w-full py-8 tablet:py-12 px-4 flex flex-col">
+                <section className="font-family-poppins w-full py-4 flex flex-col desktop:flex-row justify-center gap-6">
+                    <div className="w-full desktop:w-[40%] bg-white border border-[#b4c9e4] rounded-2xl shadow-sm overflow-hidden flex flex-col">
+                        <div className="min-h-24 bg-[#f4f8fd] px-5 py-4 flex items-start gap-3 border-b border-[#d8e4f2]">
+                            <FileImage className="mt-1 h-5 w-5 shrink-0 text-[#0b318f]" />
+                            <div>
+                                <h1 className="text-sm tablet:text-[16px] font-semibold text-[#0b318f]">
+                                    Driver's license
+                                </h1>
+                                <p className="mt-1 text-xs tablet:text-sm leading-relaxed text-[#51606f]">
+                                    If confiscated, upload one valid ID instead.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="relative h-64 tablet:h-80 p-4">
                             <label
                                 htmlFor="input-driver-license"
-                                className={`bg-[#ffffff] w-full h-full flex justify-center items-center overflow-hidden ${!preview1 ? "cursor-pointer" : ""}`}
+                                className={`w-full h-full rounded-xl border-2 border-dashed flex justify-center items-center overflow-hidden transition-colors ${
+                                    preview1
+                                        ? "border-[#b4c9e4] bg-white"
+                                        : "border-[#7f9fc8] bg-[#f8fbff] cursor-pointer hover:border-[#0b318f] hover:bg-white"
+                                }`}
                             >
                                 {preview1 ? (
                                     <img
-                                        src={preview1}  // ← use preview blob URL for display
+                                        src={preview1}
                                         alt="Driver's License Preview"
-                                        className="w-full h-full object-contain"
+                                        className="w-full h-full object-contain p-2"
                                     />
                                 ) : (
-                                    <span className="text-gray-400 text-sm select-none">
-                                        Click to import
+                                    <span className="flex flex-col items-center gap-2 text-[#60748c] text-sm select-none text-center px-4">
+                                        <UploadCloud className="h-9 w-9 text-[#0b318f]" />
+                                        <span className="font-semibold text-[#0b318f]">Click to upload image</span>
+                                        <span className="text-xs">PNG, JPG, or camera photo</span>
                                     </span>
                                 )}
                             </label>
+
                             {preview1 && (
                                 <button
                                     onClick={deleteImg1}
-                                    className="absolute top-2 right-2 w-7 h-7 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center transition-colors cursor-pointer z-10"
+                                    className="absolute top-7 right-7 w-8 h-8 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center transition-colors cursor-pointer z-10 shadow-md"
                                     title="Remove image"
+                                    aria-label="Remove driver's license image"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                        <line x1="18" y1="6" x2="6" y2="18" />
-                                        <line x1="6" y1="6" x2="18" y2="18" />
-                                    </svg>
+                                    <X className="h-4 w-4" strokeWidth={2.5} />
                                 </button>
                             )}
                         </div>
+
+                        {file1 && (
+                            <p className="px-5 pb-4 text-xs text-[#51606f] truncate">
+                                Selected: {file1.name}
+                            </p>
+                        )}
+
                         <input
                             id="input-driver-license"
                             type="file"
@@ -109,41 +132,61 @@ const ProcessViolation = () => {
                         />
                     </div>
 
-                    {/* OVR Upload */}
-                    <div className="w-full desktop:w-[40%] bg-[#a4bcde] h-70 tablet:h-100 flex flex-col items-center rounded-4xl overflow-hidden">
-                        <h2 className="text-center py-4 px-2 text-sm tablet:text-[16px]">
-                            OVR - Ordinance Violation Receipt
-                        </h2>
-                        <div className="relative w-full h-full">
+                    <div className="w-full desktop:w-[40%] bg-white border border-[#b4c9e4] rounded-2xl shadow-sm overflow-hidden flex flex-col">
+                        <div className="min-h-24 bg-[#f4f8fd] px-5 py-4 flex items-start gap-3 border-b border-[#d8e4f2]">
+                            <FileImage className="mt-1 h-5 w-5 shrink-0 text-[#0b318f]" />
+                            <div>
+                                <h2 className="text-sm tablet:text-[16px] font-semibold text-[#0b318f]">
+                                    OVR receipt
+                                </h2>
+                                <p className="mt-1 text-xs tablet:text-sm leading-relaxed text-[#51606f]">
+                                    If lost, upload a screenshot from Dashboard or Profile showing the violation.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="relative h-64 tablet:h-80 p-4">
                             <label
                                 htmlFor="input-ovr"
-                                className={`bg-[#ffffff] w-full h-full flex justify-center items-center overflow-hidden ${!preview2 ? "cursor-pointer" : ""}`}
+                                className={`w-full h-full rounded-xl border-2 border-dashed flex justify-center items-center overflow-hidden transition-colors ${
+                                    preview2
+                                        ? "border-[#b4c9e4] bg-white"
+                                        : "border-[#7f9fc8] bg-[#f8fbff] cursor-pointer hover:border-[#0b318f] hover:bg-white"
+                                }`}
                             >
                                 {preview2 ? (
                                     <img
-                                        src={preview2}  // ← use preview blob URL for display
+                                        src={preview2}
                                         alt="OVR Preview"
-                                        className="w-full h-full object-contain"
+                                        className="w-full h-full object-contain p-2"
                                     />
                                 ) : (
-                                    <span className="text-gray-400 text-sm select-none">
-                                        Click to import
+                                    <span className="flex flex-col items-center gap-2 text-[#60748c] text-sm select-none text-center px-4">
+                                        <UploadCloud className="h-9 w-9 text-[#0b318f]" />
+                                        <span className="font-semibold text-[#0b318f]">Click to upload image</span>
+                                        <span className="text-xs">PNG, JPG, or camera photo</span>
                                     </span>
                                 )}
                             </label>
+
                             {preview2 && (
                                 <button
                                     onClick={deleteImg2}
-                                    className="absolute top-2 right-2 w-7 h-7 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center transition-colors cursor-pointer z-10"
+                                    className="absolute top-7 right-7 w-8 h-8 bg-red-500 hover:bg-red-600 text-white rounded-full flex items-center justify-center transition-colors cursor-pointer z-10 shadow-md"
                                     title="Remove image"
+                                    aria-label="Remove OVR image"
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                        <line x1="18" y1="6" x2="6" y2="18" />
-                                        <line x1="6" y1="6" x2="18" y2="18" />
-                                    </svg>
+                                    <X className="h-4 w-4" strokeWidth={2.5} />
                                 </button>
                             )}
                         </div>
+
+                        {file2 && (
+                            <p className="px-5 pb-4 text-xs text-[#51606f] truncate">
+                                Selected: {file2.name}
+                            </p>
+                        )}
+
                         <input
                             id="input-ovr"
                             type="file"
@@ -153,15 +196,17 @@ const ProcessViolation = () => {
                         />
                     </div>
                 </section>
-                    {file1 && file2 && (
-                        <button
-                            onClick={onSubmit}
-                            className="text-2xl bg-[#0b318f] m-auto w-70 tablet:w-100 py-4 text-white rounded-2xl mt-12 cursor-pointer desktop:hover:scale-[1.05] transition-all duration-100"
-                        >
-                            submit
-                        </button>
-                    )}
-                </section>
+
+                {file1 && file2 && (
+                    <button
+                        onClick={onSubmit}
+                        className="font-family-poppins text-lg tablet:text-xl bg-[#0b318f] hover:bg-[#08286f] m-auto w-full max-w-100 py-4 text-white rounded-xl mt-8 cursor-pointer desktop:hover:scale-[1.03] transition-all duration-150 shadow-md"
+                    >
+                        Submit documents
+                    </button>
+                )}
+            </section>
+
             <LoadingModal isOpen={isSubmitting} />
         </div>
     );

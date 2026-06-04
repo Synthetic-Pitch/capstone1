@@ -132,7 +132,7 @@ const ProfilePage = () => {
                     </div>
                 </div>
 
-                <div className="w-full py-4 text-md tablet:text-[12px] desktop:text-[1em] flex justify-center">
+                <div className="w-full py-4 text-md tablet:text-[12px] desktop:text-[1em] flex flex-col items-center">
                     {dataReady &&
                         data?.VIOLATION?.map((item: any, index: number) => (
                             <div key={index} className="mx-auto grid w-full max-w-300 grid-cols-[minmax(0,1.35fr)_minmax(0,1.1fr)_minmax(0,0.8fr)_minmax(0,1fr)] gap-4 px-6 py-1">
@@ -174,7 +174,7 @@ const ProfilePage = () => {
                 <footer className="flex justify-center items-center pb-10">
                     {dataReady && !notFound && (
                         <>
-                            {transactionStatus === "unsettle" && (
+                            {transactionStatus === "unsettled" && (
                                 <div className="w-100 h-14 bg-[#00167a] rounded-2xl flex justify-center items-center hover:scale-105 transition-all duration-200">
                                     <button
                                         onClick={() => navigate(`/process-violation/${plateNumber}`)}
@@ -299,7 +299,7 @@ const ProfilePage = () => {
                 <div className="flex justify-center px-4 pt-2">
                     {dataReady && !notFound && (
                         <>
-                            {transactionStatus === "unsettle" && (
+                            {transactionStatus === "unsettled" && (
                                 <button
                                     onClick={() => navigate(`/process-violation/${plateNumber}`)}
                                     className="w-full h-12 bg-[#00167a] text-white rounded-2xl text-lg font-semibold hover:scale-105 transition-all duration-200 cursor-pointer select-none"
